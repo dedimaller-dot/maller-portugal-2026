@@ -96,6 +96,7 @@
         .station-header a {
             color: #5dade2;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .responsive-table {
@@ -143,27 +144,28 @@
             margin-top: 4px;
         }
 
+        /* לינקים של מפות גוגל - כחול קלאסי עם אייקון */
         .map-link {
             font-family: 'Segoe UI', Roboto, sans-serif;
-            color: #2980b9;
+            color: #1a73e8;
             text-decoration: none;
-            font-style: italic;
             font-weight: 600;
             display: inline-block;
         }
 
         .map-link:hover {
             text-decoration: underline;
-            color: #1a73e8;
         }
 
-        .task-link {
+        /* לינקים של הזמנת כרטיסים ואתרים רשמיים - כתום */
+        .ticket-link {
             color: #e67e22;
             text-decoration: underline;
             font-weight: 600;
+            display: inline-block;
         }
         
-        .task-link:hover {
+        .ticket-link:hover {
             color: #d35400;
         }
 
@@ -174,6 +176,8 @@
             font-size: 12px;
             font-weight: 600;
             margin-top: 5px;
+            display: block;
+            width: fit-content;
         }
 
         .tag-required {
@@ -184,6 +188,15 @@
         .tag-none {
             background-color: #d4efdf;
             color: #1e8449;
+        }
+
+        .highlight-box {
+            background-color: #fff9db;
+            border-right: 4px solid #f59f00;
+            padding: 6px 10px;
+            margin: 8px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
         }
 
         .appendix-title {
@@ -208,7 +221,7 @@
             font-size: 13px;
             font-weight: 700;
             text-align: center;
-            width: 110px;
+            width: 120px;
         }
 
         .status-critical {
@@ -279,7 +292,7 @@
 
     <header>
         <h1>תוכנית חופשת קיץ משפחתית - פורטוגל 2026</h1>
-        <p>גרסת אתר דינמית | לוחות זמנים, קישורים ישירים ומשימות לוגיסטיקה</p>
+        <p>גרסת אתר משולבת | ניווט במפות Google Maps 📍 ורכישת כרטיסים רשמית 🎫</p>
     </header>
 
     <div class="container">
@@ -295,7 +308,7 @@
         <div id="station1" class="section-wrapper">
             <div class="station-header">
                 תחנה 1: קשקאיש וסינטרה | לינה: 
-                <a href="https://www.onyriamarinhacascais.com/" target="_blank">Onyria Marinha Cascais Boutique Hotel ↗</a>
+                <a href="https://maps.google.com/?q=Onyria+Marinha+Cascais+Boutique+Hotel" target="_blank">Onyria Marinha Cascais Boutique Hotel 📍</a>
             </div>
             
             <table class="responsive-table">
@@ -303,8 +316,8 @@
                     <tr>
                         <th style="width: 10%;">יום ותאריך</th>
                         <th style="width: 15%;">מוקד פעילות</th>
-                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
-                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 38%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 22%;">המלצות קולינריה</th>
                         <th style="width: 15%;">תחבורה וכרטיסים</th>
                     </tr>
                 </thead>
@@ -315,9 +328,9 @@
                             <span class="date-text">02.08 (א')</span>
                         </td>
                         <td data-label="מוקד פעילות">Lisbon Airport & Cascais</td>
-                        <td data-label="פירוט פעילויות וסדר יום">נחיתה, איסוף הרכב והגעה למלון ב-Quinta da Marinha. התארגנות וסיור ערב רגוע ב-Cascais Center.</td>
-                        <td data-label="המלצות קולינריה">ערב: פירות ים מעולים על קו המים ב-Mar do Inferno.</td>
-                        <td data-label="תחבורה וכרטיסים">איסוף רכב ב-Lisbon Airport.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">נחיתה, איסוף הרכב והגעה למלון באזור השקט <a href="https://maps.google.com/?q=Quinta+da+Marinha+Cascais" target="_blank" class="map-link">Quinta da Marinha 📍</a>. התארגנות וסיור ערב רגוע במרכז העיר <a href="https://maps.google.com/?q=Cascais+City+Center" target="_blank" class="map-link">Cascais Center 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">ערב: פירות ים מעולים על קו המים ב-<a href="https://maps.google.com/?q=Mar+do+Inferno+Cascais" target="_blank" class="map-link">Mar do Inferno 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה מ-<a href="https://maps.google.com/?q=Humberto+Delgado+Airport+Lisbon" target="_blank" class="map-link">Lisbon Airport 📍</a> לקשקאיש.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -325,9 +338,9 @@
                             <span class="date-text">03.08 (ב')</span>
                         </td>
                         <td data-label="מוקד פעילות">Cascais & Estoril Beaches</td>
-                        <td data-label="פירוט פעילויות וסדר יום">יום חוף רגוע בחוף המוסדר המשפחתי באסטוריל. מיטות שיזוף ושמשיות להשכרה במקום. אחה"צ מנוחה בריזורט.</td>
-                        <td data-label="המלצות קולינריה">צהריים: טאפאס מודרני ב-Hifen.<br>ערב: Cantinho do Avillez.</td>
-                        <td data-label="תחבורה וניווט">נסיעה של כ-10 דקות לחוף Praia do Tamariz.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום חוף רגוע בחוף המוסדר המשפחתי באסטוריל – <a href="https://maps.google.com/?q=Praia+do+Tamariz+Estoril" target="_blank" class="map-link">Praia do Tamariz 📍</a>. מיטות שיזוף ושמשיות להשכרה במקום. אחה"צ מנוחה בריזורט.</td>
+                        <td data-label="המלצות קולינריה">צהריים: טאפאס מודרני ב-<a href="https://maps.google.com/?q=Hifen+Cascais" target="_blank" class="map-link">Hifen 📍</a>.<br>ערב: מטבח מקומי ב-<a href="https://maps.google.com/?q=Cantinho+do+Avillez+Cascais" target="_blank" class="map-link">Cantinho do Avillez 📍</a>.</td>
+                        <td data-label="תחבורה וניווט">נהיגה קצרה של כ-10 דקות.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -335,9 +348,9 @@
                             <span class="date-text">04.08 (ג')</span>
                         </td>
                         <td data-label="מוקד פעילות">Sintra Highlights</td>
-                        <td data-label="פירוט פעילויות וסדר יום">ביקור בארמון הצבעוני Pena Palace, והמשך לחקר המנהרות והבאר ב-Quinta da Regaleira.</td>
-                        <td data-label="המלצות קולינריה">צהריים: טאפאס מסורתי ב-Tascantiga.<br>ערב: מסעדת המישלן היפנית Midori.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות לסינטרה.<br><span class="booking-tag tag-required">חובה להזמין חודש מראש שעת כניסה לפניה פאלאס!</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור בארמון הצבעוני והאיקוני <a href="https://maps.google.com/?q=Pena+Palace+Sintra" target="_blank" class="map-link">Pena Palace 📍</a>, והמשך לחקר המנהרות התת-קרקעיות והבאר ההפוכה ב-<a href="https://maps.google.com/?q=Quinta+da+Regaleira+Sintra" target="_blank" class="map-link">Quinta da Regaleira 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">צהריים: טאפאס מסורתי ב-<a href="https://maps.google.com/?q=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a>.<br>ערב: יפנית יוקרתית ב-<a href="https://maps.google.com/?q=Midori+Sintra" target="_blank" class="map-link">Midori 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות לסינטרה.<br><span class="booking-tag tag-required">חובה להזמין חודש מראש שעת כניסה!</span><a href="https://www.parquesdesintra.pt/" target="_blank" class="ticket-link">אתר רשמי Pena 🎫</a></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -345,9 +358,9 @@
                             <span class="date-text">05.08 (ד')</span>
                         </td>
                         <td data-label="מוקד פעילות">Lisbon (Belém)</td>
-                        <td data-label="פירוט פעילויות וסדר יום">יום ייעודי ברובע בלם: ביקור ב-Mosteiro dos Jerónimos, תצפית על Belém Tower ומוזיאון הכרכרות Museu Nacional dos Coches.</td>
-                        <td data-label="המלצות קולינריה">מאפה חם ב-Pastéis de Belém.<br>ערב חגיגי: Belcanto.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה ברכב או ברכבת החופים מ-Estoril Station.<br><span class="booking-tag tag-required">מומלץ להזמין שבוע מראש למנזר ג'רונימוס לשם קיצור תורים</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום ייעודי ברובע בלם בליסבון: ביקור ב-<a href="https://maps.google.com/?q=Jerónimos+Monastery+Lisbon" target="_blank" class="map-link">Mosteiro dos Jerónimos 📍</a>, תצפית על <a href="https://maps.google.com/?q=Belém+Tower+Lisbon" target="_blank" class="map-link">Belém Tower 📍</a> ומוזיאון הכרכרות החווייתי <a href="https://maps.google.com/?q=Museu+Nacional+dos+Coches+Lisbon" target="_blank" class="map-link">Museu Nacional dos Coches 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">מאפה חם ומסורתי ב-<a href="https://maps.google.com/?q=Pastéis+de+Belém+Lisbon" target="_blank" class="map-link">Pastéis de Belém 📍</a>.<br>ערב חגיגי: <a href="https://maps.google.com/?q=Belcanto+Lisbon" target="_blank" class="map-link">Belcanto 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה ברכב או ברכבת החופים מ-<a href="https://maps.google.com/?q=Estoril+Station" target="_blank" class="map-link">Estoril Station 📍</a>.<br><span class="booking-tag tag-required">מומלץ להזמין שבוע מראש</span><a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">אתר מנזר ג'רונימוס 🎫</a></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -355,8 +368,8 @@
                             <span class="date-text">06.08 (ה')</span>
                         </td>
                         <td data-label="מוקד פעילות">Cabo da Roca & Ericeira</td>
-                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לנקודה המערבית באירופה Cabo da Roca, והמשך לעיירת החוף האסתטית Ericeira ולחוף Praia da Foz do Lizandro.</td>
-                        <td data-label="המלצות קולינריה">צהריים: סושי ודגים טריים ב-Uni Sushi.</td>
+                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לתצפית מצוקי <a href="https://maps.google.com/?q=Cabo+da+Roca" target="_blank" class="map-link">Cabo da Roca 📍</a>, והמשך צפונה לעיירת החוף האסתטית מהסרטון – <a href="https://maps.google.com/?q=Ericeira" target="_blank" class="map-link">Ericeira 📍</a> ולחוף המוסדר הרחב <a href="https://maps.google.com/?q=Praia+da+Foz+do+Lizandro" target="_blank" class="map-link">Praia da Foz do Lizandro 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">צהריים: סושי ודגים טריים ב-<a href="https://maps.google.com/?q=Uni+Sushi+Ericeira" target="_blank" class="map-link">Uni Sushi 📍</a>.</td>
                         <td data-label="תחבורה וכרטיסים">נהיגה עצמית בכביש החוף הנופי N247.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                 </tbody>
@@ -366,7 +379,7 @@
         <div id="station2" class="section-wrapper">
             <div class="station-header">
                 תחנה 2: קרוואיירו וחופי הצוקים | לינה: 
-                <a href="https://www.tivolihotels.com/en/tivoli-carvoeiro" target="_blank">Tivoli Carvoeiro Algarve Resort ↗</a>
+                <a href="https://maps.google.com/?q=Tivoli+Carvoeiro+Algarve+Resort" target="_blank">Tivoli Carvoeiro Algarve Resort ↗ 📍</a>
             </div>
             
             <table class="responsive-table">
@@ -374,8 +387,8 @@
                     <tr>
                         <th style="width: 10%;">יום ותאריך</th>
                         <th style="width: 15%;">מוקד פעילות</th>
-                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
-                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 38%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 22%;">המלצות קולינריה</th>
                         <th style="width: 15%;">תחבורה וכרטיסים</th>
                     </tr>
                 </thead>
@@ -386,8 +399,8 @@
                             <span class="date-text">07.08 (ו')</span>
                         </td>
                         <td data-label="מוקד פעילות">Travel South & Évora</td>
-                        <td data-label="פירוט פעילויות וסדר יום">צ'ק אאוט ונסיעה דרומה לכיוון האלגארב. במהלך הנסיעה חציית הגשר התלוי המפורסם Ponte 25 de Abril ברכב ברקע הנוף של ליסבון. עצירה בעיירה ההיסטורית Évora לביקור בקפלת העצמות (Chapel of Bones). הגעה למלון בקרוואיירו.</td>
-                        <td data-label="המלצות קולינריה">צהריים: אוכל מסורתי ב-Taberna Típica Quarta-Feira.</td>
+                        <td data-label="פירוט פעילויות וסדר יום">צ'ק אאוט ונסיעה דרומה לכיוון האלגארב. במהלך הנסיעה <strong>חציית הגשר התלוי האדום המפורסם <a href="https://maps.google.com/?q=Ponte+25+de+Abril+Lisbon" target="_blank" class="map-link">Ponte 25 de Abril 📍</a> ברכב</strong>. עצירה בעיירה ההיסטורית <a href="https://maps.google.com/?q=Evora+Portugal" target="_blank" class="map-link">Évora 📍</a> לביקור בקפלת העצמות המיוחדת <a href="https://maps.google.com/?q=Chapel+of+Bones+Evora" target="_blank" class="map-link">Chapel of Bones 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">צהריים: אוכל מסורתי וחם באבורה ב-<a href="https://maps.google.com/?q=Taberna+Tipica+Quarta-Feira+Evora" target="_blank" class="map-link">Taberna Típica Quarta-Feira 📍</a>.</td>
                         <td data-label="תחבורה וכרטיסים">נסיעה ארוכה בכביש A2. שימוש ב-Via Verde.<br><span class="booking-tag tag-none">כרטיסים לקפלה קונים במקום</span></td>
                     </tr>
                     <tr>
@@ -396,9 +409,9 @@
                             <span class="date-text">08.08 (ש')</span>
                         </td>
                         <td data-label="מוקד פעילות">Benagil Caves & Cliff Walk</td>
-                        <td data-label="פירוט פעילויות וסדר יום">הליכה על גבי Carvoeiro Boardwalk הצמוד למלון וביקור בנקיקי Algar Seco. אחה"צ: שייט בסירה מהירה למערת בנאג'יל המפורסמת (Benagil Cave).</td>
-                        <td data-label="המלצות קולינריה">ערב: מסעדת המלון המשובחת מול הים The One Restaurant.</td>
-                        <td data-label="תחבורה וכרטיסים">יציאה לשייט מחוף Praia de Benagil או Praia di Carvoeiro.<br><span class="booking-tag tag-required">חובה להזמין שייט שבועיים-שלושה מראש!</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">הליכה על גבי טיילת העץ <a href="https://maps.google.com/?q=Carvoeiro+Boardwalk" target="_blank" class="map-link">Carvoeiro Boardwalk 📍</a> הצמודה למלון וביקור בתצורות הסלע של <a href="https://maps.google.com/?q=Algar+Seco+Carvoeiro" target="_blank" class="map-link">Algar Seco 📍</a>. אחה"צ: שייט בסירה מהירה למערת בנאג'יל המפורסמת <a href="https://maps.google.com/?q=Benagil+Cave" target="_blank" class="map-link">Benagil Cave 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">ערב: מסעדת המלון המשובחת מול הים <a href="https://maps.google.com/?q=The+One+Restaurant+Tivoli+Carvoeiro" target="_blank" class="map-link">The One Restaurant 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">יציאה לשייט מחוף <a href="https://maps.google.com/?q=Praia+de+Benagil" target="_blank" class="map-link">Praia de Benagil 📍</a>.<br><span class="booking-tag tag-required">חובה להזמין שייט שבועיים מראש!</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -406,8 +419,8 @@
                             <span class="date-text">09.08 (א')</span>
                         </td>
                         <td data-label="מוקד פעילות">Lagos & Sagres</td>
-                        <td data-label="פירוט פעילויות וסדר יום">טיול יום מערבה: תצפית צוקים מרהיבה ב-Ponta da Piedade והמשך למבצר סגרש (Sagres Fortress) לתצפית שקיעה.</td>
-                        <td data-label="המלצות קולינריה">צהריים: דגים טריים ב-Casinha do Petisco.</td>
+                        <td data-label="פירוט פעילויות וסדר יום">טיול יום מערבה: תצפית צוקי זהב מרהיבה ב-<a href="https://maps.google.com/?q=Ponta+da+Piedade+Lagos" target="_blank" class="map-link">Ponta da Piedade 📍</a> והמשך למבצר של סגרש <a href="https://maps.google.com/?q=Sagres+Fortress" target="_blank" class="map-link">Sagres Fortress 📍</a> לתצפית שקיעה ב"סוף העולם".</td>
+                        <td data-label="המלצות קולינריה">צהריים: דגים טריים בלאגוש ב-<a href="https://maps.google.com/?q=Casinha+do+Petisco+Lagos" target="_blank" class="map-link">Casinha do Petisco 📍</a>.</td>
                         <td data-label="תחבורה וכרטיסים">נסיעה מערבה על כביש A22 (כ-45 דקות).<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                     <tr>
@@ -416,9 +429,9 @@
                             <span class="date-text">10.08 (ב')</span>
                         </td>
                         <td data-label="מוקד פעילות">Silves Castle</td>
-                        <td data-label="פירוט פעילויות וסדר יום">ביקור בבוקר בעיירה המורית העתיקה ובטירה האדומה שלה Castelo de Silves. אחה"צ רגוע ומנוחה בריזורט מול הצוקים.</td>
-                        <td data-label="המלצות קולינריה">ערב: מסעדת השף בעלת כוכב מישלן Bon Bon.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות לפנים היבשת.<br><span class="booking-tag tag-none">כרטיסים לטירה קונים בכניסה</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור בבוקר בעיירה המורית העתיקה ובטירת האבן האדומה שלה <a href="https://maps.google.com/?q=Castelo+de+Silves" target="_blank" class="map-link">Castelo de Silves 📍</a>. אחה"צ רגוע ומנוחה בריזורט מול הצוקים.</td>
+                        <td data-label="המלצות קולינריה">ערב: מסעדת השף בעלת כוכב מישלן <a href="https://maps.google.com/?q=Bon+Bon+Restaurant+Carvoeiro" target="_blank" class="map-link">Bon Bon 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות אל פנים היבשת.<br><span class="booking-tag tag-none">כרטיסים לטירה קונים בכניסה</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -427,7 +440,7 @@
         <div id="station3" class="section-wrapper">
             <div class="station-header">
                 תחנה 3: אלבופיירה ונופש יוקרתי | לינה: 
-                <a href="https://www.sanahotels.com/en/hotel/epic-sana-algarve/" target="_blank">EPIC SANA Algarve Hotel ↗</a>
+                <a href="https://maps.google.com/?q=EPIC+SANA+Algarve+Hotel" target="_blank">EPIC SANA Algarve Hotel ↗ 📍</a>
             </div>
             
             <table class="responsive-table">
@@ -435,8 +448,8 @@
                     <tr>
                         <th style="width: 10%;">יום ותאריך</th>
                         <th style="width: 15%;">מוקד פעילות</th>
-                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
-                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 38%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 22%;">המלצות קולינריה</th>
                         <th style="width: 15%;">תחבורה וכרטיסים</th>
                     </tr>
                 </thead>
@@ -447,9 +460,9 @@
                             <span class="date-text">11.08 (ג')</span>
                         </td>
                         <td data-label="מוקד פעילות">EPIC SANA Check-in</td>
-                        <td data-label="פירוט פעילויות וסדר יום">צ'ק-אין בריזורט היוקרה הממוקם מעל חוף פאלסיה. זמן התארגנות משפחתית, מנוחה, בריכה וים.</td>
+                        <td data-label="פירוט פעילויות וסדר יום">צ'ק-אין בריזורט היוקרה הממוקם מעל החוף המפורסם. זמן התארגנות משפחתית, מנוחה, בריכה וים.</td>
                         <td data-label="המלצות קולינריה">ערב: ארוחה נעימה במסעדת המלון המרכזית Abyad.</td>
-                        <td data-label="תחבורה וכרטיסים">מעבר רכוב של כ-20 דקות בלבד.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                        <td data-label="תחבורה וכרטיסים">מעבר רכוב של כ-20 דקות בלבד בין המלונות.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -457,9 +470,9 @@
                             <span class="date-text">12.08 (ד')</span>
                         </td>
                         <td data-label="מוקד פעילות">Zoomarine Algarve</td>
-                        <td data-label="פירוט פעילויות וסדר יום">יום שלם ומלא אקשן וחוויות לילדים ולמשפחה בפארק המים והאטרקציות המוביל בפורטוגל Zoomarine Algarve.</td>
-                        <td data-label="המלצות קולינריה">ערב: אווירה יוקרתית ופירות ים על קו המים ב-Vila Joya Sea.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה של 15 דקות מהמלון לאזור Guia.<br><span class="booking-tag tag-required">חובה להזמין כרטיסים לפארק שבועיים מראש באינטרנט להנחה ודילוג על תורים</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום שלם ומלא אקשן וחוויות לילדים ולמשפחה בפארק המים והאטרקציות הימיות המוביל <a href="https://maps.google.com/?q=Zoomarine+Algarve" target="_blank" class="map-link">Zoomarine Algarve 📍</a>.</td>
+                        <td data-label="המלצות קולינריה">ערב: אווירה יוקרתית ופירות ים על קו המים ב-<a href="https://maps.google.com/?q=Vila+Joya+Sea+Albufeira" target="_blank" class="map-link">Vila Joya Sea 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 15 דקות מהמלון לאזור Guia.<br><span class="booking-tag tag-required">חובה להזמין כרטיסים שבועיים מראש!</span><a href="https://www.zoomarine.pt/en/" target="_blank" class="ticket-link">אתר Zoomarine 🎫</a></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -467,9 +480,9 @@
                             <span class="date-text">13.08 (ה')</span>
                         </td>
                         <td data-label="מוקד פעילות">Vilamoura Marina</td>
-                        <td data-label="פירוט פעילויות וסדר יום">ביקור במרינה היוקרתית של וילמורה Vilamoura Marina, קניות, ויציאה לשייט שקיעה משפחתי פרטי ביאכטה.</td>
-                        <td data-label="המלצות קולינריה">ערב: ארוחה משפחתית משובחת ב-Oliveira Dourada.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה של 10 דקות מזרחה.<br><span class="booking-tag tag-required">מומלץ לתאם את היאכטה הפרטית כחודש מראש</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור, סיור וקניות במרינה היוקרתית של <a href="https://maps.google.com/?q=Vilamoura+Marina" target="_blank" class="map-link">Vilamoura Marina 📍</a> ויציאה לחוויית שייט שקיעה משפחתי פרטי ביאכטה.</td>
+                        <td data-label="המלצות קולינריה">ערב: ארוחה משפחתית משובחת ב-<a href="https://maps.google.com/?q=Oliveira+Dourada+Albufeira" target="_blank" class="map-link">Oliveira Dourada 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 10 דקות מזרחה מהמלון.<br><span class="booking-tag tag-required">מומלץ לתאם את היאכטה חודש מראש</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -477,9 +490,9 @@
                             <span class="date-text">14.08 (ו')</span>
                         </td>
                         <td data-label="מוקד פעילות">Ria Formosa Natural Park</td>
-                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לפארו ושייט קטמרן פרטי בשמורת הטבע האיים המוגנים Ria Formosa בין איים בתוליים.</td>
-                        <td data-label="המלצות קולינריה">צהריים: מסעדת Estaminé המבודדת על Ilha Deserta.<br>ערב: מסעדת השף במלון Al Quimia.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה לפארו (30 דקות).<br><span class="booking-tag tag-required">חובה לתאם את סירת הקטמרן והמסעדה באי מראש (שבועיים לפחות)</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לפארו ושייט קטמרן פרטי בשמורת הטבע האיים המוגנים <a href="https://maps.google.com/?q=Ria+Formosa+Natural+Park" target="_blank" class="map-link">Ria Formosa 📍</a> ומעבר בין איים חוליים ובתוליים.</td>
+                        <td data-label="המלצות קולינריה">צהריים: מסעדת <a href="https://maps.google.com/?q=Restaurante+Estamine+Ilha+Deserta" target="_blank" class="map-link">Estaminé 📍</a> המבודדת על האי <a href="https://maps.google.com/?q=Ilha+Deserta" target="_blank" class="map-link">Ilha Deserta 📍</a>.<br>ערב: מסעדת השף בריזורט Al Quimia.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה לפארו (30 דקות) לנקודת היציאה.<br><span class="booking-tag tag-required">חובה לתאם שבועיים מראש (שייט + מסעדה)!</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -487,9 +500,9 @@
                             <span class="date-text">15.08 (ש')</span>
                         </td>
                         <td data-label="מוקד פעילות">Praia da Falésia Luxury Beach Day</td>
-                        <td data-label="פירוט פעילויות וסדר יום">יום נופש ובטן-גב מלא בחוף הצמוד למלון Praia da Falésia – אחד היפים באירופה, מוסדר עם מיטות שיזוף ושמשיות.</td>
-                        <td data-label="המלצות קולינריה">ערב חגיגי לסיכום הטיול: מסעדת 2 כוכבי המישלן המפוארת Vila Joya.</td>
-                        <td data-label="תחבורה וכרטיסים">ללא נסיעות ברכב – יום רגוע בריזורט.<br><span class="booking-tag tag-required">חובה להזמין מקום לוילה ג'ויה 2-3 חודשים מראש!</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום נופש ובטן-גב מלא בחוף הצמוד ישירות לריזורט – <a href="https://maps.google.com/?q=Praia+da+Falesia" target="_blank" class="map-link">Praia da Falésia 📍</a>. אחד החופים המרשימים באירופה, מוסדר עם מיטות שיזוף ושמשיות.</td>
+                        <td data-label="המלצות קולינריה">ערב חגיגי לסיכום הטיול: מסעדת 2 כוכבי המישלן המפוארת <a href="https://maps.google.com/?q=Vila+Joya+Albufeira" target="_blank" class="map-link">Vila Joya 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">ללא נסיעות ברכב – יום רגוע בריזורט ובחוף.<br><span class="booking-tag tag-required">חובה להזמין מקום 2-3 חודשים מראש!</span><a href="https://www.vilajoya.com/" target="_blank" class="ticket-link">אתר Vila Joya 🎫</a></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -497,9 +510,9 @@
                             <span class="date-text">16.08 (א')</span>
                         </td>
                         <td data-label="מוקד פעילות">Departure</td>
-                        <td data-label="פירוט פעילויות וסדר יום">ארוחת בוקר, צ'ק-אאוט ונסיעה ישירה של כ-2.5 שעות חזרה לשדה התעופה בליסבון, החזרת הרכב וטיסה לישראל.</td>
-                        <td data-label="המלצות קולינריה">ארוחת בוקר במלון ונשנושי דרך.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה חזרה צפונה על כביש האוטוסטרדה המהיר A2 לליסבון.<br><span class="booking-tag tag-none">טיסה הביתה</span></td>
+                        <td data-label="פירוט פעילויות וסדר יום">ארוחת בוקר, צ'ק-אאוט ונסיעה ישירה חזרה צפונה לכיוון שדה התעופה של ליסבון, החזרת הרכב וטיסה לישראל.</td>
+                        <td data-label="המלצות קולינריה">ארוחת בוקר במלון ונשנושי דרך בנסיעה.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה רציפה של כ-2.5 שעות על כביש האוטוסטרדה המהיר A2 צפונה.<br><span class="booking-tag tag-none">טיסה הביתה</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -512,7 +525,7 @@
                 <thead>
                     <tr>
                         <th style="width: 15%;">אזור / עיר</th>
-                        <th style="width: 20%;">שם המסעדה</th>
+                        <th style="width: 20%;">שם המסעדה (מפות גוגל)</th>
                         <th style="width: 15%;">סגנון קולינרי</th>
                         <th style="width: 35%;">פירוט, חוויה ומידע מועיל</th>
                         <th style="width: 15%;">הזמנת מקום מראש</th>
@@ -520,74 +533,101 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">קשקאיש ואסטוריל (תחנה 1)</td>
-                        <td>Mar do Inferno</td>
+                        <td rowspan="4" style="font-weight: bold; background: #fdfefe;">קשקאיש ואסטוריל (תחנה 1)</td>
+                        <td><a href="https://maps.google.com/?q=Mar+do+Inferno+Cascais" target="_blank" class="map-link">Mar do Inferno 📍</a></td>
                         <td>פירות ים ודגים טריים</td>
                         <td>מסעדה איקונית הממוקמת ממש על צוקי Boca do Inferno. הדגים נשקלים לפי משקל, השירות מקצועי והנוף לאוקיינוס מרהיב. מומלץ לשעת השקיעה.</td>
                         <td><span class="booking-tag tag-required">מומלץ 1-2 שבועות מראש</span></td>
                     </tr>
                     <tr>
-                        <td>Hifen</td>
+                        <td><a href="https://maps.google.com/?q=Hifen+Cascais" target="_blank" class="map-link">Hifen 📍</a></td>
                         <td>טאפאס מודרני / גסטרובר</td>
                         <td>ממוקמת מול חוף הים של קשקאיש, מציעה מנות שיתוף קטנות ומתוחכמות, קוקטיילים מעולים ואווירה צעירה ותוססת שמתאימה מאוד למשפחה.</td>
                         <td><span class="booking-tag tag-required">מומלץ מספר ימים מראש</span></td>
                     </tr>
                     <tr>
-                        <td>Cantinho do Avillez</td>
+                        <td><a href="https://maps.google.com/?q=Cantinho+do+Avillez+Cascais" target="_blank" class="map-link">Cantinho do Avillez 📍</a></td>
                         <td>מטבח פורטוגזי מודרני</td>
                         <td>הגרסה הנגישה והנינוחה של השף המפורסם ז'וזה אבילז בלב קשקאיש. מנות קלאסיות בפרשנות מודרנית קלילה ובאווירה ביתית מעוצבת.</td>
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
+                    <tr style="background-color: #fcf3cf;">
+                        <td><a href="https://maps.google.com/?q=Furnas+do+Guincho+Cascais" target="_blank" class="map-link">Furnas do Guincho 🌟 (גיבוי) 📍</a></td>
+                        <td>דגים ופירות ים עילית</td>
+                        <td><strong>מסעדת גיבוי יוקרתית מומלצת באזור:</strong> בנויה ממש על קו המים בדרך לחוף Guincho. חוויה קולינרית יוצאת מן הכלל עם מרפסת צמודה לגלים.</td>
+                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
+                    </tr>
+
                     <tr>
-                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">סינטרה וליסבון</td>
-                        <td>Tascantiga</td>
+                        <td rowspan="4" style="font-weight: bold; background: #fdfefe;">סינטרה וליסבון</td>
+                        <td><a href="https://maps.google.com/?q=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a></td>
                         <td>טאפאס פורטוגזי (Petiscos)</td>
                         <td>ממוקמת בלב סינטרה העתיקה, מקום מושלם לארוחת צהריים משפחתית קלילה, מהירה וטעימה להפליא עם מנות שילדים אוהבים.</td>
                         <td><span class="booking-tag tag-none">אין הזמנות (מגיעים וממתינים)</span></td>
                     </tr>
                     <tr>
-                        <td>Midori</td>
+                        <td><a href="https://maps.google.com/?q=Midori+Sintra" target="_blank" class="map-link">Midori 📍</a></td>
                         <td>יפני עילית (כוכב מישלן)</td>
                         <td>מסעדת המישלן היפנית העתיקה בפורטוגל, ממוקמת בריזורט פנא לונגה הסמוך. שילוב מדהים בין חומרי גלם פורטוגזיים לטכניקה יפנית עילית.</td>
                         <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
                     </tr>
                     <tr>
-                        <td>Belcanto</td>
+                        <td><a href="https://maps.google.com/?q=Belcanto+Lisbon" target="_blank" class="map-link">Belcanto 📍</a></td>
                         <td>מטבח פורטוגזי עילית (2 כוכבים)</td>
                         <td>מסעדת הדגל של השף ז'וזה אבילז בליסבון (מדורגת בין ה-50 הטובות בעולם). מסע קולינרי יצירתי, היסטורי ותרבותי בפורטוגל.</td>
                         <td><span class="booking-tag tag-required">חובה 2-3 חודשים מראש</span></td>
                     </tr>
+                    <tr style="background-color: #fcf3cf;">
+                        <td><a href="https://maps.google.com/?q=Incomum+by+Luis+Santos+Sintra" target="_blank" class="map-link">Incomum 🌟 (גיבוי סינטרה) 📍</a></td>
+                        <td>ים-תיכוני מודרני</td>
+                        <td><strong>מסעדת גיבוי מעולה בסינטרה:</strong> שף לואיס סנטוס מציע מטבח אלגנטי, מנות בשר ודגים מעולות באווירה פחות מחייבת ממישלן אך ברמה גבוהה מאוד.</td>
+                        <td><span class="booking-tag tag-required">מומלץ 3-4 ימים מראש</span></td>
+                    </tr>
+
                     <tr>
-                        <td rowspan="2" style="font-weight: bold; background: #fdfefe;">קרוואיירו (תחנה 2)</td>
-                        <td>The One Restaurant</td>
+                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">קרוואיירו וסילבש (תחנה 2)</td>
+                        <td><a href="https://maps.google.com/?q=The+One+Restaurant+Tivoli+Carvoeiro" target="_blank" class="map-link">The One Restaurant 📍</a></td>
                         <td>ים-תיכוני קלאסי</td>
                         <td>מסעדת המלון של ריזורט טיבולי, מציעה חוויה אלגנטית המשקיפה ישירות על תצורות הסלעים של קרוואיירו. דגש על יינות מקומיים ובשרים מעולים.</td>
                         <td><span class="booking-tag tag-required">מומלץ מספר ימים מראש</span></td>
                     </tr>
                     <tr>
-                        <td>Bon Bon</td>
+                        <td><a href="https://maps.google.com/?q=Bon+Bon+Restaurant+Carvoeiro" target="_blank" class="map-link">Bon Bon 📍</a></td>
                         <td>מטבח אלגארבי מודרני (מישלן)</td>
                         <td>חוויה קולינרית מתוחכמת המבוססת על טעמי האוקיינוס והמסורת של דרום פורטוגל, עם הגשה אמנותית ושירות מוקפד.</td>
                         <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
                     </tr>
+                    <tr style="background-color: #fcf3cf;">
+                        <td><a href="https://maps.google.com/?q=Le+Cro+Carvoeiro" target="_blank" class="map-link">Le Cro ✨ (גיבוי קרוואיירו) 📍</a></td>
+                        <td>טאפאס ויין בר</td>
+                        <td><strong>גיבוי אינטימי ופופולרי בקרוואיירו:</strong> מקום קטן ומקסים הידוע במנות טאפאס יצירתיות, אירוח חם וידידותי למשפחות ומבחר יינות מצוין.</td>
+                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש (מקום קטן)</span></td>
+                    </tr>
+
                     <tr>
-                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">אלבופיירה (תחנה 3)</td>
-                        <td>Vila Joya</td>
+                        <td rowspan="4" style="font-weight: bold; background: #fdfefe;">אלבופיירה ווילמורה (תחנה 3)</td>
+                        <td><a href="https://maps.google.com/?q=Vila+Joya+Albufeira" target="_blank" class="map-link">Vila Joya 📍</a></td>
                         <td>מטבח עילית אירופאי (2 כוכבים)</td>
                         <td>נחשבת לאחת החוויות הקולינריות המפוארות ביותר בדרום אירופה. שולחנות מול הים, תפריט הפתעה קבוע של השף דיטר קושינה וחוויה בלתי נשכחת.</td>
                         <td><span class="booking-tag tag-required">חובה 2-3 חודשים מראש!</span></td>
                     </tr>
                     <tr>
-                        <td>Vila Joya Sea</td>
+                        <td><a href="https://maps.google.com/?q=Vila+Joya+Sea+Albufeira" target="_blank" class="map-link">Vila Joya Sea 📍</a></td>
                         <td>בר-מסעדה אסיאתי / פיוז'ן</td>
                         <td>גרסת החוף והסושי הנינוחה והפתוחה של וילה ג'ויה. ממוקמת ממש על החול, מציעה סושי טרי, דגים בגריל ואווירת חוף אקסקלוסיבית בשקיעה.</td>
                         <td><span class="booking-tag tag-required">מומלץ 2-3 שבועות מראש</span></td>
                     </tr>
                     <tr>
-                        <td>Oliveira Dourada</td>
+                        <td><a href="https://maps.google.com/?q=Oliveira+Dourada+Albufeira" target="_blank" class="map-link">Oliveira Dourada 📍</a></td>
                         <td>פורטוגזי מסורתי משפחתי</td>
                         <td>מסעדה משפחתית חמה ומוערכת מאוד באזור אלבופיירה. מנות נדיבות של בשרים, קטפלנה (קדירת פירות ים מסורתית) ויחס אישי נפלא.</td>
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
+                    </tr>
+                    <tr style="background-color: #fcf3cf;">
+                        <td><a href="https://maps.google.com/?q=Evaristo+Restaurant+Albufeira" target="_blank" class="map-link">Evaristo 🌟 (גיבוי) 📍</a></td>
+                        <td>דגים טריים על הגריל</td>
+                        <td><strong>מסעדת גיבוי איקונית:</strong> ממוקמת על חוף מבודד באלבופיירה. אין תפריט – ניגשים לדוכן, בוחרים דג שנדוג הבוקר, והם נצלים על גחלים. אווירה תוססת.</td>
+                        <td><span class="booking-tag tag-required">מומלץ 2-3 שבועות מראש</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -612,55 +652,55 @@
                     <tr data-days-before="75">
                         <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (מוקדם)</td>
                         <td>השכרת רכב משפחתי (ליסבון)</td>
-                        <td>הזמנת רכב מרווח (סטיישן/SUV) עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה (כגון <a href="https://www.sixt.com/" target="_blank" class="task-link">Sixt</a> או <a href="https://www.hertz.com/" target="_blank" class="task-link">Hertz</a>) הכללת מכשיר כבישי אגרה (Via Verde).</td>
+                        <td>הזמנת רכב מרווח (סטיישן/SUV) עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה הכללת מכשיר כבישי אגרה (Via Verde).</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="75">
                         <td style="font-weight: bold;">3 חודשים מראש</td>
                         <td>הזמנת מסעדות שף (2 כוכבים)</td>
-                        <td>חובה להזמין מקומות בהקדם עבור <a href="https://www.vilajoya.com/" target="_blank" class="task-link">Vila Joya</a> (יום 14) ומסעדת <a href="https://belcanto.pt/" target="_blank" class="task-link">Belcanto בליסבון</a> (יום 4).</td>
+                        <td>חובה להזמין מקומות בהקדם עבור מסעדת <a href="https://www.vilajoya.com/" target="_blank" class="ticket-link">Vila Joya 🎫</a> (יום 14) ומסעדת <a href="https://belcanto.pt/" target="_blank" class="ticket-link">Belcanto בליסבון 🎫</a> (יום 4).</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="60">
                         <td style="font-weight: bold;">2 חודשים מראש</td>
                         <td>הזמנת מסעדות מישלן ובוטיק נוספות</td>
-                        <td>פתיחת חלונות ההזמנה עבור מסעדת <a href="https://www.midorisintra.com/" target="_blank" class="task-link">Midori היפנית</a> (יום 3) ומסעדת <a href="https://www.bonbon.pt/" target="_blank" class="task-link">Bon Bon בקרוואיירו</a> (יום 9).</td>
+                        <td>פתיחת חלונות ההזמנה עבור מסעדת <a href="https://www.midorisintra.com/" target="_blank" class="ticket-link">Midori היפנית 🎫</a> (יום 3) ומסעדת <a href="https://www.bonbon.pt/" target="_blank" class="ticket-link">Bon Bon בקרוואיירו 🎫</a> (יום 9).</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="30">
                         <td style="font-weight: bold;">חודש 1 מראש</td>
                         <td>רכישת כרטיסים קבועי זמן לסינטרה</td>
-                        <td><strong>ארמון פנה:</strong> חובה לרכוש כרטיסים לשעה ספציפית מראש באתר הרשמי של <a href="https://www.parquesdesintra.pt/" target="_blank" class="task-link">Parques de Sintra</a> (מומלץ ל-09:30).</td>
+                        <td><strong>ארמון פנה:</strong> חובה לרכוש כרטיסים לשעה ספציפית מראש באתר הרשמי של <a href="https://www.parquesdesintra.pt/" target="_blank" class="ticket-link">Parques de Sintra 🎫</a> (מומלץ ל-09:30).</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="30">
                         <td style="font-weight: bold;">חודש 1 מראש</td>
                         <td>סגירת השייט הפרטי ביאכטה (וילמורה)</td>
-                        <td>תיאום סירת יאכטה פרטית משפחתית לשקיעה ב-Vilamoura Marina (יום 12) מול חברות השכרה כגון <a href="https://www. therealyachtcharter.com/" target="_blank" class="task-link">Vilamoura Yacht Charter</a>.</td>
+                        <td>תיאום סירת יאכטה פרטית משפחתית לשקיעה ב-Vilamoura Marina (יום 12) מול חברות השכרה מקומיות.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="21">
                         <td style="font-weight: bold;">2-3 שבועות מראש</td>
                         <td>הזמנת פארק מים ושייט שמורות טבע</td>
-                        <td>רכישת כרטיסים ל-<a href="https://www.zoomarine.pt/en/" target="_blank" class="task-link">Zoomarine Algarve</a> (יום 11), שייט למערת בנאג'יל, ושייט קטמרן ומסעדה בשמורת <a href="https://www.algarve-maritime.com/" target="_blank" class="task-link">Ria Formosa</a>.</td>
+                        <td>רכישת כרטיסים ל-<a href="https://www.zoomarine.pt/en/" target="_blank" class="ticket-link">Zoomarine Algarve 🎫</a> (יום 11), שייט למערת בנאג'יל, ושייט קטמרן ומסעדה בשמורת Ria Formosa.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="14">
                         <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (שבועיים)</td>
                         <td>ביטוח נסיעות לחו"ל לכל המשפחה</td>
-                        <td>הפעלת פוליסת ביטוח בריאות ומטען מורחבת (כולל כיסוי ספורט אתגרי/ימי במידה ועושים גלישה או קיאקים באלגארב). ניתן לבצע דרך חברות הביטוח המובילות או חברות האשראי.</td>
+                        <td>הפעלת פוליסת ביטוח בריאות ומטען מורחבת (כולל כיסוי ספורט אתגרי/ימי במידה ועושים גלישה או קיאקים באלגארב).</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="10">
                         <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (שבוע+)</td>
                         <td>חבילות סלולר ותקשורת (eSIM)</td>
-                        <td>רכישת כרטיסי <a href="https://www.airalo.com/" target="_blank" class="task-link">Airalo eSIM</a> או חבילות חו"ל דרך המפעיל המקומי בישראל כדי להבטיח ניווט רציף בדרכים (Waze / Google Maps).</td>
-                        <td class="status-cell">Mחשב...</td>
+                        <td>רכישת כרטיסי חבילות חו"ל או חברות eSIM כגון <a href="https://www.airalo.com/" target="_blank" class="ticket-link">Airalo eSIM 🎫</a> כדי להבטיח ניווט רציף בדרכים (Waze / Google Maps).</td>
+                        <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="7">
                         <td style="font-weight: bold;">שבוע 1 מראש</td>
                         <td>כרטיסים מקוצרים למנזר ג'רונימוס</td>
-                        <td>רכישת כרטיסים דיגיטליים ל-<a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="task-link">Mosteiro dos Jerónimos</a> (יום 4) כדי לדלג על תורי הענק בקופות.</td>
+                        <td>רכישת כרטיסים דיגיטליים ל-<a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">Mosteiro dos Jerónimos 🎫</a> (יום 4) כדי לדלג על תורי הענק בקופות.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="0">
