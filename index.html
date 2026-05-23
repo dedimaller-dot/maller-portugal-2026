@@ -1,732 +1,716 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חופשת קיץ משפחתית - פורטוגל 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a4a7a;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-color: #d1d8e0;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background-color: #e2e8f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn.active, .nav-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-wrapper {
+            display: block;
+        }
+
+        .station-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 14px 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .station-header a {
+            color: #5dade2;
+            text-decoration: none;
+        }
+
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .responsive-table th {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 12px;
+            text-align: right;
+            border-bottom: 2px solid var(--border-color);
+            font-size: 15px;
+        }
+
+        .responsive-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .day-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .date-text {
+            font-weight: 600;
+            color: #7f8c8d;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .map-link {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            color: #2980b9;
+            text-decoration: none;
+            font-style: italic;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+            color: #1a73e8;
+        }
+
+        .task-link {
+            color: #e67e22;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .task-link:hover {
+            color: #d35400;
+        }
+
+        .booking-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .tag-required {
+            background-color: #fadbd8;
+            color: #c0392b;
+        }
+
+        .tag-none {
+            background-color: #d4efdf;
+            color: #1e8449;
+        }
+
+        .appendix-title {
+            background: linear-gradient(90deg, #d35400, #e67e22);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .todo-table th {
+            background-color: #fdf2e9;
+            color: #d35400;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            width: 110px;
+        }
+
+        .status-critical {
+            background-color: #fadbd8;
+            color: #78281f;
+            border: 1px solid #f5b7b1;
+        }
+
+        .status-action {
+            background-color: #fdebd0;
+            color: #7e5109;
+            border: 1px solid #f9e79f;
+        }
+
+        .status-upcoming {
+            background-color: #e8f8f5;
+            color: #117864;
+            border: 1px solid #a3e4d7;
+        }
+
+        .status-done {
+            background-color: #eafaf1;
+            color: #145a32;
+            border: 1px solid #abebc6;
+        }
+
+        @media screen and (max-width: 768px) {
+            .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+                display: block;
+                width: 100%;
+            }
+            
+            .responsive-table thead {
+                display: none;
+            }
+
+            .responsive-table tr {
+                margin-bottom: 20px;
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+                background: white;
+            }
+
+            .responsive-table td {
+                text-align: right;
+                border-bottom: 1px dashed #f1f2f6;
+                padding: 12px 15px;
+                box-sizing: border-box;
+            }
+
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--primary-color);
+                display: block;
+                margin-bottom: 6px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="he" dir="rtl"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;חופשת קיץ משפחתית - פורטוגל 2026&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--primary-color: #1a4a7a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--secondary-color: #34495e;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #e74c3c;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg-color: #f4f7f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--border-color: #d1d8e0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--success-color: #27ae60;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--warning-color: #f39c12;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Assistant', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 26px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 8px 0 0 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-tabs {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e2e8f0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--secondary-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn.active, .nav-btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-wrapper {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.station-header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--secondary-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 4px rgba(0,0,0,0.05);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.station-header a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #5dade2;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.responsive-table {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--card-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0,0,0,0.05);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.responsive-table th {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e9ecef;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: right;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.responsive-table td {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>vertical-align: top;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.day-badge {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 3px 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.date-text {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #7f8c8d;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.map-link {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Roboto, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2980b9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.map-link:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #1a73e8;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.task-link {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #e67e22;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.task-link:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #d35400;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.booking-tag {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 6px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag-required {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fadbd8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #c0392b;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag-none {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #d4efdf;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #1e8449;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.appendix-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #d35400, #e67e22);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.todo-table th {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fdf2e9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #d35400;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-badge {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 6px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 110px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-critical {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fadbd8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #78281f;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #f5b7b1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-action {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fdebd0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #7e5109;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #f9e79f;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-upcoming {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e8f8f5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #117864;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #a3e4d7;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-done {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #eafaf1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #145a32;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #abebc6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media screen and (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table thead {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table tr {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>box-shadow: 0 2px 4px rgba(0,0,0,0.02);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table td {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>text-align: right;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-bottom: 1px dashed #f1f2f6;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding: 12px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table td:last-child {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-bottom: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.responsive-table td::before {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>content: attr(data-label);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: var(--primary-color);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>margin-bottom: 6px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;תוכנית חופשת קיץ משפחתית - פורטוגל 2026&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;גרסת אתר דינמית | לוחות זמנים, קישורים ישירים ומשימות לוגיסטיקה&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="nav-tabs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="document.getElementById('station1').scrollIntoView({behavior: 'smooth'});"&gt;תחנה 1: קשקאיש&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="document.getElementById('station2').scrollIntoView({behavior: 'smooth'});"&gt;תחנה 2: קרוואיירו&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="document.getElementById('station3').scrollIntoView({behavior: 'smooth'});"&gt;תחנה 3: אלבופיירה&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="document.getElementById('appendix-food').scrollIntoView({behavior: 'smooth'});"&gt;נספח קולינריה&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});"&gt;נספח משימות ולוגיסטיקה&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="station1" class="section-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="station-header"&gt;</p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">                </span>תחנה 1: קשקאיש וסינטרה | לינה:<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.onyriamarinhacascais.com/" target="_blank"&gt;Onyria Marinha Cascais Boutique Hotel ↗&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table class="responsive-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 10%;"&gt;יום ותאריך&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;מוקד פעילות&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 40%;"&gt;פירוט פעילויות וסדר יום&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 20%;"&gt;המלצות קולינריה&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;תחבורה וכרטיסים&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 1&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;02.08 (א')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Lisbon Airport &amp; Cascais&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;נחיתה, איסוף הרכב והגעה למלון ב-Quinta da Marinha. התארגנות וסיור ערב רגוע ב-Cascais Center.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: פירות ים מעולים על קו המים ב-Mar do Inferno.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;איסוף רכב ב-Lisbon Airport.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;אין צורך בכרטיסים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 2&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;03.08 (ב')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Cascais &amp; Estoril Beaches&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;יום חוף רגוע בחוף המוסדר המשפחתי באסטוריל. מיטות שיזוף ושמשיות להשכרה במקום. אחה"צ מנוחה בריזורט.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: טאפאס מודרני ב-Hifen.&lt;br&gt;ערב: Cantinho do Avillez.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וניווט"&gt;נסיעה של כ-10 דקות לחוף Praia do Tamariz.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;אין צורך בכרטיסים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 3&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;04.08 (ג')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Sintra Highlights&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;ביקור בארמון הצבעוני Pena Palace, והמשך לחקר המנהרות והבאר ב-Quinta da Regaleira.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: טאפאס מסורתי ב-Tascantiga.&lt;br&gt;ערב: מסעדת המישלן היפנית Midori.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה של 20 דקות לסינטרה.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;חובה להזמין חודש מראש שעת כניסה לפניה פאלאס!&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 4&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;05.08 (ד')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Lisbon (Belém)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;יום ייעודי ברובע בלם: ביקור ב-Mosteiro dos Jerónimos, תצפית על Belém Tower ומוזיאון הכרכרות Museu Nacional dos Coches.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;מאפה חם ב-Pastéis de Belém.&lt;br&gt;ערב חגיגי: Belcanto.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה ברכב או ברכבת החופים מ-Estoril Station.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ להזמין שבוע מראש למנזר ג'רונימוס לשם קיצור תורים&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 5&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;06.08 (ה')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Cabo da Roca &amp; Ericeira&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;נסיעה לנקודה המערבית באירופה Cabo da Roca, והמשך לעיירת החוף האסתטית Ericeira ולחוף Praia da Foz do Lizandro.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: סושי ודגים טריים ב-Uni Sushi.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נהיגה עצמית בכביש החוף הנופי N247.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;אין צורך בכרטיסים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="station2" class="section-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="station-header"&gt;</p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">                </span>תחנה 2: קרוואיירו וחופי הצוקים | לינה:<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.tivolihotels.com/en/tivoli-carvoeiro" target="_blank"&gt;Tivoli Carvoeiro Algarve Resort ↗&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table class="responsive-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 10%;"&gt;יום ותאריך&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;מוקד פעילות&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 40%;"&gt;פירוט פעילויות וסדר יום&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 20%;"&gt;המלצות קולינריה&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;תחבורה וכרטיסים&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 6&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;07.08 (ו')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Travel South &amp; Évora&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;צ'ק אאוט ונסיעה דרומה לכיוון האלגארב. במהלך הנסיעה חציית הגשר התלוי המפורסם Ponte 25 de Abril ברכב ברקע הנוף של ליסבון. עצירה בעיירה ההיסטורית Évora לביקור בקפלת העצמות (Chapel of Bones). הגעה למלון בקרוואיירו.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: אוכל מסורתי ב-Taberna Típica Quarta-Feira.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה ארוכה בכביש A2. שימוש ב-Via Verde.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;כרטיסים לקפלה קונים במקום&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 7&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;08.08 (ש')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Benagil Caves &amp; Cliff Walk&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;הליכה על גבי Carvoeiro Boardwalk הצמוד למלון וביקור בנקיקי Algar Seco. אחה"צ: שייט בסירה מהירה למערת בנאג'יל המפורסמת (Benagil Cave).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: מסעדת המלון המשובחת מול הים The One Restaurant.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;יציאה לשייט מחוף Praia de Benagil או Praia di Carvoeiro.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;חובה להזמין שייט שבועיים-שלושה מראש!&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 8&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;09.08 (א')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Lagos &amp; Sagres&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;טיול יום מערבה: תצפית צוקים מרהיבה ב-Ponta da Piedade והמשך למבצר סגרש (Sagres Fortress) לתצפית שקיעה.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: דגים טריים ב-Casinha do Petisco.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה מערבה על כביש A22 (כ-45 דקות).&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;אין צורך בכרטיסים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 9&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;10.08 (ב')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Silves Castle&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;ביקור בבוקר בעיירה המורית העתיקה ובטירה האדומה שלה Castelo de Silves. אחה"צ רגוע ומנוחה בריזורט מול הצוקים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: מסעדת השף בעלת כוכב מישלן Bon Bon.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה של 20 דקות לפנים היבשת.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;כרטיסים לטירה קונים בכניסה&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="station3" class="section-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="station-header"&gt;</p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">                </span>תחנה 3: אלבופיירה ונופש יוקרתי | לינה:<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.sanahotels.com/en/hotel/epic-sana-algarve/" target="_blank"&gt;EPIC SANA Algarve Hotel ↗&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table class="responsive-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 10%;"&gt;יום ותאריך&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;מוקד פעילות&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 40%;"&gt;פירוט פעילויות וסדר יום&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 20%;"&gt;המלצות קולינריה&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;תחבורה וכרטיסים&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 10&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;11.08 (ג')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;EPIC SANA Check-in&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;צ'ק-אין בריזורט היוקרה הממוקם מעל חוף פאלסיה. זמן התארגנות משפחתית, מנוחה, בריכה וים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: ארוחה נעימה במסעדת המלון המרכזית Abyad.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;מעבר רכוב של כ-20 דקות בלבד.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;אין צורך בכרטיסים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 11&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;12.08 (ד')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Zoomarine Algarve&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;יום שלם ומלא אקשן וחוויות לילדים ולמשפחה בפארק המים והאטרקציות המוביל בפורטוגל Zoomarine Algarve.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: אווירה יוקרתית ופירות ים על קו המים ב-Vila Joya Sea.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה של 15 דקות מהמלון לאזור Guia.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;חובה להזמין כרטיסים לפארק שבועיים מראש באינטרנט להנחה ודילוג על תורים&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 12&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;13.08 (ה')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Vilamoura Marina&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;ביקור במרינה היוקרתית של וילמורה Vilamoura Marina, קניות, ויציאה לשייט שקיעה משפחתי פרטי ביאכטה.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב: ארוחה משפחתית משובחת ב-Oliveira Dourada.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה של 10 דקות מזרחה.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ לתאם את היאכטה הפרטית כחודש מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 13&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;14.08 (ו')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Ria Formosa Natural Park&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;נסיעה לפארו ושייט קטמרן פרטי בשמורת הטבע האיים המוגנים Ria Formosa בין איים בתוליים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;צהריים: מסעדת Estaminé המבודדת על Ilha Deserta.&lt;br&gt;ערב: מסעדת השף במלון Al Quimia.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה לפארו (30 דקות).&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;חובה לתאם את סירת הקטמרן והמסעדה באי מראש (שבועיים לפחות)&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 14&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;15.08 (ש')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Praia da Falésia Luxury Beach Day&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;יום נופש ובטן-גב מלא בחוף הצמוד למלון Praia da Falésia – אחד היפים באירופה, מוסדר עם מיטות שיזוף ושמשיות.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ערב חגיגי לסיכום הטיול: מסעדת 2 כוכבי המישלן המפוארת Vila Joya.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;ללא נסיעות ברכב – יום רגוע בריזורט.&lt;br&gt;&lt;span class="booking-tag tag-required"&gt;חובה להזמין מקום לוילה ג'ויה 2-3 חודשים מראש!&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="יום ותאריך"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="day-badge"&gt;יום 15&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="date-text"&gt;16.08 (א')&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="מוקד פעילות"&gt;Departure&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="פירוט פעילויות וסדר יום"&gt;ארוחת בוקר, צ'ק-אאוט ונסיעה ישירה של כ-2.5 שעות חזרה לשדה התעופה בליסבון, החזרת הרכב וטיסה לישראל.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="המלצות קולינריה"&gt;ארוחת בוקר במלון ונשנושי דרך.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td data-label="תחבורה וכרטיסים"&gt;נסיעה חזרה צפונה על כביש האוטוסטרדה המהיר A2 לליסבון.&lt;br&gt;&lt;span class="booking-tag tag-none"&gt;טיסה הביתה&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="appendix-food" class="section-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="appendix-title"&gt;נספח א׳: מדריך קולינריה מורחב ומפת מסעדות לפי אזורים&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table class="responsive-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;אזור / עיר&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 20%;"&gt;שם המסעדה&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;סגנון קולינרי&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 35%;"&gt;פירוט, חוויה ומידע מועיל&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;הזמנת מקום מראש&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td rowspan="3" style="font-weight: bold; background: #fdfefe;"&gt;קשקאיש ואסטוריל (תחנה 1)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Mar do Inferno&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;פירות ים ודגים טריים&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מסעדה איקונית הממוקמת ממש על צוקי Boca do Inferno. הדגים נשקלים לפי משקל, השירות מקצועי והנוף לאוקיינוס מרהיב. מומלץ לשעת השקיעה.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ 1-2 שבועות מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Hifen&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;טאפאס מודרני / גסטרובר&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;ממוקמת מול חוף הים של קשקאיש, מציעה מנות שיתוף קטנות ומתוחכמות, קוקטיילים מעולים ואווירה צעירה ותוססת שמתאימה מאוד למשפחה.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ מספר ימים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Cantinho do Avillez&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מטבח פורטוגזי מודרני&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הגרסה הנגישה והנינוחה של השף המפורסם ז'וזה אבילז בלב קשקאיש. מנות קלאסיות בפרשנות מודרנית קלילה ובאווירה ביתית מעוצבת.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ שבוע מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td rowspan="3" style="font-weight: bold; background: #fdfefe;"&gt;סינטרה וליסבון&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Tascantiga&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;טאפאס פורטוגזי (Petiscos)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;ממוקמת בלב סינטרה העתיקה, מקום מושלם לארוחת צהריים משפחתית קלילה, מהירה וטעימה להפליא עם מנות שילדים אוהבים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-none"&gt;אין הזמנות (מגיעים וממתינים)&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Midori&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;יפני עילית (כוכב מישלן)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מסעדת המישלן היפנית העתיקה בפורטוגל, ממוקמת בריזורט פנא לונגה הסמוך. שילוב מדהים בין חומרי גלם פורטוגזיים לטכניקה יפנית עילית.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;חובה 1-2 חודשים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Belcanto&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מטבח פורטוגזי עילית (2 כוכבים)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מסעדת הדגל של השף ז'וזה אבילז בליסבון (מדורגת בין ה-50 הטובות בעולם). מסע קולינרי יצירתי, היסטורי ותרבותי בפורטוגל.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;חובה 2-3 חודשים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td rowspan="2" style="font-weight: bold; background: #fdfefe;"&gt;קרוואיירו (תחנה 2)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;The One Restaurant&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;ים-תיכוני קלאסי&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מסעדת המלון של ריזורט טיבולי, מציעה חוויה אלגנטית המשקיפה ישירות על תצורות הסלעים של קרוואיירו. דגש על יינות מקומיים ובשרים מעולים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ מספר ימים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Bon Bon&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מטבח אלגארבי מודרני (מישלן)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;חוויה קולינרית מתוחכמת המבוססת על טעמי האוקיינוס והמסורת של דרום פורטוגל, עם הגשה אמנותית ושירות מוקפד.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;חובה 1-2 חודשים מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td rowspan="3" style="font-weight: bold; background: #fdfefe;"&gt;אלבופיירה (תחנה 3)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Vila Joya&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מטבח עילית אירופאי (2 כוכבים)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;נחשבת לאחת החוויות הקולינריות המפוארות ביותר בדרום אירופה. שולחנות מול הים, תפריט הפתעה קבוע של השף דיטר קושינה וחוויה בלתי נשכחת.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;חובה 2-3 חודשים מראש!&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Vila Joya Sea&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;בר-מסעדה אסיאתי / פיוז'ן&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;גרסת החוף והסושי הנינוחה והפתוחה של וילה ג'ויה. ממוקמת ממש על החול, מציעה סושי טרי, דגים בגריל ואווירת חוף אקסקלוסיבית בשקיעה.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ 2-3 שבועות מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Oliveira Dourada&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;פורטוגזי מסורתי משפחתי&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;מסעדה משפחתית חמה ומוערכת מאוד באזור אלבופיירה. מנות נדיבות של בשרים, קטפלנה (קדירת פירות ים מסורתית) ויחס אישי נפלא.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;span class="booking-tag tag-required"&gt;מומלץ שבוע מראש&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="appendix-todo" class="section-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="appendix-title" style="background: linear-gradient(90deg, #27ae60, #2ecc71);"&gt;נספח ב׳: טבלת משימות, כרטיסים ולוגיסטיקה (דינמית)&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="font-size: 14px; margin-top: 10px; color: #555;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ℹ️ המערכת מעדכנת את הסטטוסים והספירה לאחור בזמן אמת על בסיס התאריך הנוכחי, לקראת יציאתכם ב-&lt;strong&gt;02 באוגוסט 2026&lt;/strong&gt;.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table class="responsive-table todo-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 20%;"&gt;חלון זמן מומלץ&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 25%;"&gt;המשימה ופרטי הביצוע&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 40%;"&gt;דגשים חשובים ויעדים רלוונטיים בטיול&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th style="width: 15%;"&gt;סטטוס דינמי&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody id="todo-tbody"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="75"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold; color: #2c3e50;"&gt;לוגיסטיקה (מוקדם)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;השכרת רכב משפחתי (ליסבון)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הזמנת רכב מרווח (סטיישן/SUV) עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה (כגון &lt;a href="https://www.sixt.com/" target="_blank" class="task-link"&gt;Sixt&lt;/a&gt; או &lt;a href="https://www.hertz.com/" target="_blank" class="task-link"&gt;Hertz&lt;/a&gt;) הכללת מכשיר כבישי אגרה (Via Verde).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="75"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;3 חודשים מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הזמנת מסעדות שף (2 כוכבים)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;חובה להזמין מקומות בהקדם עבור &lt;a href="https://www.vilajoya.com/" target="_blank" class="task-link"&gt;Vila Joya&lt;/a&gt; (יום 14) ומסעדת &lt;a href="https://belcanto.pt/" target="_blank" class="task-link"&gt;Belcanto בליסבון&lt;/a&gt; (יום 4).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="60"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;2 חודשים מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הזמנת מסעדות מישלן ובוטיק נוספות&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;פתיחת חלונות ההזמנה עבור מסעדת &lt;a href="https://www.midorisintra.com/" target="_blank" class="task-link"&gt;Midori היפנית&lt;/a&gt; (יום 3) ומסעדת &lt;a href="https://www.bonbon.pt/" target="_blank" class="task-link"&gt;Bon Bon בקרוואיירו&lt;/a&gt; (יום 9).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="30"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;חודש 1 מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;רכישת כרטיסים קבועי זמן לסינטרה&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ארמון פנה:&lt;/strong&gt; חובה לרכוש כרטיסים לשעה ספציפית מראש באתר הרשמי של &lt;a href="https://www.parquesdesintra.pt/" target="_blank" class="task-link"&gt;Parques de Sintra&lt;/a&gt; (מומלץ ל-09:30).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="30"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;חודש 1 מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;סגירת השייט הפרטי ביאכטה (וילמורה)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;תיאום סירת יאכטה פרטית משפחתית לשקיעה ב-Vilamoura Marina (יום 12) מול חברות השכרה כגון &lt;a href="https://www. therealyachtcharter.com/" target="_blank" class="task-link"&gt;Vilamoura Yacht Charter&lt;/a&gt;.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="21"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;2-3 שבועות מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הזמנת פארק מים ושייט שמורות טבע&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;רכישת כרטיסים ל-&lt;a href="https://www.zoomarine.pt/en/" target="_blank" class="task-link"&gt;Zoomarine Algarve&lt;/a&gt; (יום 11), שייט למערת בנאג'יל, ושייט קטמרן ומסעדה בשמורת &lt;a href="https://www.algarve-maritime.com/" target="_blank" class="task-link"&gt;Ria Formosa&lt;/a&gt;.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="14"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold; color: #2c3e50;"&gt;לוגיסטיקה (שבועיים)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;ביטוח נסיעות לחו"ל לכל המשפחה&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;הפעלת פוליסת ביטוח בריאות ומטען מורחבת (כולל כיסוי ספורט אתגרי/ימי במידה ועושים גלישה או קיאקים באלגארב). ניתן לבצע דרך חברות הביטוח המובילות או חברות האשראי.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold; color: #2c3e50;"&gt;לוגיסטיקה (שבוע+)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;חבילות סלולר ותקשורת (eSIM)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;רכישת כרטיסי &lt;a href="https://www.airalo.com/" target="_blank" class="task-link"&gt;Airalo eSIM&lt;/a&gt; או חבילות חו"ל דרך המפעיל המקומי בישראל כדי להבטיח ניווט רציף בדרכים (Waze / Google Maps).&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;Mחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="7"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;שבוע 1 מראש&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;כרטיסים מקוצרים למנזר ג'רונימוס&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;רכישת כרטיסים דיגיטליים ל-&lt;a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="task-link"&gt;Mosteiro dos Jerónimos&lt;/a&gt; (יום 4) כדי לדלג על תורי הענק בקופות.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr data-days-before="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td style="font-weight: bold;"&gt;ביום הנחיתה&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;אימות מכשיר אגרה לרכב (Via Verde)&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;בזמן קבלת הרכב בשדה, ודא פיזית מול נציג חברת ההשכרה שרכיב ה-&lt;strong&gt;Via Verde&lt;/strong&gt; מופעל ומקושר לכרטיס האשראי שלכם למניעת קנסות רטרואקטיביים.&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="status-cell"&gt;מחשב...&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener("DOMContentLoaded", function() {</p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">            </span>// תאריך היעד של הטיול: 02 לאוגוסט 2026</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const tripDate = new Date(2026, 7, 2);<span class="Apple-converted-space"> </span></p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">            </span>// תאריך נוכחי (היום)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const today = new Date();</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">            </span>// חישוב הפרש הימים</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const timeDiff = tripDate.getTime() - today.getTime();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const daysUntilTrip = Math.ceil(timeDiff / (1000 * 3600 * 24));</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p dir="rtl" class="p1"><span class="Apple-converted-space">            </span>// סריקת שורות הטבלה ועדכון סטטוס</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const rows = document.querySelectorAll("#todo-tbody tr");</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>rows.forEach(row =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const daysBeforeRequired = parseInt(row.getAttribute("data-days-before"));</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const statusCell = row.querySelector(".status-cell");</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (daysUntilTrip &lt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>statusCell.innerHTML = '&lt;span class="status-badge status-done"&gt;הטיול החל ✈️&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else if (daysUntilTrip &lt;= daysBeforeRequired) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (daysBeforeRequired === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>statusCell.innerHTML = '&lt;span class="status-badge status-action"&gt;לבצע בנחיתה 🚗&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>} else if (daysUntilTrip &lt; daysBeforeRequired - 10) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>statusCell.innerHTML = '&lt;span class="status-badge status-critical"&gt;באיחור קל! 🚨&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>statusCell.innerHTML = '&lt;span class="status-badge status-critical"&gt;לבצע עכשיו! 🔥&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else if (daysUntilTrip &lt;= daysBeforeRequired + 14) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>statusCell.innerHTML = '&lt;span class="status-badge status-action"&gt;להתכונן לסגירה ⏳&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>statusCell.innerHTML = '&lt;span class="status-badge status-upcoming"&gt;עוד ' + (daysUntilTrip - daysBeforeRequired) + ' ימים 🗓️&lt;/span&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <header>
+        <h1>תוכנית חופשת קיץ משפחתית - פורטוגל 2026</h1>
+        <p>גרסת אתר דינמית | לוחות זמנים, קישורים ישירים ומשימות לוגיסטיקה</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="nav-tabs">
+            <button class="nav-btn" onclick="document.getElementById('station1').scrollIntoView({behavior: 'smooth'});">תחנה 1: קשקאיש</button>
+            <button class="nav-btn" onclick="document.getElementById('station2').scrollIntoView({behavior: 'smooth'});">תחנה 2: קרוואיירו</button>
+            <button class="nav-btn" onclick="document.getElementById('station3').scrollIntoView({behavior: 'smooth'});">תחנה 3: אלבופיירה</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-food').scrollIntoView({behavior: 'smooth'});">נספח קולינריה</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});">נספח משימות ולוגיסטיקה</button>
+        </div>
+
+        <div id="station1" class="section-wrapper">
+            <div class="station-header">
+                תחנה 1: קשקאיש וסינטרה | לינה: 
+                <a href="https://www.onyriamarinhacascais.com/" target="_blank">Onyria Marinha Cascais Boutique Hotel ↗</a>
+            </div>
+            
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">יום ותאריך</th>
+                        <th style="width: 15%;">מוקד פעילות</th>
+                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 15%;">תחבורה וכרטיסים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 1</span>
+                            <span class="date-text">02.08 (א')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Lisbon Airport & Cascais</td>
+                        <td data-label="פירוט פעילויות וסדר יום">נחיתה, איסוף הרכב והגעה למלון ב-Quinta da Marinha. התארגנות וסיור ערב רגוע ב-Cascais Center.</td>
+                        <td data-label="המלצות קולינריה">ערב: פירות ים מעולים על קו המים ב-Mar do Inferno.</td>
+                        <td data-label="תחבורה וכרטיסים">איסוף רכב ב-Lisbon Airport.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 2</span>
+                            <span class="date-text">03.08 (ב')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Cascais & Estoril Beaches</td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום חוף רגוע בחוף המוסדר המשפחתי באסטוריל. מיטות שיזוף ושמשיות להשכרה במקום. אחה"צ מנוחה בריזורט.</td>
+                        <td data-label="המלצות קולינריה">צהריים: טאפאס מודרני ב-Hifen.<br>ערב: Cantinho do Avillez.</td>
+                        <td data-label="תחבורה וניווט">נסיעה של כ-10 דקות לחוף Praia do Tamariz.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 3</span>
+                            <span class="date-text">04.08 (ג')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Sintra Highlights</td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור בארמון הצבעוני Pena Palace, והמשך לחקר המנהרות והבאר ב-Quinta da Regaleira.</td>
+                        <td data-label="המלצות קולינריה">צהריים: טאפאס מסורתי ב-Tascantiga.<br>ערב: מסעדת המישלן היפנית Midori.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות לסינטרה.<br><span class="booking-tag tag-required">חובה להזמין חודש מראש שעת כניסה לפניה פאלאס!</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 4</span>
+                            <span class="date-text">05.08 (ד')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Lisbon (Belém)</td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום ייעודי ברובע בלם: ביקור ב-Mosteiro dos Jerónimos, תצפית על Belém Tower ומוזיאון הכרכרות Museu Nacional dos Coches.</td>
+                        <td data-label="המלצות קולינריה">מאפה חם ב-Pastéis de Belém.<br>ערב חגיגי: Belcanto.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה ברכב או ברכבת החופים מ-Estoril Station.<br><span class="booking-tag tag-required">מומלץ להזמין שבוע מראש למנזר ג'רונימוס לשם קיצור תורים</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 5</span>
+                            <span class="date-text">06.08 (ה')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Cabo da Roca & Ericeira</td>
+                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לנקודה המערבית באירופה Cabo da Roca, והמשך לעיירת החוף האסתטית Ericeira ולחוף Praia da Foz do Lizandro.</td>
+                        <td data-label="המלצות קולינריה">צהריים: סושי ודגים טריים ב-Uni Sushi.</td>
+                        <td data-label="תחבורה וכרטיסים">נהיגה עצמית בכביש החוף הנופי N247.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="station2" class="section-wrapper">
+            <div class="station-header">
+                תחנה 2: קרוואיירו וחופי הצוקים | לינה: 
+                <a href="https://www.tivolihotels.com/en/tivoli-carvoeiro" target="_blank">Tivoli Carvoeiro Algarve Resort ↗</a>
+            </div>
+            
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">יום ותאריך</th>
+                        <th style="width: 15%;">מוקד פעילות</th>
+                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 15%;">תחבורה וכרטיסים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 6</span>
+                            <span class="date-text">07.08 (ו')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Travel South & Évora</td>
+                        <td data-label="פירוט פעילויות וסדר יום">צ'ק אאוט ונסיעה דרומה לכיוון האלגארב. במהלך הנסיעה חציית הגשר התלוי המפורסם Ponte 25 de Abril ברכב ברקע הנוף של ליסבון. עצירה בעיירה ההיסטורית Évora לביקור בקפלת העצמות (Chapel of Bones). הגעה למלון בקרוואיירו.</td>
+                        <td data-label="המלצות קולינריה">צהריים: אוכל מסורתי ב-Taberna Típica Quarta-Feira.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה ארוכה בכביש A2. שימוש ב-Via Verde.<br><span class="booking-tag tag-none">כרטיסים לקפלה קונים במקום</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 7</span>
+                            <span class="date-text">08.08 (ש')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Benagil Caves & Cliff Walk</td>
+                        <td data-label="פירוט פעילויות וסדר יום">הליכה על גבי Carvoeiro Boardwalk הצמוד למלון וביקור בנקיקי Algar Seco. אחה"צ: שייט בסירה מהירה למערת בנאג'יל המפורסמת (Benagil Cave).</td>
+                        <td data-label="המלצות קולינריה">ערב: מסעדת המלון המשובחת מול הים The One Restaurant.</td>
+                        <td data-label="תחבורה וכרטיסים">יציאה לשייט מחוף Praia de Benagil או Praia di Carvoeiro.<br><span class="booking-tag tag-required">חובה להזמין שייט שבועיים-שלושה מראש!</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 8</span>
+                            <span class="date-text">09.08 (א')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Lagos & Sagres</td>
+                        <td data-label="פירוט פעילויות וסדר יום">טיול יום מערבה: תצפית צוקים מרהיבה ב-Ponta da Piedade והמשך למבצר סגרש (Sagres Fortress) לתצפית שקיעה.</td>
+                        <td data-label="המלצות קולינריה">צהריים: דגים טריים ב-Casinha do Petisco.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה מערבה על כביש A22 (כ-45 דקות).<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 9</span>
+                            <span class="date-text">10.08 (ב')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Silves Castle</td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור בבוקר בעיירה המורית העתיקה ובטירה האדומה שלה Castelo de Silves. אחה"צ רגוע ומנוחה בריזורט מול הצוקים.</td>
+                        <td data-label="המלצות קולינריה">ערב: מסעדת השף בעלת כוכב מישלן Bon Bon.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 20 דקות לפנים היבשת.<br><span class="booking-tag tag-none">כרטיסים לטירה קונים בכניסה</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="station3" class="section-wrapper">
+            <div class="station-header">
+                תחנה 3: אלבופיירה ונופש יוקרתי | לינה: 
+                <a href="https://www.sanahotels.com/en/hotel/epic-sana-algarve/" target="_blank">EPIC SANA Algarve Hotel ↗</a>
+            </div>
+            
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">יום ותאריך</th>
+                        <th style="width: 15%;">מוקד פעילות</th>
+                        <th style="width: 40%;">פירוט פעילויות וסדר יום</th>
+                        <th style="width: 20%;">המלצות קולינריה</th>
+                        <th style="width: 15%;">תחבורה וכרטיסים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 10</span>
+                            <span class="date-text">11.08 (ג')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">EPIC SANA Check-in</td>
+                        <td data-label="פירוט פעילויות וסדר יום">צ'ק-אין בריזורט היוקרה הממוקם מעל חוף פאלסיה. זמן התארגנות משפחתית, מנוחה, בריכה וים.</td>
+                        <td data-label="המלצות קולינריה">ערב: ארוחה נעימה במסעדת המלון המרכזית Abyad.</td>
+                        <td data-label="תחבורה וכרטיסים">מעבר רכוב של כ-20 דקות בלבד.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 11</span>
+                            <span class="date-text">12.08 (ד')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Zoomarine Algarve</td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום שלם ומלא אקשן וחוויות לילדים ולמשפחה בפארק המים והאטרקציות המוביל בפורטוגל Zoomarine Algarve.</td>
+                        <td data-label="המלצות קולינריה">ערב: אווירה יוקרתית ופירות ים על קו המים ב-Vila Joya Sea.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 15 דקות מהמלון לאזור Guia.<br><span class="booking-tag tag-required">חובה להזמין כרטיסים לפארק שבועיים מראש באינטרנט להנחה ודילוג על תורים</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 12</span>
+                            <span class="date-text">13.08 (ה')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Vilamoura Marina</td>
+                        <td data-label="פירוט פעילויות וסדר יום">ביקור במרינה היוקרתית של וילמורה Vilamoura Marina, קניות, ויציאה לשייט שקיעה משפחתי פרטי ביאכטה.</td>
+                        <td data-label="המלצות קולינריה">ערב: ארוחה משפחתית משובחת ב-Oliveira Dourada.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה של 10 דקות מזרחה.<br><span class="booking-tag tag-required">מומלץ לתאם את היאכטה הפרטית כחודש מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 13</span>
+                            <span class="date-text">14.08 (ו')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Ria Formosa Natural Park</td>
+                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לפארו ושייט קטמרן פרטי בשמורת הטבע האיים המוגנים Ria Formosa בין איים בתוליים.</td>
+                        <td data-label="המלצות קולינריה">צהריים: מסעדת Estaminé המבודדת על Ilha Deserta.<br>ערב: מסעדת השף במלון Al Quimia.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה לפארו (30 דקות).<br><span class="booking-tag tag-required">חובה לתאם את סירת הקטמרן והמסעדה באי מראש (שבועיים לפחות)</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 14</span>
+                            <span class="date-text">15.08 (ש')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Praia da Falésia Luxury Beach Day</td>
+                        <td data-label="פירוט פעילויות וסדר יום">יום נופש ובטן-גב מלא בחוף הצמוד למלון Praia da Falésia – אחד היפים באירופה, מוסדר עם מיטות שיזוף ושמשיות.</td>
+                        <td data-label="המלצות קולינריה">ערב חגיגי לסיכום הטיול: מסעדת 2 כוכבי המישלן המפוארת Vila Joya.</td>
+                        <td data-label="תחבורה וכרטיסים">ללא נסיעות ברכב – יום רגוע בריזורט.<br><span class="booking-tag tag-required">חובה להזמין מקום לוילה ג'ויה 2-3 חודשים מראש!</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="יום ותאריך">
+                            <span class="day-badge">יום 15</span>
+                            <span class="date-text">16.08 (א')</span>
+                        </td>
+                        <td data-label="מוקד פעילות">Departure</td>
+                        <td data-label="פירוט פעילויות וסדר יום">ארוחת בוקר, צ'ק-אאוט ונסיעה ישירה של כ-2.5 שעות חזרה לשדה התעופה בליסבון, החזרת הרכב וטיסה לישראל.</td>
+                        <td data-label="המלצות קולינריה">ארוחת בוקר במלון ונשנושי דרך.</td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה חזרה צפונה על כביש האוטוסטרדה המהיר A2 לליסבון.<br><span class="booking-tag tag-none">טיסה הביתה</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="appendix-food" class="section-wrapper">
+            <div class="appendix-title">נספח א׳: מדריך קולינריה מורחב ומפת מסעדות לפי אזורים</div>
+            
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">אזור / עיר</th>
+                        <th style="width: 20%;">שם המסעדה</th>
+                        <th style="width: 15%;">סגנון קולינרי</th>
+                        <th style="width: 35%;">פירוט, חוויה ומידע מועיל</th>
+                        <th style="width: 15%;">הזמנת מקום מראש</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">קשקאיש ואסטוריל (תחנה 1)</td>
+                        <td>Mar do Inferno</td>
+                        <td>פירות ים ודגים טריים</td>
+                        <td>מסעדה איקונית הממוקמת ממש על צוקי Boca do Inferno. הדגים נשקלים לפי משקל, השירות מקצועי והנוף לאוקיינוס מרהיב. מומלץ לשעת השקיעה.</td>
+                        <td><span class="booking-tag tag-required">מומלץ 1-2 שבועות מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hifen</td>
+                        <td>טאפאס מודרני / גסטרובר</td>
+                        <td>ממוקמת מול חוף הים של קשקאיש, מציעה מנות שיתוף קטנות ומתוחכמות, קוקטיילים מעולים ואווירה צעירה ותוססת שמתאימה מאוד למשפחה.</td>
+                        <td><span class="booking-tag tag-required">מומלץ מספר ימים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cantinho do Avillez</td>
+                        <td>מטבח פורטוגזי מודרני</td>
+                        <td>הגרסה הנגישה והנינוחה של השף המפורסם ז'וזה אבילז בלב קשקאיש. מנות קלאסיות בפרשנות מודרנית קלילה ובאווירה ביתית מעוצבת.</td>
+                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">סינטרה וליסבון</td>
+                        <td>Tascantiga</td>
+                        <td>טאפאס פורטוגזי (Petiscos)</td>
+                        <td>ממוקמת בלב סינטרה העתיקה, מקום מושלם לארוחת צהריים משפחתית קלילה, מהירה וטעימה להפליא עם מנות שילדים אוהבים.</td>
+                        <td><span class="booking-tag tag-none">אין הזמנות (מגיעים וממתינים)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Midori</td>
+                        <td>יפני עילית (כוכב מישלן)</td>
+                        <td>מסעדת המישלן היפנית העתיקה בפורטוגל, ממוקמת בריזורט פנא לונגה הסמוך. שילוב מדהים בין חומרי גלם פורטוגזיים לטכניקה יפנית עילית.</td>
+                        <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td>Belcanto</td>
+                        <td>מטבח פורטוגזי עילית (2 כוכבים)</td>
+                        <td>מסעדת הדגל של השף ז'וזה אבילז בליסבון (מדורגת בין ה-50 הטובות בעולם). מסע קולינרי יצירתי, היסטורי ותרבותי בפורטוגל.</td>
+                        <td><span class="booking-tag tag-required">חובה 2-3 חודשים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" style="font-weight: bold; background: #fdfefe;">קרוואיירו (תחנה 2)</td>
+                        <td>The One Restaurant</td>
+                        <td>ים-תיכוני קלאסי</td>
+                        <td>מסעדת המלון של ריזורט טיבולי, מציעה חוויה אלגנטית המשקיפה ישירות על תצורות הסלעים של קרוואיירו. דגש על יינות מקומיים ובשרים מעולים.</td>
+                        <td><span class="booking-tag tag-required">מומלץ מספר ימים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bon Bon</td>
+                        <td>מטבח אלגארבי מודרני (מישלן)</td>
+                        <td>חוויה קולינרית מתוחכמת המבוססת על טעמי האוקיינוס והמסורת של דרום פורטוגל, עם הגשה אמנותית ושירות מוקפד.</td>
+                        <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" style="font-weight: bold; background: #fdfefe;">אלבופיירה (תחנה 3)</td>
+                        <td>Vila Joya</td>
+                        <td>מטבח עילית אירופאי (2 כוכבים)</td>
+                        <td>נחשבת לאחת החוויות הקולינריות המפוארות ביותר בדרום אירופה. שולחנות מול הים, תפריט הפתעה קבוע של השף דיטר קושינה וחוויה בלתי נשכחת.</td>
+                        <td><span class="booking-tag tag-required">חובה 2-3 חודשים מראש!</span></td>
+                    </tr>
+                    <tr>
+                        <td>Vila Joya Sea</td>
+                        <td>בר-מסעדה אסיאתי / פיוז'ן</td>
+                        <td>גרסת החוף והסושי הנינוחה והפתוחה של וילה ג'ויה. ממוקמת ממש על החול, מציעה סושי טרי, דגים בגריל ואווירת חוף אקסקלוסיבית בשקיעה.</td>
+                        <td><span class="booking-tag tag-required">מומלץ 2-3 שבועות מראש</span></td>
+                    </tr>
+                    <tr>
+                        <td>Oliveira Dourada</td>
+                        <td>פורטוגזי מסורתי משפחתי</td>
+                        <td>מסעדה משפחתית חמה ומוערכת מאוד באזור אלבופיירה. מנות נדיבות של בשרים, קטפלנה (קדירת פירות ים מסורתית) ויחס אישי נפלא.</td>
+                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="appendix-todo" class="section-wrapper">
+            <div class="appendix-title" style="background: linear-gradient(90deg, #27ae60, #2ecc71);">נספח ב׳: טבלת משימות, כרטיסים ולוגיסטיקה (דינמית)</div>
+            <p style="font-size: 14px; margin-top: 10px; color: #555;">
+                ℹ️ המערכת מעדכנת את הסטטוסים והספירה לאחור בזמן אמת על בסיס התאריך הנוכחי, לקראת יציאתכם ב-<strong>02 באוגוסט 2026</strong>.
+            </p>
+            
+            <table class="responsive-table todo-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">חלון זמן מומלץ</th>
+                        <th style="width: 25%;">המשימה ופרטי הביצוע</th>
+                        <th style="width: 40%;">דגשים חשובים ויעדים רלוונטיים בטיול</th>
+                        <th style="width: 15%;">סטטוס דינמי</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-tbody">
+                    <tr data-days-before="75">
+                        <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (מוקדם)</td>
+                        <td>השכרת רכב משפחתי (ליסבון)</td>
+                        <td>הזמנת רכב מרווח (סטיישן/SUV) עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה (כגון <a href="https://www.sixt.com/" target="_blank" class="task-link">Sixt</a> או <a href="https://www.hertz.com/" target="_blank" class="task-link">Hertz</a>) הכללת מכשיר כבישי אגרה (Via Verde).</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="75">
+                        <td style="font-weight: bold;">3 חודשים מראש</td>
+                        <td>הזמנת מסעדות שף (2 כוכבים)</td>
+                        <td>חובה להזמין מקומות בהקדם עבור <a href="https://www.vilajoya.com/" target="_blank" class="task-link">Vila Joya</a> (יום 14) ומסעדת <a href="https://belcanto.pt/" target="_blank" class="task-link">Belcanto בליסבון</a> (יום 4).</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="60">
+                        <td style="font-weight: bold;">2 חודשים מראש</td>
+                        <td>הזמנת מסעדות מישלן ובוטיק נוספות</td>
+                        <td>פתיחת חלונות ההזמנה עבור מסעדת <a href="https://www.midorisintra.com/" target="_blank" class="task-link">Midori היפנית</a> (יום 3) ומסעדת <a href="https://www.bonbon.pt/" target="_blank" class="task-link">Bon Bon בקרוואיירו</a> (יום 9).</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="30">
+                        <td style="font-weight: bold;">חודש 1 מראש</td>
+                        <td>רכישת כרטיסים קבועי זמן לסינטרה</td>
+                        <td><strong>ארמון פנה:</strong> חובה לרכוש כרטיסים לשעה ספציפית מראש באתר הרשמי של <a href="https://www.parquesdesintra.pt/" target="_blank" class="task-link">Parques de Sintra</a> (מומלץ ל-09:30).</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="30">
+                        <td style="font-weight: bold;">חודש 1 מראש</td>
+                        <td>סגירת השייט הפרטי ביאכטה (וילמורה)</td>
+                        <td>תיאום סירת יאכטה פרטית משפחתית לשקיעה ב-Vilamoura Marina (יום 12) מול חברות השכרה כגון <a href="https://www. therealyachtcharter.com/" target="_blank" class="task-link">Vilamoura Yacht Charter</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="21">
+                        <td style="font-weight: bold;">2-3 שבועות מראש</td>
+                        <td>הזמנת פארק מים ושייט שמורות טבע</td>
+                        <td>רכישת כרטיסים ל-<a href="https://www.zoomarine.pt/en/" target="_blank" class="task-link">Zoomarine Algarve</a> (יום 11), שייט למערת בנאג'יל, ושייט קטמרן ומסעדה בשמורת <a href="https://www.algarve-maritime.com/" target="_blank" class="task-link">Ria Formosa</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="14">
+                        <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (שבועיים)</td>
+                        <td>ביטוח נסיעות לחו"ל לכל המשפחה</td>
+                        <td>הפעלת פוליסת ביטוח בריאות ומטען מורחבת (כולל כיסוי ספורט אתגרי/ימי במידה ועושים גלישה או קיאקים באלגארב). ניתן לבצע דרך חברות הביטוח המובילות או חברות האשראי.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="10">
+                        <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (שבוע+)</td>
+                        <td>חבילות סלולר ותקשורת (eSIM)</td>
+                        <td>רכישת כרטיסי <a href="https://www.airalo.com/" target="_blank" class="task-link">Airalo eSIM</a> או חבילות חו"ל דרך המפעיל המקומי בישראל כדי להבטיח ניווט רציף בדרכים (Waze / Google Maps).</td>
+                        <td class="status-cell">Mחשב...</td>
+                    </tr>
+                    <tr data-days-before="7">
+                        <td style="font-weight: bold;">שבוע 1 מראש</td>
+                        <td>כרטיסים מקוצרים למנזר ג'רונימוס</td>
+                        <td>רכישת כרטיסים דיגיטליים ל-<a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="task-link">Mosteiro dos Jerónimos</a> (יום 4) כדי לדלג על תורי הענק בקופות.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="0">
+                        <td style="font-weight: bold;">ביום הנחיתה</td>
+                        <td>אימות מכשיר אגרה לרכב (Via Verde)</td>
+                        <td>בזמן קבלת הרכב בשדה, ודא פיזית מול נציג חברת ההשכרה שרכיב ה-<strong>Via Verde</strong> מופעל ומקושר לכרטיס האשראי שלכם למניעת קנסות רטרואקטיביים.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // תאריך היעד של הטיול: 02 לאוגוסט 2026
+            const tripDate = new Date(2026, 7, 2); 
+            
+            // תאריך נוכחי (היום)
+            const today = new Date();
+            
+            // חישוב הפרש הימים
+            const timeDiff = tripDate.getTime() - today.getTime();
+            const daysUntilTrip = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            
+            // סריקת שורות הטבלה ועדכון סטטוס
+            const rows = document.querySelectorAll("#todo-tbody tr");
+            
+            rows.forEach(row => {
+                const daysBeforeRequired = parseInt(row.getAttribute("data-days-before"));
+                const statusCell = row.querySelector(".status-cell");
+                
+                if (daysUntilTrip < 0) {
+                    statusCell.innerHTML = '<span class="status-badge status-done">הטיול החל ✈️</span>';
+                } else if (daysUntilTrip <= daysBeforeRequired) {
+                    if (daysBeforeRequired === 0) {
+                        statusCell.innerHTML = '<span class="status-badge status-action">לבצע בנחיתה 🚗</span>';
+                    } else if (daysUntilTrip < daysBeforeRequired - 10) {
+                        statusCell.innerHTML = '<span class="status-badge status-critical">באיחור קל! 🚨</span>';
+                    } else {
+                        statusCell.innerHTML = '<span class="status-badge status-critical">לבצע עכשיו! 🔥</span>';
+                    }
+                } else if (daysUntilTrip <= daysBeforeRequired + 14) {
+                    statusCell.innerHTML = '<span class="status-badge status-action">להתכונן לסגירה ⏳</span>';
+                } else {
+                    statusCell.innerHTML = '<span class="status-badge status-upcoming">עוד ' + (daysUntilTrip - daysBeforeRequired) + ' ימים 🗓️</span>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
