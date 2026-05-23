@@ -125,6 +125,7 @@
             vertical-align: top;
             font-size: 15px;
             line-height: 1.5;
+            text-align: right;
         }
 
         .day-badge {
@@ -144,7 +145,6 @@
             margin-top: 4px;
         }
 
-        /* לינקים של מפות גוגל - כחול קלאסי עם אייקון */
         .map-link {
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: #1a73e8;
@@ -157,7 +157,6 @@
             text-decoration: underline;
         }
 
-        /* לינקים של הזמנת כרטיסים ואתרים רשמיים - כתום */
         .ticket-link {
             color: #e67e22;
             text-decoration: underline;
@@ -193,9 +192,9 @@
         .highlight-box {
             background-color: #fff9db;
             border-right: 4px solid #f59f00;
-            padding: 6px 10px;
-            margin: 8px 0;
-            border-radius: 0 4px 4px 0;
+            padding: 8px 12px;
+            margin: 10px 0;
+            border-radius: 4px 0 0 4px;
             font-size: 14px;
         }
 
@@ -292,7 +291,7 @@
 
     <header>
         <h1>תוכנית חופשת קיץ משפחתית - פורטוגל 2026</h1>
-        <p>גרסת אתר משולבת | ניווט במפות Google Maps 📍 ורכישת כרטיסים רשמית 🎫</p>
+        <p>גרסה 2.3 מעודכנת | סיור מודרך בליסבון 🗺️ ונסיעה נופית באראבידה 🏞️</p>
     </header>
 
     <div class="container">
@@ -305,6 +304,7 @@
             <button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});">נספח משימות ולוגיסטיקה</button>
         </div>
 
+        <!-- STATION 1 -->
         <div id="station1" class="section-wrapper">
             <div class="station-header">
                 תחנה 1: קשקאיש וסינטרה | לינה: 
@@ -357,10 +357,14 @@
                             <span class="day-badge">יום 4</span>
                             <span class="date-text">05.08 (ד')</span>
                         </td>
-                        <td data-label="מוקד פעילות">Lisbon (Belém)</td>
-                        <td data-label="פירוט פעילויות וסדר יום">יום ייעודי ברובע בלם בליסבון: ביקור ב-<a href="https://maps.google.com/?q=Jerónimos+Monastery+Lisbon" target="_blank" class="map-link">Mosteiro dos Jerónimos 📍</a>, תצפית על <a href="https://maps.google.com/?q=Belém+Tower+Lisbon" target="_blank" class="map-link">Belém Tower 📍</a> ומוזיאון הכרכרות החווייתי <a href="https://maps.google.com/?q=Museu+Nacional+dos+Coches+Lisbon" target="_blank" class="map-link">Museu Nacional dos Coches 📍</a>.</td>
-                        <td data-label="המלצות קולינריה">מאפה חם ומסורתי ב-<a href="https://maps.google.com/?q=Pastéis+de+Belém+Lisbon" target="_blank" class="map-link">Pastéis de Belém 📍</a>.<br>ערב חגיגי: <a href="https://maps.google.com/?q=Belcanto+Lisbon" target="_blank" class="map-link">Belcanto 📍</a>.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה ברכב או ברכבת החופים מ-<a href="https://maps.google.com/?q=Estoril+Station" target="_blank" class="map-link">Estoril Station 📍</a>.<br><span class="booking-tag tag-required">מומלץ להזמין שבוע מראש</span><a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">אתר מנזר ג'רונימוס 🎫</a></td>
+                        <td data-label="מוקד פעילות">Lisbon Highlights & Belém</td>
+                        <td data-label="פירוט פעילויות וסדר יום">
+                            <strong>09:30 - 12:30: סיור רגלי מודרך בעברית</strong> בשכונות החובה הקלאסיות של ליסבון העתיקה: <a href="https://maps.google.com/?cid=13263780347189215064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">Chiado 📍</a>, באירו אלטו, באיישה, ואלפמה.<br>
+                            <strong>12:30 - 14:00:</strong> הפסקת צהריים קלה וזמן חופשי באזור <a href="https://www.google.com/maps/contrib/102461149674322588021/reviews" target="_blank" class="map-link">Praça do Comércio 📍</a>.<br>
+                            <strong>14:15 - 17:30: המשך עצמאי לרובע בלם</strong> - ביקור בתוך מנזר ג'רונימוש המרהיב <a href="https://maps.google.com/?q=Jerónimos+Monastery+Lisbon" target="_blank" class="map-link">Mosteiro dos Jerónimos 📍</a> (עם כרטיסי דילוג על התור), תצפית על אנדרטת המגלים ועל מגדל בלם <a href="https://maps.google.com/?q=Belém+Tower+Lisbon" target="_blank" class="map-link">Belém Tower 📍</a>.
+                        </td>
+                        <td data-label="המלצות קולינריה">צהריים: נשנושים בשוק או בכיכר קומרסיו.<br>אחה"צ: מאפה חם ב-<a href="https://maps.google.com/?q=Pastéis+de+Belém+Lisbon" target="_blank" class="map-link">Pastéis de Belém 📍</a>.<br>ערב חגיגי: מסעדת 2 כוכבי מישלן <a href="https://maps.google.com/?q=Belcanto+Lisbon" target="_blank" class="map-link">Belcanto 📍</a>.</td>
+                        <td data-label="תחבורה וכרטיסים">חניית הרכב בחניון תת-קרקעי במרכז ליסבון (אזור רוסיו) ונסיעה קצרה מערבה לבלם.<br><span class="booking-tag tag-required">חובה להזמין מראש:</span><a href="https://portugo.co.il/tour/lisbon-tour" target="_blank" class="ticket-link">הרשמה לסיור בעברית 🎫</a><br><a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">אתר מנזר ג'רונימוס 🎫</a></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -368,7 +372,7 @@
                             <span class="date-text">06.08 (ה')</span>
                         </td>
                         <td data-label="מוקד פעילות">Cabo da Roca & Ericeira</td>
-                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לתצפית מצוקי <a href="https://maps.google.com/?q=Cabo+da+Roca" target="_blank" class="map-link">Cabo da Roca 📍</a>, והמשך צפונה לעיירת החוף האסתטית מהסרטון – <a href="https://maps.google.com/?q=Ericeira" target="_blank" class="map-link">Ericeira 📍</a> ולחוף המוסדר הרחב <a href="https://maps.google.com/?q=Praia+da+Foz+do+Lizandro" target="_blank" class="map-link">Praia da Foz do Lizandro 📍</a>.</td>
+                        <td data-label="פירוט פעילויות וסדר יום">נסיעה לתצפית מצוקי <a href="https://maps.google.com/?q=Cabo+da+Roca" target="_blank" class="map-link">Cabo da Roca 📍</a>, והמשך צפונה לעיירת החוף האסתטית – <a href="https://maps.google.com/?q=Ericeira" target="_blank" class="map-link">Ericeira 📍</a> ולחוף המוסדר הרחב <a href="https://maps.google.com/?q=Praia+da+Foz+do+Lizandro" target="_blank" class="map-link">Praia da Foz do Lizandro 📍</a>.</td>
                         <td data-label="המלצות קולינריה">צהריים: סושי ודגים טריים ב-<a href="https://maps.google.com/?q=Uni+Sushi+Ericeira" target="_blank" class="map-link">Uni Sushi 📍</a>.</td>
                         <td data-label="תחבורה וכרטיסים">נהיגה עצמית בכביש החוף הנופי N247.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
@@ -376,10 +380,11 @@
             </table>
         </div>
 
+        <!-- STATION 2 -->
         <div id="station2" class="section-wrapper">
             <div class="station-header">
                 תחנה 2: קרוואיירו וחופי הצוקים | לינה: 
-                <a href="https://maps.google.com/?q=Tivoli+Carvoeiro+Algarve+Resort" target="_blank">Tivoli Carvoeiro Algarve Resort ↗ 📍</a>
+                <a href="https://maps.google.com/?q=Tivoli+Carvoeiro+Algarve+Resort" target="_blank">Tivoli Carvoeiro Algarve Resort 📍</a>
             </div>
             
             <table class="responsive-table">
@@ -398,10 +403,15 @@
                             <span class="day-badge">יום 6</span>
                             <span class="date-text">07.08 (ו')</span>
                         </td>
-                        <td data-label="מוקד פעילות">Travel South & Évora</td>
-                        <td data-label="פירוט פעילויות וסדר יום">צ'ק אאוט ונסיעה דרומה לכיוון האלגארב. במהלך הנסיעה <strong>חציית הגשר התלוי האדום המפורסם <a href="https://maps.google.com/?q=Ponte+25+de+Abril+Lisbon" target="_blank" class="map-link">Ponte 25 de Abril 📍</a> ברכב</strong>. עצירה בעיירה ההיסטורית <a href="https://maps.google.com/?q=Evora+Portugal" target="_blank" class="map-link">Évora 📍</a> לביקור בקפלת העצמות המיוחדת <a href="https://maps.google.com/?q=Chapel+of+Bones+Evora" target="_blank" class="map-link">Chapel of Bones 📍</a>.</td>
-                        <td data-label="המלצות קולינריה">צהריים: אוכל מסורתי וחם באבורה ב-<a href="https://maps.google.com/?q=Taberna+Tipica+Quarta-Feira+Evora" target="_blank" class="map-link">Taberna Típica Quarta-Feira 📍</a>.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה ארוכה בכביש A2. שימוש ב-Via Verde.<br><span class="booking-tag tag-none">כרטיסים לקפלה קונים במקום</span></td>
+                        <td data-label="מוקד פעילות">Travel South via Arrábida</td>
+                        <td data-label="פירוט פעילויות וסדר יום">
+                            צ'ק אאוט ונסיעה דרומה במסלול נופי מרהיב: <strong>חציית הגשר האדום <a href="https://maps.google.com/?q=Ponte+25+de+Abril+Lisbon" target="_blank" class="map-link">Ponte 25 de Abril 📍</a></strong> ועצירה לתצפית משפחתית למרגלות פסל ישו <a href="https://maps.app.goo.gl/P8Z8K6gX9V6U8m9A72" target="_blank" class="map-link">Cristo Rei 📍</a>. המשך לעיירה <a href="https://maps.google.com/?q=Evora+Portugal" target="_blank" class="map-link">Azeitão 📍</a> לביקור קצר וסדנת אריחים פורטוגליים בעבודת יד ב-<a href="https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tkV1lsRnphMFo1WlRjMGIwdFBjbFpITkhOMVgyYxAB!2m1!1s0xd1ec3f55d7085ff:0xb81269f385053f58" target="_blank" class="map-link">Azulejos de Azeitão 📍</a>. נסיעה דרך כביש רכס ההרים של שמורת הטבע <a href="https://maps.google.com/?q=Carvoeiro+Boardwalk" target="_blank" class="map-link">Serra da Arrábida 📍</a> וירידה לעיירת הדייגים הנושקת לים <a href="https://www.google.com/maps/contrib/117268155628411954122/reviews" target="_blank" class="map-link">Sesimbra 📍</a>. המשך נסיעה רציפה דרומה לאלגארב.
+                            <div class="highlight-box">
+                                🔄 <strong>אפשרות גיבוי (התוכנית המקורית):</strong> נסיעה ישירה דרומה בכביש המהיר A2 עם עצירה של שעתיים בעיירה ההיסטורית <a href="https://maps.google.com/?q=Evora+Portugal" target="_blank" class="map-link">Évora 📍</a> לביקור בקפלת העצמות המיוחדת <a href="https://maps.google.com/?q=Chapel+of+Bones+Evora" target="_blank" class="map-link">Chapel of Bones 📍</a> וארוחת צהריים ב-<a href="https://maps.google.com/?q=Taberna+Tipica+Quarta-Feira+Evora" target="_blank" class="map-link">Taberna Típica Quarta-Feira 📍</a>.
+                            </div>
+                        </td>
+                        <td data-label="המלצות קולינריה">צהריים: דגים טריים על הגריל מול הים בסזימברה (או בטברנה המקורית באבורה במידה ובחרתם בגיבוי).</td>
+                        <td data-label="תחבורה וכרטיסים">שימוש ב-Via Verde ברכב למעבר חלק בכבישי האגרה ובגשרים.<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
                     <tr>
                         <td data-label="יום ותאריך">
@@ -419,7 +429,7 @@
                             <span class="date-text">09.08 (א')</span>
                         </td>
                         <td data-label="מוקד פעילות">Lagos & Sagres</td>
-                        <td data-label="פירוט פעילויות וסדר יום">טיול יום מערבה: תצפית צוקי זהב מרהיבה ב-<a href="https://maps.google.com/?q=Ponta+da+Piedade+Lagos" target="_blank" class="map-link">Ponta da Piedade 📍</a> והמשך למבצר של סגרש <a href="https://maps.google.com/?q=Sagres+Fortress" target="_blank" class="map-link">Sagres Fortress 📍</a> לתצפית שקיעה ב"סוף העולם".</td>
+                        <td data-label="פירוט פעילויות וסדר יום">הליכה על גבי צוקי זהב מרהיבה ב-<a href="https://maps.google.com/?q=Ponta+da+Piedade+Lagos" target="_blank" class="map-link">Ponta da Piedade 📍</a> והמשך למבצר של סגרש <a href="https://maps.google.com/?q=Sagres+Fortress" target="_blank" class="map-link">Sagres Fortress 📍</a> לתצפית שקיעה ב"סוף העולם".</td>
                         <td data-label="המלצות קולינריה">צהריים: דגים טריים בלאגוש ב-<a href="https://maps.google.com/?q=Casinha+do+Petisco+Lagos" target="_blank" class="map-link">Casinha do Petisco 📍</a>.</td>
                         <td data-label="תחבורה וכרטיסים">נסיעה מערבה על כביש A22 (כ-45 דקות).<br><span class="booking-tag tag-none">אין צורך בכרטיסים מראש</span></td>
                     </tr>
@@ -437,10 +447,11 @@
             </table>
         </div>
 
+        <!-- STATION 3 -->
         <div id="station3" class="section-wrapper">
             <div class="station-header">
                 תחנה 3: אלבופיירה ונופש יוקרתי | לינה: 
-                <a href="https://maps.google.com/?q=EPIC+SANA+Algarve+Hotel" target="_blank">EPIC SANA Algarve Hotel ↗ 📍</a>
+                <a href="https://maps.google.com/?q=EPIC+SANA+Algarve+Hotel" target="_blank">EPIC SANA Algarve Hotel 📍</a>
             </div>
             
             <table class="responsive-table">
@@ -497,7 +508,7 @@
                     <tr>
                         <td data-label="יום ותאריך">
                             <span class="day-badge">יום 14</span>
-                            <span class="date-text">15.08 (ש')</span>
+                            <span class="date-text">15.08 (ו')</span>
                         </td>
                         <td data-label="מוקד פעילות">Praia da Falésia Luxury Beach Day</td>
                         <td data-label="פירוט פעילויות וסדר יום">יום נופש ובטן-גב מלא בחוף הצמוד ישירות לריזורט – <a href="https://maps.google.com/?q=Praia+da+Falesia" target="_blank" class="map-link">Praia da Falésia 📍</a>. אחד החופים המרשימים באירופה, מוסדר עם מיטות שיזוף ושמשיות.</td>
@@ -512,12 +523,13 @@
                         <td data-label="מוקד פעילות">Departure</td>
                         <td data-label="פירוט פעילויות וסדר יום">ארוחת בוקר, צ'ק-אאוט ונסיעה ישירה חזרה צפונה לכיוון שדה התעופה של ליסבון, החזרת הרכב וטיסה לישראל.</td>
                         <td data-label="המלצות קולינריה">ארוחת בוקר במלון ונשנושי דרך בנסיעה.</td>
-                        <td data-label="תחבורה וכרטיסים">נסיעה רציפה של כ-2.5 שעות על כביש האוטוסטרדה המהיר A2 צפונה.<br><span class="booking-tag tag-none">טיסה הביתה</span></td>
+                        <td data-label="תחבורה וכרטיסים">נסיעה רציעה של כ-2.5 שעות על כביש האוטוסטרדה המהיר A2 צפונה.<br><span class="booking-tag tag-none">טיסה הביתה</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- APPENDIX A: FOOD -->
         <div id="appendix-food" class="section-wrapper">
             <div class="appendix-title">נספח א׳: מדריך קולינריה מורחב ומפת מסעדות לפי אזורים</div>
             
@@ -532,6 +544,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Cascais Area -->
                     <tr>
                         <td rowspan="4" style="font-weight: bold; background: #fdfefe;">קשקאיש ואסטוריל (תחנה 1)</td>
                         <td><a href="https://maps.google.com/?q=Mar+do+Inferno+Cascais" target="_blank" class="map-link">Mar do Inferno 📍</a></td>
@@ -552,12 +565,13 @@
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
                     <tr style="background-color: #fcf3cf;">
-                        <td><a href="https://maps.google.com/?q=Furnas+do+Guincho+Cascais" target="_blank" class="map-link">Furnas do Guincho 🌟 (גיבוי) 📍</a></td>
+                        <td><a href="https://maps.google.com/?q=Furnas+do+Guincho+Cascais" target="_blank" class="map-link">Furnas do Guincho 📍</a></td>
                         <td>דגים ופירות ים עילית</td>
-                        <td><strong>מסעדת גיבוי יוקרתית מומלצת באזור:</strong> בנויה ממש על קו המים בדרך לחוף Guincho. חוויה קולינרית יוצאת מן הכלל עם מרפסת צמודה לגלים.</td>
+                        <td><strong>מסעת גיבוי יוקרתית מומלצת באזור:</strong> בנויה ממש על קו המים בדרך לחוף Guincho. חוויה קולינרית יוצאת מן הכלל עם מרפסת צמודה לגלים.</td>
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
 
+                    <!-- Sintra & Lisbon Area -->
                     <tr>
                         <td rowspan="4" style="font-weight: bold; background: #fdfefe;">סינטרה וליסבון</td>
                         <td><a href="https://maps.google.com/?q=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a></td>
@@ -568,27 +582,28 @@
                     <tr>
                         <td><a href="https://maps.google.com/?q=Midori+Sintra" target="_blank" class="map-link">Midori 📍</a></td>
                         <td>יפני עילית (כוכב מישלן)</td>
-                        <td>מסעדת המישלן היפנית העתיקה בפורטוגל, ממוקמת בריזורט פנא לונגה הסמוך. שילוב מדהים בין חומרי גלם פורטוגזיים לטכניקה יפנית עילית.</td>
+                        <td>מסעת המישלן היפנית העתיקה בפורטוגל, ממוקמת בריזורט פנא לונגה הסמוך. שילוב מדהים בין חומרי גלם פורטוגזיים לטכניקה יפנית עילית.</td>
                         <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
                     </tr>
                     <tr>
                         <td><a href="https://maps.google.com/?q=Belcanto+Lisbon" target="_blank" class="map-link">Belcanto 📍</a></td>
                         <td>מטבח פורטוגזי עילית (2 כוכבים)</td>
-                        <td>מסעדת הדגל של השף ז'וזה אבילז בליסבון (מדורגת בין ה-50 הטובות בעולם). מסע קולינרי יצירתי, היסטורי ותרבותי בפורטוגל.</td>
+                        <td>מסעת הדגל של השף ז'וזה אבילז בליסבון (מדורגת בין ה-50 הטובות בעולם). מסע קולינרי יצירתי, היסטורי ותרבותי בפורטוגל.</td>
                         <td><span class="booking-tag tag-required">חובה 2-3 חודשים מראש</span></td>
                     </tr>
                     <tr style="background-color: #fcf3cf;">
-                        <td><a href="https://maps.google.com/?q=Incomum+by+Luis+Santos+Sintra" target="_blank" class="map-link">Incomum 🌟 (גיבוי סינטרה) 📍</a></td>
+                        <td><a href="https://maps.google.com/?q=Incomum+by+Luis+Santos+Sintra" target="_blank" class="map-link">Incomum 📍</a></td>
                         <td>ים-תיכוני מודרני</td>
-                        <td><strong>מסעדת גיבוי מעולה בסינטרה:</strong> שף לואיס סנטוס מציע מטבח אלגנטי, מנות בשר ודגים מעולות באווירה פחות מחייבת ממישלן אך ברמה גבוהה מאוד.</td>
+                        <td><strong>מסעת גיבוי מעולה בסינטרה:</strong> שף לואיס סנטוס מציע מטבח אלגנטי, מנות בשר ודגים מעולות באווירה פחות מחייבת ממישלן אך ברמה גבוהה מאוד.</td>
                         <td><span class="booking-tag tag-required">מומלץ 3-4 ימים מראש</span></td>
                     </tr>
 
+                    <!-- Central Algarve Area -->
                     <tr>
                         <td rowspan="3" style="font-weight: bold; background: #fdfefe;">קרוואיירו וסילבש (תחנה 2)</td>
                         <td><a href="https://maps.google.com/?q=The+One+Restaurant+Tivoli+Carvoeiro" target="_blank" class="map-link">The One Restaurant 📍</a></td>
                         <td>ים-תיכוני קלאסי</td>
-                        <td>מסעדת המלון של ריזורט טיבולי, מציעה חוויה אלגנטית המשקיפה ישירות על תצורות הסלעים של קרוואיירו. דגש על יינות מקומיים ובשרים מעולים.</td>
+                        <td>מסעת המלון של ריזורט טיבולי, מציעה חוויה אלגנטית המשקיפה ישירות על תצורות הסלעים של קרוואיירו. דגש על יינות מקומיים ובשרים מעולים.</td>
                         <td><span class="booking-tag tag-required">מומלץ מספר ימים מראש</span></td>
                     </tr>
                     <tr>
@@ -598,12 +613,13 @@
                         <td><span class="booking-tag tag-required">חובה 1-2 חודשים מראש</span></td>
                     </tr>
                     <tr style="background-color: #fcf3cf;">
-                        <td><a href="https://maps.google.com/?q=Le+Cro+Carvoeiro" target="_blank" class="map-link">Le Cro ✨ (גיבוי קרוואיירו) 📍</a></td>
+                        <td><a href="https://maps.google.com/?q=Le+Cro+Carvoeiro" target="_blank" class="map-link">Le Cro 📍</a></td>
                         <td>טאפאס ויין בר</td>
                         <td><strong>גיבוי אינטימי ופופולרי בקרוואיירו:</strong> מקום קטן ומקסים הידוע במנות טאפאס יצירתיות, אירוח חם וידידותי למשפחות ומבחר יינות מצוין.</td>
-                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש (מקום קטן)</span></td>
+                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
 
+                    <!-- Albufeira Area -->
                     <tr>
                         <td rowspan="4" style="font-weight: bold; background: #fdfefe;">אלבופיירה ווילמורה (תחנה 3)</td>
                         <td><a href="https://maps.google.com/?q=Vila+Joya+Albufeira" target="_blank" class="map-link">Vila Joya 📍</a></td>
@@ -620,19 +636,20 @@
                     <tr>
                         <td><a href="https://maps.google.com/?q=Oliveira+Dourada+Albufeira" target="_blank" class="map-link">Oliveira Dourada 📍</a></td>
                         <td>פורטוגזי מסורתי משפחתי</td>
-                        <td>מסעדה משפחתית חמה ומוערכת מאוד באזור אלבופיירה. מנות נדיבות של בשרים, קטפלנה (קדירת פירות ים מסורתית) ויחס אישי נפלא.</td>
+                        <td>מסעה משפחתית חמה ומוערכת מאוד באזור אלבופיירה. מנות נדיבות של בשרים, קטפלנה (קדירת פירות ים מסורתית) ויחס אישי נפלא.</td>
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
                     <tr style="background-color: #fcf3cf;">
-                        <td><a href="https://maps.google.com/?q=Evaristo+Restaurant+Albufeira" target="_blank" class="map-link">Evaristo 🌟 (גיבוי) 📍</a></td>
+                        <td><a href="https://maps.google.com/?q=Evaristo+Restaurant+Albufeira" target="_blank" class="map-link">Evaristo 📍</a></td>
                         <td>דגים טריים על הגריל</td>
-                        <td><strong>מסעדת גיבוי איקונית:</strong> ממוקמת על חוף מבודד באלבופיירה. אין תפריט – ניגשים לדוכן, בוחרים דג שנדוג הבוקר, והם נצלים על גחלים. אווירה תוססת.</td>
+                        <td><strong>מסעת גיבוי איקונית:</strong> ממוקמת על חוף מבודד באלבופיירה. אין תפריט – ניגשים לדוכן, בוחרים דג שנדוג הבוקר, והם נצלים על גחלים. אווירה תוססת.</td>
                         <td><span class="booking-tag tag-required">מומלץ 2-3 שבועות מראש</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- APPENDIX B: DYNAMIC TODO & LOGISTICS TABLE -->
         <div id="appendix-todo" class="section-wrapper">
             <div class="appendix-title" style="background: linear-gradient(90deg, #27ae60, #2ecc71);">נספח ב׳: טבלת משימות, כרטיסים ולוגיסטיקה (דינמית)</div>
             <p style="font-size: 14px; margin-top: 10px; color: #555;">
@@ -652,7 +669,7 @@
                     <tr data-days-before="75">
                         <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (מוקדם)</td>
                         <td>השכרת רכב משפחתי (ליסבון)</td>
-                        <td>הזמנת רכב מרווח (סטיישן/SUV) עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה הכללת מכשיר כבישי אגרה (Via Verde).</td>
+                        <td>הזמנת רכב מרווח עם תא מטען גדול ל-4 נפשות. חובה לוודא בחברה הכללת מכשיר כבישי אגרה (Via Verde) לטובת יום המעבר והגשרים.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="75">
@@ -665,6 +682,12 @@
                         <td style="font-weight: bold;">2 חודשים מראש</td>
                         <td>הזמנת מסעדות מישלן ובוטיק נוספות</td>
                         <td>פתיחת חלונות ההזמנה עבור מסעדת <a href="https://www.midorisintra.com/" target="_blank" class="ticket-link">Midori היפנית 🎫</a> (יום 3) ומסעדת <a href="https://www.bonbon.pt/" target="_blank" class="ticket-link">Bon Bon בקרוואיירו 🎫</a> (יום 9).</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="30">
+                        <td style="font-weight: bold;">חודש 1 מראש</td>
+                        <td>הרשמה לסיור מודרך בעברית (ליסבון)</td>
+                        <td>שריינו את המקומות שלכם לסיור הקלאסי בבוקר של יום 4 על מנת להבטיח הדרכה בעברית בחלון הזמן המבוקש. <a href="https://portugo.co.il/tour/lisbon-tour" target="_blank" class="ticket-link">לינק רשמי להרשמה 🎫</a></td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="30">
@@ -688,7 +711,7 @@
                     <tr data-days-before="14">
                         <td style="font-weight: bold; color: #2c3e50;">לוגיסטיקה (שבועיים)</td>
                         <td>ביטוח נסיעות לחו"ל לכל המשפחה</td>
-                        <td>הפעלת פוליסת ביטוח בריאות ומטען מורחבת (כולל כיסוי ספורט אתגרי/ימי במידה ועושים גלישה או קיאקים באלגארב).</td>
+                        <td>הפעלת פוליסת ביטוח בריאות ומטען מורחבת הכוללת כיסוי מתאים לפעילויות ושייט באלגארב.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="10">
@@ -700,7 +723,7 @@
                     <tr data-days-before="7">
                         <td style="font-weight: bold;">שבוע 1 מראש</td>
                         <td>כרטיסים מקוצרים למנזר ג'רונימוס</td>
-                        <td>רכישת כרטיסים דיגיטליים ל-<a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">Mosteiro dos Jerónimos 🎫</a> (יום 4) כדי לדלג על תורי הענק בקופות.</td>
+                        <td>רכישת כרטיסים דיגיטליים ל-<a href="https://www.mosteirojeronimos.gov.pt/" target="_blank" class="ticket-link">Mosteiro dos Jerónimos 🎫</a> (אחה"צ של יום 4) על מנת לדלג על תורי הענק בקופות.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="0">
@@ -717,17 +740,10 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // תאריך היעד של הטיול: 02 לאוגוסט 2026
             const tripDate = new Date(2026, 7, 2); 
-            
-            // תאריך נוכחי (היום)
             const today = new Date();
-            
-            // חישוב הפרש הימים
             const timeDiff = tripDate.getTime() - today.getTime();
             const daysUntilTrip = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            
-            // סריקת שורות הטבלה ועדכון סטטוס
             const rows = document.querySelectorAll("#todo-tbody tr");
             
             rows.forEach(row => {
