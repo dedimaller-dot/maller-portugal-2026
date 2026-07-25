@@ -77,6 +77,9 @@
         .appendix-title{color:#fff;padding:16px 20px;border-radius:var(--radius);margin-top:44px;font-size:20px;font-weight:700;background:linear-gradient(90deg,#c2410c,#ea8c3c);box-shadow:var(--shadow)}
         #appendix-todo .appendix-title{background:linear-gradient(90deg,#6d28d9,#9d6bde)}
         #appendix-info .appendix-title{background:linear-gradient(90deg,#0f766e,#2aa79b)}
+        #appendix-changelog .appendix-title{background:linear-gradient(90deg,#475569,#7c8da3)}
+        .changelog{margin-top:14px}
+        .changelog details.deep-dive{background:#fff}
         #appendix-food .responsive-table,#appendix-todo .responsive-table{border-radius:var(--radius);box-shadow:var(--shadow);margin-top:14px}
         .status-badge{display:inline-block;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;text-align:center;min-width:110px}
         .status-critical{background:#fdeceb;color:#78281f;border:1px solid #f5b7b1}
@@ -93,6 +96,19 @@
         .parking-info{font-size:13px;background:#eef2f7;border-right:3px solid var(--primary-color);padding:6px 10px;border-radius:0 6px 6px 0;color:var(--primary-color);margin-top:6px;font-weight:600}
         .timeline-box{background:#f1f5f9;border-right:4px solid #64748b;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13.5px;color:#334155}
         .timeline-box strong{color:#0f172a}
+        details.deep-dive{margin:9px 0;border:1px solid #d8e3ec;border-radius:10px;background:#fbfdfe;overflow:hidden}
+        details.deep-dive>summary{cursor:pointer;padding:9px 13px;font-weight:700;font-size:13.5px;color:var(--primary-color);list-style:none;display:flex;align-items:center;gap:9px;user-select:none;-webkit-tap-highlight-color:transparent;transition:background .2s}
+        details.deep-dive>summary::-webkit-details-marker{display:none}
+        details.deep-dive>summary::marker{content:""}
+        details.deep-dive>summary::before{content:"▾";font-size:11px;color:var(--muted);transition:transform .25s;flex:none}
+        details.deep-dive>summary:hover{background:#edf4f9}
+        details.deep-dive[open]>summary{background:#edf4f9;border-bottom:1px solid #d8e3ec}
+        details.deep-dive[open]>summary::before{transform:rotate(180deg)}
+        .deep-dive-inner{padding:12px 14px;font-size:13.5px;line-height:1.7;color:#334155}
+        .dd-step{margin-bottom:9px;padding-bottom:9px;border-bottom:1px dashed #e8eef4}
+        .dd-step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+        .dd-warn{background:#fff9db;border-right:3px solid #f59f00;padding:8px 11px;border-radius:0 6px 6px 0;margin-top:10px;line-height:1.65}
+        .dd-warn.dd-stop{background:#fdeceb;border-right-color:#c0392b}
         .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:16px}
         .info-card{background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
         .info-card h3{margin:0 0 10px;color:var(--primary-color);font-size:16px}
@@ -135,7 +151,7 @@
             <span class="hero-chip countdown" id="hero-countdown">מחשב ימים…</span>
             <span class="hero-chip">🏨 3 תחנות לינה</span>
             <span class="hero-chip">🚗 רכב שכור Budget</span>
-            <span class="hero-chip">✈️ נחיתה 20:55 · המראה 22:15</span>
+            <span class="hero-chip">✈️ LY375 הלוך · LY376 חזור</span>
         </div>
     </header>
     <div class="container">
@@ -146,6 +162,7 @@
             <button class="nav-btn" onclick="document.getElementById('appendix-food').scrollIntoView({behavior: 'smooth'});">🍽️ קולינריה</button>
             <button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});">⏳ משימות</button>
             <button class="nav-btn" onclick="document.getElementById('appendix-info').scrollIntoView({behavior: 'smooth'});">🧳 מידע וציוד</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-changelog').scrollIntoView({behavior: 'smooth'});">📝 יומן</button>
         </div>
 
         <div class="global-controls">
@@ -182,7 +199,7 @@
                                         <div class="site-block">
                                             <div class="site-title">1. נחיתה ואיסוף רכב: <a href="https://www.google.com/maps/search/?api=1&query=Lisbon+Airport" target="_blank" class="map-link">Lisbon Airport 📍</a></div>
                                             <div class="site-meta">נחיתת לילה מתוזמנת בפורטוגל. מעבר ישיר למתחם חברות ההשכרה.</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** נחיתה ב-**20:55** זמן מקומי | **21:00 - 22:30** ביקורת דרכונים, איסוף מזוודות והתייצבות בדלפק ההשכרה. <strong>שימו לב:</strong> באוגוסט ביקורת הדרכונים בליסבון עלולה להתארך מעבר לשעה — מומלץ לעדכן מראש את Budget במספר הטיסה ואת המלון על הגעה מאוחרת (הקבלה פעילה 24/7).</div>
+                                            <div class="timeline-box">⏱️ **לו"ז משוער:** טיסה **LY375**, המראה 16:55 מנתב"ג טרמינל 3 | נחיתה ב-**20:55** זמן מקומי בטרמינל 1 בליסבון | **21:00 - 22:30** ביקורת דרכונים, איסוף מזוודות והתייצבות בדלפק ההשכרה. <strong>שימו לב:</strong> באוגוסט ביקורת הדרכונים בליסבון עלולה להתארך מעבר לשעה — מומלץ לעדכן מראש את Budget במספר הטיסה ואת המלון על הגעה מאוחרת (הקבלה פעילה 24/7).</div>
                                         </div>
                                         <div class="site-block">
                                             <div class="site-title">2. הגעה וצ'ק-אין לילה: <a href="https://www.google.com/maps/search/?api=1&query=Onyria+Marinha+Cascais+Boutique+Hotel" target="_blank" class="map-link">Onyria Marinha Boutique Hotel 📍</a></div>
@@ -218,12 +235,46 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 2</span><span class="date-text">03.08 (ב')</span></td>
                                     <td data-label="מוקד פעילות">Cabo da Roca & Cascais</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. תצפית: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+da+Roca" target="_blank" class="map-link">Cabo da Roca 📍</a></div><div class="timeline-box">⏱️ **09:45 - 10:45** סיור. חניה חופשית ב-<a href="https://www.google.com/maps/search/?api=1&query=Cabo+da+Roca+Parking" target="_blank" class="map-link">Cabo da Roca Parking 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. בילוי חוף: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Guincho" target="_blank" class="map-link">Praia do Guincho 📍</a></div><div class="timeline-box">⏱️ **11:00 - 15:30** בריכת חול וגולשים. חניה ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Praia+do+Guincho" target="_blank" class="map-link">Parque Guincho 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">3. סיור עומק: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Historic+Center" target="_blank" class="map-link">מרכז קשקאיש העתיק 📍</a></div><div class="site-route">צעידה ב-Rua Frederico Arouca, מפרץ <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Rainha+Cascais" target="_blank" class="map-link">Praia da Rainha 📍</a> ורחוב האוכל הצהוב <a href="https://www.google.com/maps/search/?api=1&query=Rua+Amarela+Cascais" target="_blank" class="map-link">Rua Amarela 📍</a>.</div><div class="timeline-box">⏱️ **17:45 - 20:15** סיור רגלי מקיף.</div><div class="parking-info">🚗 חניה חובה בחניון התת-קרקעי המאובטח: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a>.</div></div>
+                                        <div class="site-block">
+                                            <div class="site-title">1. הנקודה המערבית ביותר באירופה: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+da+Roca" target="_blank" class="map-link">Cabo da Roca 📍</a></div>
+                                            <div class="site-meta">צוק בגובה כ-140 מטר מעל האוקיינוס האטלנטי, בקצה המערבי של היבשת. הכניסה והחניה חינם.</div>
+                                            <details class="deep-dive">
+                                                <summary>מה עושים בשעה הזו? · 4 עצירות, אזהרות ומה לא לעשות</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">📸 <strong>1. אנדרטת הפדראו והצלב</strong> (5 דק' הליכה מהחניון) — עמוד האבן עם הכיתוב המפורסם של המשורר קמואש: <em>"כאן, במקום שבו הארץ נגמרת והים מתחיל"</em>. זו תמונת החובה המשפחתית — מומלץ לצלם מיד עם ההגעה, לפני שאוטובוסי התיירים נוחתים סביב 11:00.</div>
+                                                    <div class="dd-step">🚶 <strong>2. שביל התצפית הצפוני</strong> (15-20 דק') — שביל עפר מישורי וקל לאורך קו הצוק צפונה מהאנדרטה. אחרי 5 דקות מגיעים לנקודות תצפית פתוחות עם המבט היפה ביותר על המגדלור והמצוקים, בלי ההמון שנשאר צמוד לחניון.</div>
+                                                    <div class="dd-step">🔦 <strong>3. המגדלור (Farol do Cabo da Roca)</strong> — מגדלור מ-1772, מהוותיקים בפורטוגל, שאורו נראה עד 46 ק"מ בלב ים. סגור לביקור פנימי — עצירת צילום חיצונית קצרה.</div>
+                                                    <div class="dd-step">🎓 <strong>4. תעודת הביקור הרשמית</strong> — במשרד התיירות שבמקום קונים תעודה מוחתמת בשם הילד, המאשרת שביקר בנקודה המערבית ביותר באירופה (כ-11€ לתעודה). מזכרת מנצחת לעידן ונוגה. במקום יש גם חנות מזכרות, בית קפה קטן ושירותים — כדאי לנצל לפני היציאה לחוף.</div>
+                                                    <div class="dd-warn">⚠️ <strong>שתי אזהרות:</strong> (1) הרוח כאן חזקה מאוד גם באמצע אוגוסט וגם ביום חם — קחו שכבה קלה מהרכב והחזיקו כובעים ומשקפיים. (2) חלקים מקצה הצוק אינם מגודרים והנפילה חדה — לשמור על עידן ונוגה קרוב, ולא לחצות גדרות וחבלים.</div>
+                                                    <div class="dd-warn dd-stop">❌ <strong>מה לא לעשות:</strong> השביל היורד ל-Praia da Ursa מתחיל כאן ומפתה מאוד בתמונות — אך זו ירידה תלולה של 30-40 דקות לכל כיוון, בקטעים חשופים עם חבלי עזר, שדורשת נעלי הליכה ומפרקת את כל לוח הזמנים של היום.</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ **09:45 - 10:45** סיור. יציאה מהמלון ב-09:20 (כ-25 דקות נסיעה על N247). הגעה מוקדמת = חניה זמינה וצילומים בלי המון.</div>
+                                            <div class="parking-info">🚗 חניה חופשית וחינמית ברחבת הכניסה: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+da+Roca+Parking" target="_blank" class="map-link">Cabo da Roca Parking 📍</a>. הרחבה מתמלאת מ-11:00 עם הגעת אוטובוסי התיירים.</div>
+                                        </div>
+                                        <div class="site-block"><div class="site-title">2. בילוי חוף: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Guincho" target="_blank" class="map-link">Praia do Guincho 📍</a></div><div class="timeline-box">⏱️ **11:00 - 15:30** בריכת חול וגולשים. חניה ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Praia+do+Guincho" target="_blank" class="map-link">Parque Guincho 📍</a>.</div><div class="highlight-box">💡 <strong>חלופה: חזרה למלון לזמן בריכה.</strong> גווינשו הוא חוף אוקיינוס פתוח — המים קרים (19-21°) והרוח הצפונית (<em>nortada</em>) מתחזקת בדרך כלל אחרי הצהריים ומעיפה חול. אם הרוח חזקה או שהילדים קופאים, <strong>הריזורט נמצא 10 דקות נסיעה בלבד</strong> ואפשר לעבור לבריכה המפנקת של Onyria Marinha.<br><strong>מתכונת מומלצת ממילא:</strong> 11:00-13:30 חוף ← 13:45-17:00 בריכה, מקלחת והתארגנות במלון ← 17:15 יציאה לקשקאיש. כך מגיעים לערב רעננים ולבושים לארוחה במרינה, במקום ישר מהחול.</div></div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. סיור עומק רגלי: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Historic+Center" target="_blank" class="map-link">מרכז קשקאיש העתיק 📍</a></div>
+                                            <div class="site-meta">לולאה אחת של כ-3 ק"מ שמתחילה ומסתיימת במרינה — כלומר חונים פעם אחת ומסיימים בדיוק בפתח המסעדה, בלי להזיז את הרכב בחושך.</div>
+                                            <details class="deep-dive">
+                                                <summary>המסלול המלא · 7 תחנות מהמרינה ובחזרה</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">🌳 <strong>17:40-18:15 · <a href="https://www.google.com/maps/search/?api=1&query=Parque+Marechal+Carmona+Cascais" target="_blank" class="map-link">Parque Marechal Carmona 📍</a></strong> — פארק ענק ומוצל עם טווסים ותרנגולים מסתובבים חופשי ומתקני משחק. פותח את המסלול <strong>כי הוא נסגר ב-19:45</strong> בקיץ.</div>
+                                                    <div class="dd-step">🏛️ <strong>18:15-18:35 · <a href="https://www.google.com/maps/search/?api=1&query=Casa+de+Santa+Maria+Cascais" target="_blank" class="map-link">Casa de Santa Maria 📍</a> ו-<a href="https://www.google.com/maps/search/?api=1&query=Farol+de+Santa+Marta+Cascais" target="_blank" class="map-link">פארול סנטה מרתה 📍</a></strong> — אזולז'וס ומגדלור הפסים הכחול-לבן מעל הים. עצירת צילום חיצונית.</div>
+                                                    <div class="dd-step">🎨 <strong>18:35-19:00 · <a href="https://www.google.com/maps/search/?api=1&query=Cidadela+de+Cascais" target="_blank" class="map-link">Cidadela de Cascais 📍</a> + Art District</strong> — מצודה מהמאה ה-17 שחצרה הפכה למתחם גלריות וחנויות אמנים, פתוח בשעות הערב.</div>
+                                                    <div class="dd-step">⛵ <strong>19:00-19:20 · <a href="https://www.google.com/maps/search/?api=1&query=Praia+dos+Pescadores+Cascais" target="_blank" class="map-link">Praia da Ribeira (dos Pescadores) 📍</a></strong> — חוף הדייגים ההיסטורי, סירות צבעוניות וכיכר 5 באוקטובר. אור השקיעה על המפרץ.</div>
+                                                    <div class="dd-step">🛍️ <strong>19:20-19:35 · <a href="https://www.google.com/maps/search/?api=1&query=Rua+Frederico+Arouca+Cascais" target="_blank" class="map-link">Rua Frederico Arouca 📍</a></strong> — המדרחוב הראשי, ריצוף פסיפס פורטוגזי, חנויות וגלידריות.</div>
+                                                    <div class="dd-step">🏖️ <strong>19:35-19:45 · <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Rainha+Cascais" target="_blank" class="map-link">Praia da Rainha 📍</a> ו-<a href="https://www.google.com/maps/search/?api=1&query=Largo+Luis+de+Camoes+Cascais" target="_blank" class="map-link">Rua Amarela / Largo Camões 📍</a></strong> — מפרץ זעיר וחבוי בין סלעים עם תצפית מלמעלה, ורחוב האוכל הצהוב.</div>
+                                                    <div class="dd-step">🌅 <strong>19:50-20:10 · חזרה בטיילת הים למרינה</strong> — כ-15 דקות הליכה מערבה. השקיעה בסביבות 20:45, כלומר תתפסו אותה מתוך הארוחה — המסעדה צופה על המרינה ועל מגדלור סנטה מרתה.</div>
+                                                    <div class="dd-warn">⚠️ <strong>03.08 הוא יום שני</strong> — מוזיאון פארול סנטה מרתה ומוזיאון Condes de Castro Guimarães סגורים בימי שני. המסלול תוכנן חיצוני לחלוטין ולכן אינו מושפע, אך אין טעם לתכנן כניסות פנימה.</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ **17:30 - 20:10** סיור רגלי מקיף (יציאה מהמלון ב-17:15), ומשם ישירות לארוחה ב-20:15.</div>
+                                            <div class="parking-info">🚗 <strong>חניה אחת לכל הערב</strong> בחניון המרינה: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> (בתשלום). המסעדה נמצאת במרינה עצמה, ולכן אין צורך להזיז את הרכב בין הסיור לארוחה.</div>
+                                        </div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: בר חוף <a href="https://www.google.com/maps/search/?api=1&query=Bar+do+Guincho" target="_blank" class="map-link">Bar do Guincho 📍</a>. <br>ערב (עוגן קשיח): אנטריקוט וצ'יפס ללא הגבלה ב-<a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+de+LEntrecote+Cascais" target="_blank" class="map-link">La Brasserie de L'Entrecôte 📍</a>.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נהיגה על ציר N247. <strong>עדכון V28:</strong> המסעדה שוכנת במרינה של קשקאיש (Loja 43) — חונים בחניון המרינה הצמוד: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> והליכה של 2 דקות. ארוחה: **20:30 - 22:30**.</td>
+                                    <td data-label="תחבורה, רכב וחניה">נהיגה על ציר N247. המסעדה שוכנת במרינה של קשקאיש (Loja 43) — חונים בחניון המרינה הצמוד: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> והליכה של 2 דקות. ארוחה: **20:15 - 22:15**.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -249,12 +300,50 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 3</span><span class="date-text">04.08 (ג')</span></td>
                                     <td data-label="מוקד פעילות">Sintra Castles</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. ארמון המלכים: <a href="https://www.google.com/maps/search/?api=1&query=Pena+Palace+Sintra" target="_blank" class="map-link">Pena Palace 📍</a> <span class="booking-tag tag-required">הוזמן לשעה 10:00! העוגן היומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:15 (מקדם פקקים קשיח). חניה בתחתית (כ-1.5€ ליום, כולל שאטל 434) ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> ועלייה באובר. סיור: **10:00 - 12:30**.</div></div>
-                                        <div class="site-block" style="background-color: #f8fafc; border-right: 4px solid #3498db; padding: 10px;"><div class="site-title">💡 אופציה להמשך: <a href="https://www.google.com/maps/search/?api=1&query=Castelo+dos+Mouros+Sintra" target="_blank" class="map-link">Castelo dos Mouros 📍</a></div><div class="timeline-box">⏱️ **12:40 - 14:00** הליכה רגלית ישירה על חומות המבצר המורי.</div></div>
-                                        <div class="site-block"><div class="site-title">2. אחוזה מסתורית: <a href="https://www.google.com/maps/search/?api=1&query=Quinta+da+Regaleira+Sintra" target="_blank" class="map-link">Quinta da Regaleira 📍</a></div><div class="timeline-box">⏱️ **15:15 - 17:30** באר החניכה ומנהרות סלע. בסיום אובר חזרה לחניון Portela.</div></div>
+                                        <div class="site-block"><div class="site-title">1. ארמון המלכים: <a href="https://www.google.com/maps/search/?api=1&query=Pena+Palace+Sintra" target="_blank" class="map-link">Pena Palace 📍</a> <span class="booking-tag tag-required">הוזמן לשעה 10:00! העוגן היומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:15 (מקדם פקקים קשיח). התניידות בהר באובר בלבד — רכבים פרטיים אינם רשאים לעלות לארמון. סיור: **10:00 - 12:30**.</div>
+                                            <details class="deep-dive">
+                                                <summary>חניה בסינטרה · 3 חלופות ושיקולי אבטחה</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-warn">⚠️ <strong>רקע:</strong> מדווחות פריצות לרכבים בחניוני סינטרה, ורכבים שכורים מסומנים במיוחד. הבעיה אינה ייחודית לחניון מסוים. <strong>נקודה מרגיעה:</strong> ביום הזה אתם מבוססים בקשקאיש והרכב ריק ממזוודות.</div>
+                                                    <div class="dd-step">🚕 <strong>חלופה 1 (מומלצת): להשאיר את הרכב במלון ולנסוע באובר.</strong> הרכב נשאר בחניון המאובטח והחינמי של הריזורט. קשקאיש↔סינטרה כ-16 ק"מ, 25-30 דקות, בערך 15-25€ לכיוון. מבטל את הסיכון לחלוטין, וגם את חיפוש החניה ב-08:15 באוגוסט. מתאים מושלם לערב הרציף — אובר ישירות מהמסעדה הביתה.</div>
+                                                    <div class="dd-step">🏢 <strong>חלופה 2: <a href="https://parkin.pt/parque/parkin-sintra/" target="_blank" class="ticket-link">Parkin Sintra</a></strong> — חניון מקורה עם מצלמות 24 שעות, מעלית ותשלום בכרטיס, ברחוב <a href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Ourives+30+Sintra" target="_blank" class="map-link">R. dos Ourives 30, Sintra 📍</a>. כ-20€ ליום, מחייב הזמנה 24 שעות מראש, גובה מרבי 2 מ'. <strong>⚠️ נסגר ב-18:30 — לא תואם את הערב הרציף עם ארוחה ב-19:00.</strong></div>
+                                                    <div class="dd-step">🅿️ <strong>חלופה 3: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">Portela de Sintra (חנה וסע) 📍</a></strong> — כ-1.5€ ליום כולל שאטל 434, פתוח 24/7 (ולכן תואם ערב רציף). אם בוחרים בו: להגיע מוקדם, לחנות מול המצלמות והכניסה, ולא להשאיר <em>שום דבר</em> גלוי — כולל מטענים וכבלים.</div>
+                                                </div>
+                                            </details></div>
+                                        <div class="site-block" style="background-color: #f8fafc; border-right: 4px solid #3498db; padding: 10px;"><div class="site-title">💡 אופציה בלבד (לא בתוכנית): <a href="https://www.google.com/maps/search/?api=1&query=Castelo+dos+Mouros+Sintra" target="_blank" class="map-link">Castelo dos Mouros 📍</a></div><div class="site-meta">הליכה על חומות המבצר המורי. <strong>הוצא מהתוכנית הקשיחה</strong> כדי לא להאריך את היום בחום של אוגוסט. אם בכל זאת מתחשק בשטח — הוא נמצא בין פנה לירידה, ואז כדאי לשריין חלון מאוחר יותר ברגלייה ולדחות את הצהריים.</div></div>
+                                        <div class="site-block">
+                                            <div class="site-title">2. אחוזה מסתורית: <a href="https://www.google.com/maps/search/?api=1&query=Quinta+da+Regaleira+Sintra" target="_blank" class="map-link">Quinta da Regaleira 📍</a> <span class="booking-tag tag-required">הוזמן! חלון כניסה 14:30-15:00 ✅</span></div>
+                                            <div class="site-meta">באר החניכה (Poço Iniciático) — מגדל הפוך בעומק 27 מטר עם גרם מדרגות ספירלי בן 9 מפלסים, ומערכת מנהרות תת-קרקעית המחברת אותו למערות ובארות ברחבי האחוזה.</div>
+                                            <details class="deep-dive">
+                                                <summary>מידע לביקור · שעות, שעת חסד ואזהרות</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">🎟️ <strong>כניסה בחלונות זמן.</strong> החלון שהוזמן: <strong>14:30-15:00</strong>. האתר מאפשר <strong>שעת חסד</strong> של עד שעה אחרי השעה הנקובה — כרית ביטחון מצוינת אם הצהריים נמשכים.</div>
+                                                    <div class="dd-step">🕐 <strong>שעות קיץ:</strong> 10:00-19:30, כניסה אחרונה 18:30. הביקור לוקח 2-3 שעות — הקצו 14:30 עד ~17:15.</div>
+                                                    <div class="dd-step">🌳 <strong>למה דווקא אחה"צ באוגוסט:</strong> גנים מיוערים ומנהרות תת-קרקעיות — מהמקומות הקרירים בסינטרה. השעה החמה עוברת בצל ולא על חומות חשופות.</div>
+                                                    <div class="dd-warn">⚠️ המנהרות אפלות וצרות, ובקטעים מסוימים צריך להתכופף — שווה לדעת מראש אם מישהו סובל מקלאוסטרופוביה. מתחת לגיל 15 נדרש ליווי מבוגר לאורך כל הביקור. השטח מדרוני ולא אחיד — נעליים סגורות.</div>
+                                                    <div class="dd-step">💶 מחירי 2026: מבוגר 15€, גיל 6-17 וגיל 65+ 10€, מתחת לגיל 6 חינם אך עדיין נדרש כרטיס. אין חניה באתר. הזמנות בקופה המקוונת הרשמית בלבד: <a href="https://regaleira.byblueticket.pt" target="_blank" class="ticket-link">regaleira.byblueticket.pt 🎫</a> (האתר הרשמי מזהיר מפני כרטיסים שנרכשו באתרי צד שלישי).</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ **14:30 - 17:15** כניסה בחלון שהוזמן, באר החניכה ומנהרות הסלע.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. סינטרה וילה בנחת</div>
+                                            <div class="site-meta">אחרי רגלייה, זמן חופשי ורגוע במרכז ההיסטורי לפני הארוחה: <a href="https://www.google.com/maps/search/?api=1&query=Palacio+Nacional+de+Sintra" target="_blank" class="map-link">הארמון הלאומי 📍</a> מבחוץ עם שתי הארובות החרוטיות המפורסמות, שוטטות בסמטאות, ועצירת מאפים ב-<a href="https://www.google.com/maps/search/?api=1&query=Casa+Piriquita+Sintra" target="_blank" class="map-link">Casa Piriquita 📍</a> (הטרוואסיירוש והקיז'אדאש המקומיים).</div>
+                                            <div class="timeline-box">⏱️ **17:15 - 19:00** זמן חופשי, ומשם ברגל למסעדה.</div>
+                                        </div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: טאפאס מקומי ב-<a href="https://www.google.com/maps/search/?api=1&query=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a> (14:15-15:15).<br>ערב: מטבח שף ב-<a href="https://www.google.com/maps/search/?api=1&query=Incomum+by+Luis+Santos" target="_blank" class="map-link">Incomum by Luís Santos 📍</a> (21:15).</td>
-                                    <td data-label="תחבורה, רכב וחניה">נסיעה לחניון <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a>. התניידות בהר באובר בלבד! חזרה למלון להתארגנות ב-19:30. יציאה למסעדה ברכב ב-20:45.</td>
+                                    <td data-label="המלצות קולינריה"><strong>צהריים (13:00-14:15):</strong> טאפאס מקומי ב-<a href="https://www.google.com/maps/search/?api=1&query=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a>. <span class="booking-tag tag-required">חובה להזמין מראש!</span> מקום קטן עם מעט שולחנות שמתמלא מהר. הזמנות: 219&nbsp;243&nbsp;242 או tascantiga@gmail.com.
+                                        <details class="deep-dive">
+                                            <summary>חלופות צהריים בסינטרה · אם אין מקום</summary>
+                                            <div class="deep-dive-inner">
+                                                <div class="dd-step">🍷 <strong><a href="https://www.google.com/maps/search/?api=1&query=Romaria+de+Baco+Sintra" target="_blank" class="map-link">Romaria de Baco 📍</a></strong> — פטישקוש ויין במקלט שקט מההמון של המרכז ההיסטורי. הכי קרוב באופי ל-Tascantiga.</div>
+                                                <div class="dd-step">🥘 <strong><a href="https://www.google.com/maps/search/?api=1&query=Tacho+Real+Sintra" target="_blank" class="map-link">Tacho Real 📍</a></strong> — קלאסיקה פורטוגזית במבנה אבן מהמאה ה-17, מנות נדיבות במחיר הוגן. הבחירה הבטוחה לילדים.</div>
+                                                <div class="dd-step">🍲 <strong><a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Apeadeiro+Sintra" target="_blank" class="map-link">Apeadeiro 📍</a></strong> — 46 שנה מאכילה את המקומיים ליד העירייה, בלי יומרות ובמחיר הוגן.</div>
+                                                <div class="dd-step">כל השלוש בסינטרה וילה, על הציר שבין הארמון לרגלייה — לא מסיטות אתכם מהמסלול.</div>
+                                            </div>
+                                        </details>
+                                        <strong>ערב (19:00):</strong> מטבח שף ב-<a href="https://www.google.com/maps/search/?api=1&query=Incomum+by+Luis+Santos" target="_blank" class="map-link">Incomum by Luís Santos 📍</a>. פתוחה ברצף מהצהריים, ולא נדרש קוד לבוש — אפשר להגיע בבגדי יום ישירות מרגלייה.</td>
+                                    <td data-label="תחבורה, רכב וחניה">בחירת החניה לפי שלוש החלופות שבמגירה בבלוק ארמון פנה. <strong>התניידות בהר באובר בלבד</strong> — רכבים פרטיים אינם רשאים לעלות לפנה ולמבצר המורי. <strong>ערב רציף:</strong> אין חזרה למלון ואין נסיעה כפולה — מרגלייה ממשיכים ברגל למרכז סינטרה ולארוחה ב-19:00, ומשם פעם אחת חזרה לקשקאיש (כ-30 דקות). הגעה למלון סביב **21:30**.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -280,12 +369,22 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 4</span><span class="date-text">05.08 (ד')</span></td>
                                     <td data-label="מוקד פעילות">Lisbon Highlights</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. סיור ממודרך בעברית: רובע <a href="https://www.google.com/maps/search/?api=1&query=Chiado+Lisbon" target="_blank" class="map-link">Chiado 📍</a> (מפגש ב-<a href="https://www.google.com/maps/search/?api=1&query=Praca+Luis+de+Camoes+Lisbon" target="_blank" class="map-link">Praça Luís de Camões 📍</a>) <span class="booking-tag tag-required">10:00 - 13:00 | עוגן יומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:45, הגעה ב-09:20 לחניון תת-קרקעי ישיר מתחת לכיכר: <a href="https://www.google.com/maps/search/?api=1&query=Parque+Camoes+Telpark+Lisboa" target="_blank" class="map-link">Parque Camões Telpark 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. ארוחת צהריים: <a href="https://www.google.com/maps/search/?api=1&query=Time+Out+Market+Lisboa" target="_blank" class="map-link">Time Out Market Lisboa 📍</a></div><div class="timeline-box">⏱️ **13:10 - 13:45** שוק האוכל. הרכב נשאר חונה ב-Telpark, יורדים רגלית 10 דקות כדי לחסוך פקקים. <strong>קריטי:</strong> יציאה מהשוק לא יאוחר מ-13:45 (הליכה לרכב + נסיעה + חניה ≈ 40 דקות) כדי להספיק לחלון הכניסה של ג'רונימוס ב-14:30.</div></div>
+                                        <div class="site-block"><div class="site-title">1. סיור ממודרך בעברית: רובע <a href="https://www.google.com/maps/search/?api=1&query=Chiado+Lisbon" target="_blank" class="map-link">Chiado 📍</a> (מפגש ב-<a href="https://www.google.com/maps/search/?api=1&query=Praca+Luis+de+Camoes+Lisbon" target="_blank" class="map-link">Praça Luís de Camões 📍</a>) <span class="booking-tag tag-required">10:00 - 13:00 | עוגן יומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:45, הגעה ב-09:20. <strong>הסיור מתחיל בכיכר קמואש ומסתיים בכיכר קומרסיו</strong> — ולכן החניה נבחרה לפי נקודת הסיום ולפי ארוחת הצהריים, לא לפי נקודת ההתחלה.</div>
+                                            <div class="parking-info">🚗 חניה תת-קרקעית <strong>מתחת ל-Time Out Market</strong>: <a href="https://www.google.com/maps/search/?api=1&query=Parking+Mercado+da+Ribeira+Cais+do+Sodre" target="_blank" class="map-link">Parking Mercado da Ribeira — Cais do Sodré 📍</a>, כניסה מ-Praça D. Luís I. גובה מרבי 2.0 מ', שריון באפליקציית Telpark. הרכב נשאר שם עד אחרי הצהריים — אפס הזזות.</div>
+                                            <details class="deep-dive">
+                                                <summary>איך עולים מהחניון לכיכר קמואש?</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-warn">⚠️ <strong>שלושת הרכבלים ההיסטוריים של ליסבון — Bica, Glória ו-Lavra — סגורים</strong> מאז תאונת הגלוריה בספטמבר 2025, ללא תאריך פתיחה. אין לתכנן סביבם.</div>
+                                                    <div class="dd-step">🚇 <strong>המלצה: מטרו, תחנה אחת.</strong> תחנת <a href="https://www.google.com/maps/search/?api=1&query=Cais+do+Sodre+Metro+Lisboa" target="_blank" class="map-link">Cais do Sodré 📍</a> (הקו הירוק) צמודה לחניון. תחנה אחת צפונה ל-<a href="https://www.google.com/maps/search/?api=1&query=Baixa-Chiado+Metro+Station+Lisboa" target="_blank" class="map-link">Baixa-Chiado 📍</a>, ויציאה בשילוט <strong>"Largo do Chiado"</strong> — סדרת דרגנועים ארוכה שמעלה אתכם ממפלס הבאישה למפלס שיאדו. זו בדיוק העלייה שהרכבל היה עושה, ממונעת ובלי תור. משם 150 מ' במישור לכיכר קמואש. (בקצה העליון יש עוד שתי מדרגות בודדות.)</div>
+                                                    <div class="dd-step">🚕 <strong>גיבוי:</strong> אובר או מונית — 5 דקות, כ-5-6€, מדלת לדלת.</div>
+                                                    <div class="dd-step">🚶 <strong>גיבוי רגלי:</strong> עלייה ברחוב Alecrim, כ-800 מ' בשיפוע מתון ומדורג, 12-15 דקות.</div>
+                                                </div>
+                                            </details></div>
+                                        <div class="site-block"><div class="site-title">2. ארוחת צהריים: <a href="https://www.google.com/maps/search/?api=1&query=Time+Out+Market+Lisboa" target="_blank" class="map-link">Time Out Market Lisboa 📍</a></div><div class="timeline-box">⏱️ **13:15 - 14:00** שוק האוכל. הסיור מסתיים בכיכר קומרסיו ב-13:00, ומשם כ-12 דקות הליכה <strong>שטוחה לחלוטין</strong> מערבה בטיילת Ribeira das Naus אל השוק. <strong>הרכב חונה ישירות מתחתיכם</strong> — בסיום יורדים אליו ונוסעים לבלם, בלי ההליכה חזרה במעלה ההר ובלי לחץ הזמן שהיה בתכנון הקודם.</div></div>
                                         <div class="site-block"><div class="site-title">3. רובע בלם: <a href="https://www.google.com/maps/search/?api=1&query=Mosteiro+dos+Jeronimos" target="_blank" class="map-link">Mosteiro dos Jerónimos 📍</a> <span class="booking-tag tag-required">הוזמן לחלון 14:30-15:30</span> & <a href="https://www.google.com/maps/search/?api=1&query=Belem+Tower" target="_blank" class="map-link">Belém Tower 📍</a> (מבחוץ)</div><div class="timeline-box">⏱️ **14:30 - 17:30** סיור במנזר ותצפית אנדרטת התגליות. חניה צמודה ומסודרת ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+dos+Jeronimos" target="_blank" class="map-link">Parque dos Jerónimos 📍</a>.</div></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: דוכני שפים בטיים-אאוט. מתוק: מאפה חם ב-<a href="https://www.google.com/maps/search/?api=1&query=Pasteis+de+Belem" target="_blank" class="map-link">Pastéis de Belém 📍</a>. <br>ערב (יוקרתי): <a href="https://www.google.com/maps/search/?api=1&query=JNcQUOI+Avenida+Lisboa" target="_blank" class="map-link">JNcQUOI Avenida 📍</a> (19:45, קוד לבוש Smart Casual).</td>
-                                    <td data-label="תחבורה, רכב וחניה">חניה במרכז ב-Telpark, מעבר ברכב וחניה ב-Parque dos Jerónimos בבלם. לאחר מכן נסיעה לחניון ציבורי באזור שדרת אבנידה למסעדה. חזרה לקשקאיש בלילה (30 דקות).</td>
+                                    <td data-label="המלצות קולינריה">צהריים: דוכני שפים בטיים-אאוט. מתוק: מאפה חם ב-<a href="https://www.google.com/maps/search/?api=1&query=Pasteis+de+Belem" target="_blank" class="map-link">Pastéis de Belém 📍</a>. <br>ערב (יוקרתי): <a href="https://www.google.com/maps/search/?api=1&query=JNcQUOI+Avenida+Lisboa" target="_blank" class="map-link">JNcQUOI Avenida 📍</a> — <strong>הוזמן ✅ 19:45</strong>, קוד לבוש Smart Casual. <strong>שימו לב:</strong> יש שתי מסעדות JNcQUOI על אותה שדרה — <em>Avenida</em> במספר 182-184 (שלכם) ו-<em>Asia</em> במספר 144.</td>
+                                    <td data-label="תחבורה, רכב וחניה">חניה אחת בבוקר מתחת ל-Time Out (Mercado da Ribeira), ומשם מטרו תחנה אחת לשיאדו. אחרי הצהריים איסוף הרכב ונסיעה לבלם, חניה ב-Parque dos Jerónimos. בערב נסיעה לשדרת אבנידה וחניה ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Tivoli+Avenida+da+Liberdade+Lisboa" target="_blank" class="map-link">חניון Tivoli, Av. da Liberdade 185 📍</a> — ממש מול המסעדה במספר 182-184. חזרה לקשקאיש בלילה (30 דקות).</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -314,8 +413,8 @@
                                         <div class="site-block"><div class="site-title">1. אאוטלט מותגים: <a href="https://www.google.com/maps/search/?api=1&query=Freeport+Fashion+Outlet" target="_blank" class="map-link">Freeport Fashion Outlet 📍</a></div><div class="timeline-box">⏱️ יציאה ב-09:15, נסיעה של 45 דקות מעל גשר ואסקו דה גאמה. **10:00 - 14:00** זמן שופינג. חניה חופשית ענקית ומקורה במתחם.</div></div>
                                         <div class="site-block"><div class="site-title">2. קניון דגל מקורה: <a href="https://www.google.com/maps/search/?api=1&query=Centro+Colombo+Lisboa" target="_blank" class="map-link">Centro Colombo 📍</a></div><div class="timeline-box">⏱️ **14:30 - 18:30** השלמות מותגים. חניון תת-קרקעי אדיר ומסודר (בתשלום קטן).</div></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: מתחם האוכל של קניון קולומבו (14:45). <br>ערב (הזמנה קבועה): מנות שיתוף והמבורגרים מול הים ב-<strong><a href="https://www.google.com/maps/search/?api=1&query=Hifen+Cascais" target="_blank" class="map-link">Hifen 📍</a></strong>.</td>
-                                    <td data-label="תחבורה, רכב וחניה">חזרה למלון בקשקאיש ב-18:30 לפריקת קניות (**19:00 - 19:50**). יציאה ברכב למרכז קשקאיש ב-19:50 וחניה בחניון קניון קשקאיש וילה בפתח המדויק: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a> (5 דקות הליכה). ארוחה: **20:15 - 22:30**.</td>
+                                    <td data-label="המלצות קולינריה">צהריים: מתחם האוכל של קניון קולומבו (14:45). <br>ערב (הוזמן ✅ 21:30): מנות שיתוף והמבורגרים מול הים ב-<strong><a href="https://www.google.com/maps/search/?api=1&query=Hifen+Cascais" target="_blank" class="map-link">Hifen 📍</a></strong>.</td>
+                                    <td data-label="תחבורה, רכב וחניה">חזרה למלון בקשקאיש ב-18:30. <strong>18:45 - 21:00</strong> פריקת קניות, בריכה ומנוחה — חלון רגוע וארוך. יציאה ברכב ב-21:00 וחניה ב-<a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a> (5 דקות הליכה למסעדה ב-Av. Dom Carlos I 48). ארוחה: **21:30 - 23:30**. <strong>שימו לב:</strong> סיום מאוחר, ולמחרת יום הנהיגה הארוך דרומה — היציאה ביום 6 נקבעה ל-10:30 בהתאם.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -345,13 +444,46 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 6</span><span class="date-text">07.08 (ו')</span></td>
                                     <td data-label="מוקד פעילות">Southward Drive</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. תצפית איקונית: פסל <a href="https://www.google.com/maps/search/?api=1&query=Santuario+Nacional+de+Cristo+Rei+Almada" target="_blank" class="map-link">Santuário de Cristo Rei 📍</a></div><div class="timeline-box">⏱️ יציאה מקשקאיש ב-09:00 | **09:30 - 10:30** תצפית פנורמית. חניה חינמית גדולה בשער בכניסה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Cristo+Rei" target="_blank" class="map-link">Avenida Cristo Rei, Almada 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. חוף צוקי טורקיז: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Samoqueira+Porto+Covo" target="_blank" class="map-link">Praia do Samoqueira 📍</a></div><div class="timeline-box">⏱️ נסיעה של שעה ו-45 דקות | **12:15 - 12:45** חילוץ עצמות מעל הצוקים ומערות החוף. חניון עפר מסודר ורחב בחינם ממש מעל הנוף: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Samoqueira+Parking" target="_blank" class="map-link">Praia do Samoqueira Parking 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">3. תצפית חסידות פרא: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao" target="_blank" class="map-link">Cabo Sardão 📍</a></div><div class="timeline-box">⏱️ נסיעה של 25 דקות | **15:25 - 15:55** צפייה בחסידות המקננות בלב ים על סלעים אנכיים. כביש אספלט עד לרחבת חניה חינמית צמודה למגדלור: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao+Lighthouse+Parking" target="_blank" class="map-link">Cabo Sardão Lighthouse Parking 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">4. תצפית פרסת הנהר: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe" target="_blank" class="map-link">Miradouro da Praia de Odeceixe 📍</a></div><div class="timeline-box">⏱️ נסיעה של 35 דקות | **16:30 - 16:50** תצפית פנורמית עליונה על נהר Seixe המתפתל בצורת פרסה מושלמת. חניון מסודר בראש המצוק בחינם: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe+Parking" target="_blank" class="map-link">Miradouro Odeceixe Parking 📍</a>.</div></div>
+                                        <div class="site-block">
+                                            <div class="site-title">1. תצפית איקונית: <a href="https://www.google.com/maps/search/?api=1&query=Santuario+Nacional+de+Cristo+Rei+Almada" target="_blank" class="map-link">Santuário de Cristo Rei 📍</a></div>
+                                            <div class="site-meta">אנדרטה בגובה 110 מטר (כן בגובה 82 מ' ופסל בגובה 28 מ'), בהשראת הפסל בריו, שנחנכה ב-1959 מעל הגדה הדרומית של הטז'ו.</div>
+                                            <details class="deep-dive">
+                                                <summary>מה עושים כאן · מעלית, מחיר ומה רואים</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">🛗 <strong>כן, עולים למעלה — במעלית.</strong> מעלית בתוך הכן מעלה לרחבת תצפית בגובה 82 מ'. <strong>6€ לאדם</strong> (יולי-אוקטובר). הרחבה התחתונה למרגלות הפסל פתוחה חינם.</div>
+                                                    <div class="dd-step">🕘 פתוח יומיום <strong>09:30 - 18:30</strong>.</div>
+                                                    <div class="dd-step">👁️ <strong>מה רואים:</strong> תצפית 360° — גשר 25 באפריל ממש מלמעלה, שפך הטז'ו, כל ליסבון פרושה ממול, רובע בלם, ובימים בהירים עד האוקיינוס. במקום גם קפלה וחנות קטנה.</div>
+                                                    <div class="dd-step">⏱️ להקצות 45-60 דקות כולל התור למעלית.</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ יציאה מקשקאיש ב-**10:30** | **11:10 - 11:55** תצפית ומעלית.</div>
+                                            <div class="parking-info">🚗 חניה חינמית גדולה ברחבת הכניסה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Cristo+Rei" target="_blank" class="map-link">Avenida Cristo Rei, Almada 📍</a>. אתר מבוקר ותוסס במבקרים.</div>
+                                        </div>
+                                        <div class="site-block" style="background-color: #f8fafc; border-right: 4px solid #3498db; padding: 10px;">
+                                            <div class="site-title">💡 2. עצירת ביניים אופציונלית — ניתן לדלג: הכפר <a href="https://www.google.com/maps/search/?api=1&query=Porto+Covo+Alentejo" target="_blank" class="map-link">Porto Covo 📍</a></div>
+                                            <div class="site-meta">הפסקה לרגליים באמצע נסיעה רצופה של שעה וחצי. <strong>כיכר <a href="https://www.google.com/maps/search/?api=1&query=Praca+Marques+de+Pombal+Porto+Covo" target="_blank" class="map-link">Marquês de Pombal 📍</a></strong> — בתים לבנים עם מסגרות כחולות בסגנון פומבלינו וכנסייה ברוקית מהמאה ה-18, עם בתי קפה ושירותים. אם בא לכם עוד רבע שעה: <strong><a href="https://www.google.com/maps/search/?api=1&query=Forte+do+Pessegueiro+Porto+Covo" target="_blank" class="map-link">Forte do Pessegueiro 📍</a></strong> ביבשה, עם המבט מעבר לתעלה אל <strong>Ilha do Pessegueiro</strong> — אי ובו שרידים קרתגיים ורומיים ומצודה מהמאה ה-17.</div>
+                                            <div class="timeline-box">⏱️ **13:10 - 13:35** | <strong>אם מדלגים:</strong> מגיעים למילפונטש כבר ב-13:25 וכל היום מתקדם בכ-20 דקות (הגעה לריזורט ~17:55).</div>
+                                            <div class="parking-info">🚗 חניה ברחובות הכפר — <strong>מיושב ותוסס באוגוסט</strong>, ולכן בטוח משמעותית ממגרש עפר מבודד עבור רכב עמוס מזוודות.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. תצפית חסידות פרא: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao" target="_blank" class="map-link">Cabo Sardão 📍</a></div>
+                                            <div class="site-meta">אחד המקומות הבודדים בעולם שבהם חסידות לבנות מקננות על צוקי ים ועל עמודי סלע בלב האוקיינוס.</div>
+                                            <details class="deep-dive">
+                                                <summary>מה עושים כאן · החסידות, העונה ואזהרה</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">🪺 <strong>התופעה:</strong> בכל מקום אחר בעולם החסידה הלבנה מקננת על גגות, עמודים ועצים. כאן היא בנתה את קניה על מדפי סלע צרים ועל עמודי סלע מבודדים מול הים הפתוח. הקנים נבנים בשכבות לאורך שנים ויכולים להגיע למשקל של עד טונה.</div>
+                                                    <div class="dd-step">📅 <strong>עונת הקינון: אפריל עד סוף אוגוסט</strong> — 07.08 עדיין בתוך העונה, אם כי הפעילות דועכת לקראת סופה.</div>
+                                                    <div class="dd-step">🔭 <strong>מה לעשות:</strong> הליכה על שבילי הצוק מהמגדלור צפונה ודרומה לאיתור הקנים על העמודים. שווה מאוד משקפת או עדשת זום.</div>
+                                                    <div class="dd-warn">⚠️ הצוקים כאן <strong>אינם מגודרים</strong> והנפילה אנכית — לשמור על עידן ונוגה קרוב ולא להתקרב לקצה.</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ **15:55 - 16:25** צפייה בחסידות והליכת צוק קצרה.</div>
+                                            <div class="parking-info">🚗 כביש אספלט עד לרחבת חניה חינמית צמודה למגדלור: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao+Lighthouse+Parking" target="_blank" class="map-link">Cabo Sardão Lighthouse Parking 📍</a>. <strong>לחנות כך שהרכב נראה מנקודת התצפית.</strong></div>
+                                        </div>
+                                        <div class="site-block"><div class="site-title">4. תצפית פרסת הנהר: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe" target="_blank" class="map-link">Miradouro da Praia de Odeceixe 📍</a></div><div class="site-meta">נהר Seixe נפגש כאן באוקיינוס בעיקול בצורת פרסה מושלמת. החוף שלמטה ייחודי — מים מתוקים ורגועים של הנהר מצד אחד, וגלי האוקיינוס מהצד השני.</div><div class="timeline-box">⏱️ **17:00 - 17:20** תצפית פנורמית עליונה מראש המצוק.</div><div class="parking-info">🚗 חניון מסודר בראש המצוק בחינם: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe+Parking" target="_blank" class="map-link">Miradouro Odeceixe Parking 📍</a>. <strong>לחנות כך שהרכב נראה מנקודת התצפית.</strong></div><details class="deep-dive"><summary>🧳 מזוודות ברכב — כללי בטיחות ליום מעבר</summary><div class="deep-dive-inner"><div class="dd-warn">ברכב סטיישן תא המטען גלוי מבעד לזכוכית — זו החשיפה הגדולה ביותר. היום הזה כולל ארבע עצירות עם כל הכבודה ברכב.</div><div class="dd-step">1️⃣ <strong>כיסוי תא המטען סגור לאורך כל היום.</strong> שום דבר לא נראה מבחוץ, גם לא שקיות.</div><div class="dd-step">2️⃣ <strong>דרכונים, מזומן ואלקטרוניקה — עליכם ולא ברכב</strong>, בכל עצירה ללא יוצא מן הכלל.</div><div class="dd-step">3️⃣ <strong>לא לפתוח את תא המטען במגרש החניה</strong> בהגעה. גנבים צופים בחניונים ומזהים מי נוסע עמוס.</div><div class="dd-step">4️⃣ בעצירות קצרות בשטח פתוח — <strong>לחנות כך שהרכב נראה מנקודת התצפית</strong>.</div><div class="dd-step">5️⃣ בעצירה הארוכה של היום — <strong>לחנות קרוב לכניסה ולתנועת ההולכים</strong>, לא בקצה המגרש.</div></div></details></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: בשרים ותבשילי קדרה אלנטז'אנים מסורתיים ב-<a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Tasca+do+Celso" target="_blank" class="map-link">Tasca do Celso 📍</a> הענקית (13:00 - 15:00) בעיירה מילפונטש. חניה במגרש ציבורי רחב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Vila+Nova+de+Milfontes" target="_blank" class="map-link">Parque de Vila Nova de Milfontes 📍</a> (3 דקות הליכה).<br>ערב: ארוחה משפחתית קלילה בריזורט.</td>
-                                    <td data-label="תחבורה, רכב וחניה">יציאה מתצפית אודסייש ב-16:50 ונסיעה של כ-55 דקות (N120 דרך אלז'זור ואז A22 — חינם מאז ביטול האגרות ב-1.1.2025) לריזורט בקרוואיירו. הגעה לצ'ק-אין וזמן בריכה בשקיעה סביב **17:50**. שימו לב: זהו יום הנהיגה הארוך של הטיול (כ-4.5 שעות מצטברות). חניה פרטית מאובטחת בשפע בריזורט: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank" class="map-link">Tivoli Carvoeiro Resort Parking 📍</a>.</td>
+                                    <td data-label="המלצות קולינריה">צהריים: בשרים ותבשילי קדרה אלנטז'אנים מסורתיים ב-<a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Tasca+do+Celso" target="_blank" class="map-link">Tasca do Celso 📍</a> הענקית (<strong>13:50 - 15:15</strong>) בעיירה מילפונטש. <strong>חובה להזמין מראש</strong> — שירות הצהריים נסגר ב-15:30. חניה במגרש ציבורי רחב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Vila+Nova+de+Milfontes" target="_blank" class="map-link">Parque de Vila Nova de Milfontes 📍</a> (3 דקות הליכה). <strong>זו העצירה הארוכה של היום</strong> — לחנות קרוב לכניסה ולתנועת ההולכים.<br>ערב: ארוחה משפחתית קלילה בריזורט.</td>
+                                    <td data-label="תחבורה, רכב וחניה">יציאה מתצפית אודסייש ב-17:20 ונסיעה של כ-55 דקות (N120 דרך אלז'זור ואז A22 — חינם מאז ביטול האגרות ב-1.1.2025) לריזורט בקרוואיירו. הגעה לצ'ק-אין וזמן בריכה בשקיעה סביב **18:15** (או ~17:55 אם דילגתם על פורטו קובו). שימו לב: זהו יום הנהיגה הארוך של הטיול (כ-4.5 שעות מצטברות). חניה פרטית מאובטחת בשפע בריזורט: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank" class="map-link">Tivoli Carvoeiro Resort Parking 📍</a>.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -378,11 +510,28 @@
                                     <td data-label="מוקד פעילות">Private Cruise & Cliffs</td>
                                     <td data-label="פירוט פעילויות">
                                         <div class="site-block"><div class="site-title">1. חווית שיא: שייט יאכטה פרטי למערות מסיפון המרינה <span class="booking-tag tag-required">הוזמן לשעה 09:00! העוגן היומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-**08:15** (20 דקות נסיעה מערבה). הגעה ב-08:35. התייצבות חובה ברציף ב-08:45 לתדרוך ובורדינג. | **09:00 - 11:30** קרוז פרטי יוקרתי, קוקטיילים ותצפית מול פתח מערת בנאג'יל ועצירות שחייה.</div><div class="parking-info">🚗 חניה ציבורית מוסדרת ברחוב הקרוב ביותר לרציפי היציאה: <a href="https://www.google.com/maps/search/?api=1&query=R.+Simao+Correia,+8500-802+Portimao,+Portugal" target="_blank" class="map-link">R. Simão Correia, Portimão 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. חוף הצוקים האיקוני: <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha" target="_blank" class="map-link">Praia da Marinha 📍</a> וטעימה מ-Seven Hanging Valleys Trail</div><div class="site-route">הליכה עליונה וירידה לחוף לשחייה. עולים אל תחילת השביל לצעידה קלה בת 15-20 דקות מערבה לקשתות הסלע הכפולות ומבט מלמעלה על ה"עין" של מערת בנאג'יל.</div><div class="timeline-box">⏱️ **13:30 - 16:15** חוף מריניה, שחייה ותצפיות. חניון עפר מסודר ורחב בפתח הצוקים: <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Parking" target="_blank" class="map-link">Praia da Marinha Parking 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">3. חוף המנהרה החצובה: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Carvalho" target="_blank" class="map-link">Praia do Carvalho 📍</a></div><div class="timeline-box">⏱️ נסיעה קצרה של 5 דקות ברכב (4.5 ק"מ מערבה) | **16:20 - 17:15** מעבר הרפתקני בתוך מנהרה עתיקה החצובה כולה בסלע המצוק הדרמטי וצילומים בחוף החבוי.</div><div class="parking-info">🚗 חניה במגרש ציבורי פתוח ומסודר בפתח השביל המוביל למנהרה: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Carvalho+Parking" target="_blank" class="map-link">Praia do Carvalho Parking 📍</a> (חינם).</div></div>
+                                        <div class="site-block" style="background-color: #f8fafc; border-right: 4px solid #3498db; padding: 10px;">
+                                            <div class="site-title">💡 2. אופציונלי — ניתן לדלג: חוף המנהרה החצובה <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Carvalho" target="_blank" class="map-link">Praia do Carvalho 📍</a></div>
+                                            <div class="site-meta">מפרץ זעיר וחבוי שהגישה אליו היא דרך <strong>מנהרה שנחצבה ביד בסלע — 15 מ' אורך, 1.5 מ' רוחב</strong>. <strong>למה סימנתי כאופציונלי:</strong> אחרי המנהרה יש מדרגות תלולות ולא אחידות, החול עליהן מחליק, והמאחז היחיד הוא חבל בלוי. לא מתאים לעגלות. זו העצירה היחידה ביום שדורשת מאמץ אמיתי, והתמורה שלה קטנה משתי האחרות. גם סיכון לנפילת אבנים — לשבת במרחק מקיר הצוק. מציל בשירות ביוני עד אמצע ספטמבר.</div>
+                                            <div class="timeline-box">⏱️ **13:45 - 15:00** | אם מדלגים: מגיעים לבנאג'יל כבר ב-14:30 וזוכים בחוף ארוך ונינוח יותר במריניה.</div>
+                                            <div class="parking-info">🚗 מגרש ציבורי פתוח בפתח השביל: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Carvalho+Parking" target="_blank" class="map-link">Praia do Carvalho Parking 📍</a> (חינם).</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. 🆕 תצפית ה"עין" של מערת בנאג'יל: <a href="https://www.google.com/maps/search/?api=1&query=Benagil+Cave+Viewpoint" target="_blank" class="map-link">Miradouro Algar de Benagil 📍</a></div>
+                                            <div class="site-meta"><strong>חמש דקות הליכה בלבד מהחניון</strong> — מסתכלים מלמעלה דרך פתח התקרה העגול אל תוך המערה (יש מעקה בטיחות). בבוקר תראו אותה מבפנים מהסירה, ואחה"צ מלמעלה. סגירת מעגל יפה בעלות מזערית של רגליים.</div>
+                                            <div class="timeline-box">⏱️ **15:15 - 15:45** תצפית וצילומים.</div>
+                                            <div class="parking-info">🚗 חניה בכפר בנאג'יל: <a href="https://www.google.com/maps/search/?api=1&query=Praia+de+Benagil+Parking" target="_blank" class="map-link">Benagil Parking 📍</a>. גם הוא מתמלא באוגוסט — כדאי להיערך לגמישות ולחנות מעט רחוק יותר בכפר.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">4. חוף הצוקים האיקוני: <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha" target="_blank" class="map-link">Praia da Marinha 📍</a> + Mirador dos Arcos</div>
+                                            <div class="site-meta">שחייה בחוף המפורסם ביותר באלגארב, ובנוסף <strong>קטע קצר משביל שבעת העמקים התלויים</strong>: כ-15 דקות הליכה מישורית על קו הצוק אל <strong>קשתות הסלע הכפולות</strong> (סלע ה-M / סלע הפיל) — התצפית האיקונית של השביל, בלי 6 הקילומטרים שלו.</div>
+                                            <div class="dd-warn" style="margin:8px 0">⚠️ <strong>קריטי — חניה:</strong> באוגוסט החניון הקטן מתמלא עד אמצע הבוקר, <strong>והמשטרה סוגרת את כביש הגישה</strong> כשהוא מלא. הכביש נפתח מחדש מ-15:00. <strong>זו הסיבה שהיום סודר כך שתגיעו לכאן ב-16:00 ולא בצהריים.</strong></div>
+                                            <div class="timeline-box">⏱️ **16:00 - 18:00** חוף, שחייה והליכת הקשתות. שעה נוחה גם מבחינת חום וגם מבחינת התפזרות ההמון.</div>
+                                            <div class="parking-info">🚗 חניון עפר רחב בפתח הצוקים: <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Parking" target="_blank" class="map-link">Praia da Marinha Parking 📍</a>.</div>
+                                        </div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: דגים או טאפאס מקומי באחת המסעדות המעולות על רציף מרינת פורטימאו (Marina de Portimão) בין **11:45 ל-13:00**.<br>ערב: תפריט בינלאומי קלאסי ונוח מאוד לילדים בריזורט המפואר שלכם <a href="https://www.google.com/maps/search/?api=1&query=The+One+Restaurant+Tivoli+Carvoeiro" target="_blank" class="map-link">The One Restaurant 📍</a> (20:00).</td>
-                                    <td data-label="תחבורה, רכב וחניה">נסיעה בבוקר לחניה בפורטימאו, בצהריים מעבר ברכב לחניה ב-Praia da Marinha Parking, וב-16:15 מעבר קצר וחניה ב-Praia do Carvalho Parking. חזרה למלון ב-17:15 למנוחה וזמן בריכה בריזורט (**17:35 - 19:30**). ארוחה ב-20:00 ללא נסיעות.</td>
+                                    <td data-label="המלצות קולינריה">צהריים: דגים או טאפאס מקומי באחת המסעדות המעולות על רציף מרינת פורטימאו (Marina de Portimão) בין **11:45 ל-13:15**.<br>ערב: תפריט בינלאומי קלאסי ונוח מאוד לילדים בריזורט המפואר שלכם <a href="https://www.google.com/maps/search/?api=1&query=The+One+Restaurant+Tivoli+Carvoeiro" target="_blank" class="map-link">The One Restaurant 📍</a> — <strong>הוזמן ✅ 20:00</strong>.</td>
+                                    <td data-label="תחבורה, רכב וחניה"><strong>סדר היום שונה למערב←מזרח</strong> כדי לבטל נסיעה כפולה: פורטימאו ← קרבאליו ← בנאג'יל ← מריניה, הכל על קו ישר. סה"כ הליכה ביום כ-35 דקות מצטברות בלבד. חזרה לריזורט ב-18:15 (**18:15 - 19:45** בריכה). ארוחה ב-20:00 ללא נסיעות.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -395,7 +544,7 @@
                     <div class="day-title">
                         <span class="day-badge">יום 8</span>
                         <span class="date-text">09.08 (א')</span>
-                        <span class="day-main-info">Silves Castle & Monchique Mountain (Sunday Vibe)</span>
+                        <span class="day-main-info">Monchique Mountain & Silves Medieval Fair 🎪</span>
                     </div>
                     <div class="toggle-icon">▼</div>
                 </div>
@@ -409,26 +558,36 @@
                                     <td data-label="מוקד פעילות">Silves Castle & Monchique Mountain</td>
                                     <td data-label="פירוט פעילויות">
                                         <div class="site-block">
-                                            <div class="site-title">1. בירת המורים העתיקה: מבצר <a href="https://www.google.com/maps/search/?api=1&query=Silves+Castle" target="_blank" class="map-link">Silves Castle 📍</a></div>
-                                            <div class="site-meta">שינוי אווירה מרצועת החוף אל היסטוריה צבאית מרתקת. המבצר האדום השמור ביותר באלגארב, חומות מבוצרות ונוף פנורמי. הליכה משפחתית על החומות וביקור בבורות המים התת-קרקעיים .</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מהמלון ברכב ב-09:30 (20 דקות נסיעה, 15 ק"מ צפונה) | **09:50 – 11:30** סיור עומק במבצר סילבס .</div>
-                                            <div class="parking-info">🚗 הגעה עם רכב: כן, הגעה קלה. חניה בחניון הציבורי הגדול למרגלות העיר העתיקה (Largo da República) בקואורדינטות: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Largo+da+Republica+Silves" target="_blank" class="map-link">Parque de Estacionamento Largo da República Silves 📍</a>, ומשם עלייה קצרה ברגל של 5 דקות.</div>
+                                            <div class="site-title">1. בוקר ארוך בריזורט <span class="booking-tag tag-none">08:00 - 11:15</span></div>
+                                            <div class="site-meta">ארוחת בוקר ממושכת, בריכה וחוף. <strong>היום הזה תוכנן הפוך מהרגיל בכוונה:</strong> סילבש היא פנים-יבשתית ועוברת בקביעות 38 מעלות באוגוסט, ולכן ההר הקריר תופס את שעות היום והעיר את שעות הערב.</div>
+                                            <div class="timeline-box">⏱️ **11:15** יציאה צפונה — נסיעה ישירה לפסגה, כ-55 דקות.</div>
                                         </div>
                                         <div class="site-block">
                                             <div class="site-title">2. כפר המעיינות הקסום: <a href="https://www.google.com/maps/search/?api=1&query=Caldas+de+Monchique" target="_blank" class="map-link">Caldas de Monchique 📍</a></div>
-                                            <div class="site-meta">כפר מעיינות תרמיים ציורי בלב יער. הליכה משפחתית קלה, מוצלת וקרירה תחת עצי ענק לאורך פלג המים התרמיים עד לפינת החמד הקסומה של Fonte dos Amores (מעיין האוהבים). <strong>הערת דיוק (V28):</strong> שוק האיכרים של מונשיק מתקיים רק ביום שישי השני של כל חודש — לא בימי ראשון, ולכן הוסר מהתוכנית.</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מסילבס ב-11:30 (25 דקות נסיעה) | **12:00 – 12:50** הגעה וטיול רגלי מוצל לאורך הפלג עד המעיין .</div>
+                                            <div class="site-meta">כפר מעיינות תרמיים ציורי בלב יער. הליכה משפחתית קלה, מוצלת וקרירה תחת עצי ענק לאורך פלג המים התרמיים עד לפינת החמד הקסומה של Fonte dos Amores (מעיין האוהבים). שוק האיכרים של מונשיק מתקיים רק ביום שישי השני של כל חודש ולא בימי ראשון, ולכן אינו חלק מהתוכנית.</div>
+                                            <div class="timeline-box">⏱️ **15:25 - 16:10** הגעה וטיול רגלי מוצל לאורך הפלג עד המעיין.</div>
                                             <div class="parking-info">🚗 הגעה עם רכב: כן. כביש גישה נוח מוביל לכיכר המרכזית של כפר המעיינות, שם חניה מוסדרת בחינם: <a href="https://www.google.com/maps/search/?api=1&query=Caldas+de+Monchique+Parking" target="_blank" class="map-link">Caldas de Monchique Parking 📍</a>.</div>
                                         </div>
                                         <div class="site-block">
                                             <div class="site-title">3. פסגת ההר הירוק: <a href="https://www.google.com/maps/search/?api=1&query=Foia+Peak+Monchique" target="_blank" class="map-link">Fóia Peak 📍</a></div>
                                             <div class="site-meta">הנקודה הגבוהה ביותר בדרום פורטוגל (902 מטרים). תצפית פנורמית דרמטית שמגיעה ביום בהיר עד לאוקיינוס האטלנטי .</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מהמסעדה ב-14:45 (נסיעה של 15 דקות לפסגה) | **15:00 – 15:45** סיור ברחבת הפסגה ורוח הרים מרעננת . יציאה חזרה לכיוון הריזורט ב-15:45 (כ-40 דקות נסיעה חזרה לקרוואיירו).</div>
+                                            <div class="timeline-box">⏱️ **12:10 - 13:05** סיור ברחבת הפסגה ורוח הרים מרעננת. זו התחנה הראשונה של היום — נוסעים אליה ישירות מהריזורט.</div>
                                             <div class="parking-info">🚗 הגעה עם רכב: כן. כביש סלול מגיע עד לפסגה עצמה, שם מגרש חניה רחב וחינמי: <a href="https://www.google.com/maps/search/?api=1&query=Foia+Peak+Parking" target="_blank" class="map-link">Foia Peak Parking 📍</a>.</div>
                                         </div>
+                                        <div class="site-block">
+                                            <div class="site-title">4. עיירת ההר: <a href="https://www.google.com/maps/search/?api=1&query=Monchique+Algarve" target="_blank" class="map-link">Monchique 📍</a></div>
+                                            <div class="site-meta">סמטאות תלולות, הכיכר המרכזית והכנסייה, וחנויות מלאכה מקומיות: כיסאות המספריים המסורתיים, מוצרי שעם, דבש הרים ומדרוניו (ליקר פרי הקטלב). <strong>ממוצע הקיץ כאן כ-26 מעלות</strong>, מול 38+ בסילבש — ולכן השעות החמות עוברות בגובה.</div>
+                                            <div class="timeline-box">⏱️ **16:20 - 17:15** שיטוט וקניות מקומיות. <strong>אופציונלי:</strong> חורבות <a href="https://www.google.com/maps/search/?api=1&query=Convento+Nossa+Senhora+do+Desterro+Monchique" target="_blank" class="map-link">Convento de Nossa Senhora do Desterro 📍</a> מ-1631 שנהרסו ברעידת האדמה של 1755, עם נוף על העיירה — אבל זו הליכה של 15 דקות במעלה עם קטעים תלולים.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">5. 🎪 העוגן של הערב: מבצר <a href="https://www.google.com/maps/search/?api=1&query=Silves+Castle" target="_blank" class="map-link">Silves Castle 📍</a> ויריד ימי הביניים <span class="booking-tag tag-required">היריד פועל 7-15 באוגוסט — אתם בול בתוכו!</span></div>
+                                            <div class="site-meta">המבצר האדום השמור ביותר באלגארב — חומות מבוצרות, בורות מים תת-קרקעיים ונוף פנורמי. ובאוגוסט הוא הופך לזירה: <strong>Feira Medieval de Silves</strong> מתקיימת בתוך המבצר ובסמטאות סביבו, עם אבירים וטורנירים, קרבות חרבות, מופעי בזייה ורכיבה, תיאטרון ומחול, מוזיקה מימי הביניים, שוק אומנים ומטבח ערבי תקופתי. הנושא ב-2026: תור הזהב האסלאמי של Xilb — שמה הערבי של סילבש. <strong>כניסה כ-2€.</strong> ארוחת הערב שלכם היא דוכני היריד.</div>
+                                            <div class="timeline-box">⏱️ **17:45** הגעה, חניה והליכה לעיר העתיקה | **18:00 - 21:30** מבצר ויריד | חזרה לריזורט סביב **22:00** (20 דקות נסיעה).</div>
+                                            <div class="dd-warn" style="margin:8px 0">⚠️ <strong>חניה בערב היריד:</strong> סילבש עמוסה מאוד בשבוע הזה. להגיע ב-17:45 ולא להסתמך על מציאת מקום בחניון המרכזי — אם <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Largo+da+Republica+Silves" target="_blank" class="map-link">Largo da República 📍</a> מלא, לחנות במגרש חיצוני ולהוסיף כמה דקות הליכה. <strong>לאמת את התאריכים והתוכנית באתר הרשמי לפני הנסיעה</strong> — המקורות חלוקים בין 7-15 ל-8-16 באוגוסט.</div>
+                                        </div>
                                     </td>
-                                    <td data-label="המלצות קולינריה"><strong>ארוחת צהריים (עוגן הררי חלופי - פתוח בראשון!):</strong> נסיעה של 10 דקות ממעיינות קלדש (7 ק"מ) לארוחה משפחתית כפרית קסומה בתוך מבנה אבן עתיק ומסורתי <strong><a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="map-link">Restaurante Jardim das Oliveiras 📍</a></strong>. אירוח חם בלב גינה פסטורלית, בשר חזיר בר שחור אלנטז'אני מעולה, קדרות טלה נימוחות וקינוחי דבש מקומיים יוצאי דופן. <br>⏱️ **לו"ז ארוחה חובה בהזמנה מראש:** **13:00 – 14:45**.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נהיגה הררית נופית על כביש N266 לכיוון מונשיק. למסעדת Jardim das Oliveiras יש מגרש חניה פרטי, רחב וחינמי בפתח המבנה הכפרי: <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="map-link">Jardim das Oliveiras Parking 📍</a>. הגעה חזרה לריזורט טיבולי סביב **16:30** לזמן בריכה מפנק אחה"צ.</td>
+                                    <td data-label="המלצות קולינריה"><strong>ארוחת צהריים (עוגן הררי חלופי - פתוח בראשון!):</strong> נסיעה של 10 דקות ממעיינות קלדש (7 ק"מ) לארוחה משפחתית כפרית קסומה בתוך מבנה אבן עתיק ומסורתי <strong><a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="map-link">Restaurante Jardim das Oliveiras 📍</a></strong>. אירוח חם בלב גינה פסטורלית, בשר חזיר בר שחור אלנטז'אני מעולה, קדרות טלה נימוחות וקינוחי דבש מקומיים יוצאי דופן. <br>⏱️ **הוזמן ✅ 13:30 – 15:15**. <strong>שימו לב:</strong> המטבח נסגר ב-15:30 והמסעדה ב-16:00, וביום ראשון היא פתוחה לצהריים בלבד.</td>
+                                    <td data-label="תחבורה, רכב וחניה"><strong>לולאה אחת בלי נסיעה כפולה:</strong> ריזורט ← Fóia ← המסעדה ← קלדש ← עיירת מונשיק ← סילבש ← ריזורט. <strong>סילבש יושבת בדיוק על דרך החזרה</strong> ממונשיק לקרוואיירו, ולכן היריד בערב לא עולה בנסיעה נוספת. נהיגה הררית נופית על כביש N266. למסעדה מגרש חניה פרטי וחינמי: <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="map-link">Jardim das Oliveiras Parking 📍</a>. <br><em>טיפ יעילות:</em> המסעדה כ-3 דקות מעיירת מונשיק ו-10 דקות מקלדש — מי שיהפוך את הסדר (קודם העיירה, אז קלדש בדרך דרומה) יחסוך כ-10 דקות נהיגה.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -441,7 +600,7 @@
                     <div class="day-title">
                         <span class="day-badge">יום 9</span>
                         <span class="date-text">10.08 (ב')</span>
-                        <span class="day-main-info">Sagres Fortress, Lagos Old Town & Ponta da Piedade (Monday Vibe)</span>
+                        <span class="day-main-info">Ponta da Piedade, Lagos & the Western Cape</span>
                     </div>
                     <div class="toggle-icon">▼</div>
                 </div>
@@ -454,12 +613,28 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 9</span><span class="date-text">10.08 (ב')</span></td>
                                     <td data-label="מוקד פעילות">Lagos & Sagres</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. מבצר סוף העולם בבוקר: <a href="https://www.google.com/maps/search/?api=1&query=Fortaleza+de+Sagres" target="_blank" class="map-link">Fortaleza de Sagres 📍</a></div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:15 (50 דקות נסיעה מערבה על כביש A22) | **10:05 - 12:00** סיור מקיף ברחבת המבצר הפתוחה מעל קו המים ומצפן האבן הענק.</div><div class="parking-info">🚗 חניון פתוח עצום וחינמי בפתח המבצר: <a href="https://www.google.com/maps/search/?api=1&query=Sagres+Fortress+Parking" target="_blank" class="map-link">Sagres Fortress Parking 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. סיור עומק רגלי: <a href="https://www.google.com/maps/search/?api=1&query=Lagos+Old+Town+Portugal" target="_blank" class="map-link">העיר העתיקה של לאגוש (Lagos) 📍</a></div><div class="site-meta"><strong>יתרון יום שני:</strong> כל חנויות הבוטיק, סדנאות הקרמיקה והמדרחובים פתוחים לחלוטין ושוקקי חיים באווירה נהדרת! שוטטות בין הסמטאות הלבנות.</div><div class="timeline-box">⏱️ יציאה מסגרש ברכב ב-12:00 (30 דקות נסיעה) | **12:45 - 14:30** סיור רגלי מקיף וארוחת צהריים מורחבת במדרחוב האוכל.</div><div class="parking-info">🚗 חניה בחניון התת-קרקעי המודרני, הממוזג והבטוח ביותר בשדרת קו המים: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Frente+Ribeirinha+Lagos" target="_blank" class="map-link">Parque Frente Ribeirinha 📍</a> (משם 4 דקות הליכה רגלית ישירה אל פתח המדרחוב).</div></div>
-                                        <div class="site-block"><div class="site-title">3. תצורות סלעים וקשתות ימיות: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade" target="_blank" class="map-link">Ponta da Piedade 📍</a> (לאגוש)</div><div class="timeline-box">⏱️ יציאה ממרכז לאגוש ברכב ב-14:30 | **14:45 - 16:45** הליכה בין שבילי העץ המונגשים על קו המצוק, וירידה ב-182 מדרגות האבן אל המפרץ הדרמטי בין הצוקים.</div><div class="parking-info">🚗 מגרש חניה ציבורו מוסדר ורחב בקצה הצוק, סמוך למגדלור: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade+Parking" target="_blank" class="map-link">Ponta da Piedade Parking 📍</a> (חינם).</div></div>
+                                        <div class="highlight-box">💡 <strong>שווה לשקול לפני שיוצאים:</strong> שתי התחנות המערביות של היום — מבצר סגרש ו-Cabo de São Vicente — עולות בכ-<strong>2.5 שעות נהיגה</strong>, ו-Cabo de São Vicente הוא במהותו הד של <strong>Cabo da Roca שכבר ביקרתם בו ביום 2</strong> (כף, מגדלור, צוקים, תחושת קצה היבשת). אם מתחשק יום רגוע יותר — אפשר לוותר על שתיהן ולהמיר אותן ב<strong>חצי יום חוף</strong> ב-<a href="https://www.google.com/maps/search/?api=1&query=Praia+Dona+Ana+Lagos" target="_blank" class="map-link">Praia Dona Ana 📍</a> או <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Camilo+Lagos" target="_blank" class="map-link">Praia do Camilo 📍</a>, חמש דקות מפונטה דה פיידאדה ומהיפים בפורטוגל. בשבוע האלגארבי יש הרבה תצפיות ומעט זמן במים.</div>
+                                        <div class="site-block">
+                                            <div class="site-title">1. תצורות סלעים וקשתות ימיות: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade" target="_blank" class="map-link">Ponta da Piedade 📍</a></div>
+                                            <div class="site-meta">ריכוז הסלעים המרשים ביותר באלגארב — עמודים, קשתות ומערות בצפיפות. שבילי עץ מונגשים על קו המצוק, וירידה ב-182 מדרגות אבן אל נמל זעיר חבוי בין הצוקים. <strong>הוקדם לבוקר</strong> כדי לעשות את המדרגות בשעה קרירה.</div>
+                                            <div class="timeline-box">⏱️ יציאה מהמלון ב-**09:45** | **10:25 - 12:00** שבילי הצוק והמדרגות.</div>
+                                            <div class="parking-info">🚗 <strong>החניון מתמלא מהר</strong> — ההמלצה הרשמית היא בוקר מוקדם או אחה"צ מאוחר. חניה בתשלום מעל החוף: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade+Parking" target="_blank" class="map-link">Ponta da Piedade Parking 📍</a>. <strong>גיבוי:</strong> חניה חינמית ליד המגדלור, 5 דקות נסיעה.</div>
+                                        </div>
+                                        <div class="site-block"><div class="site-title">2. סיור עומק רגלי: <a href="https://www.google.com/maps/search/?api=1&query=Lagos+Old+Town+Portugal" target="_blank" class="map-link">העיר העתיקה של לאגוש (Lagos) 📍</a></div><div class="site-meta"><strong>יתרון יום שני:</strong> כל חנויות הבוטיק, סדנאות הקרמיקה והמדרחובים פתוחים לחלוטין ושוקקי חיים באווירה נהדרת! שוטטות בין הסמטאות הלבנות.</div><div class="site-route">🆕 <strong>מה לראות מעבר לשיטוט:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+Santo+Antonio+Lagos" target="_blank" class="map-link">כנסיית Santo António 📍</a> — פנים ברוקי מוזהב יוצא דופן, מהמרשימים בפורטוגל. ו<a href="https://www.google.com/maps/search/?api=1&query=Mercado+de+Escravos+Lagos" target="_blank" class="map-link">מוזיאון שוק העבדים (Mercado de Escravos) 📍</a> — הראשון באירופה, נקודה היסטורית כבדה שאפשר לדבר עליה עם עידן.</div><div class="timeline-box">⏱️ **12:30 - 14:15** סיור רגלי וארוחת צהריים.</div><div class="parking-info">🚗 חניה בחניון התת-קרקעי המודרני, הממוזג והבטוח ביותר בשדרת קו המים: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Frente+Ribeirinha+Lagos" target="_blank" class="map-link">Parque Frente Ribeirinha 📍</a> (משם 4 דקות הליכה רגלית ישירה אל פתח המדרחוב).</div></div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. מבצר סוף העולם: <a href="https://www.google.com/maps/search/?api=1&query=Fortaleza+de+Sagres" target="_blank" class="map-link">Fortaleza de Sagres 📍</a></div>
+                                            <div class="site-meta">רחבת מבצר פתוחה מעל קו המים, מצפן האבן הענק, והליכת היקף על קו הצוק. פתוח <strong>עד 20:00</strong> במאי-ספטמבר, ולכן אין שום לחץ בשעה הזו. כ-3€ למבוגר — <strong>נוגה (9) נכנסת חינם, עידן (12) בחצי מחיר</strong>.</div>
+                                            <div class="timeline-box">⏱️ **15:00 - 16:30** סיור והליכת ההיקף.</div>
+                                            <div class="parking-info">🚗 חניון פתוח עצום וחינמי בפתח המבצר: <a href="https://www.google.com/maps/search/?api=1&query=Sagres+Fortress+Parking" target="_blank" class="map-link">Sagres Fortress Parking 📍</a>.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">4. 🆕 הקצה הדרום-מערבי של אירופה: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+de+Sao+Vicente" target="_blank" class="map-link">Cabo de São Vicente 📍</a></div>
+                                            <div class="site-meta">שישה ק"מ מהמבצר, שבע דקות נסיעה, <strong>כניסה חינם</strong>. מגדלור על צוקים בגובה 75 מ' מעל האוקיינוס — נקודת "סוף העולם" האיקונית של פורטוגל. באור אחר הצהריים הוא במיטבו.</div>
+                                            <div class="timeline-box">⏱️ **16:45 - 17:30** תצפית וצילומים, ומשם חזרה מזרחה.</div>
+                                        </div>
                                     </td>
                                     <td data-label="המלצות קולינריה"><strong>צהריים (עוגן אותנטי פתוח כרגיל בשני):</strong> טברנת הדגים המפורסמת של העיר <strong><a href="https://www.google.com/maps/search/?api=1&query=Adega+Tipica+A+Forja+Lagos" target="_blank" class="map-link">Adega Típica A Forja 📍</a></strong> בלב המדרחוב. דגים טריים על הגריל ותבשילי קדרה אלגארביים משובחים. <br><i>גיבוי בשרים במדרחוב:</i> <strong><a href="https://www.google.com/maps/search/?api=1&query=O+Cantinho+Algarvio+Lagos" target="_blank" class="map-link">O Cantinho Algarvio 📍</a></strong>. <br>ערב: ארוחה משפחתית קלילה ורגועה בריזורט ללא נסיעות.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נסיעה ארוכה בבוקר לסגרש, משם חזרה מזרחה וחניה ב-Parque Frente Ribeirinha בלאגוש. ב-14:30 נסיעה קצרה לפונטה דה פיידאדה וחניה ב-Ponta da Piedade Parking. בסיום, נסיעה רציפה של כ-35 דקות (38 ק"מ) חזרה מזרחה על ה-A22 ישירות לריזורט טיבולי בקרוואיירו למנוחה מוחלטת והתארגנות בשעה **17:20**.</td>
+                                    <td data-label="תחבורה, רכב וחניה"><strong>סדר היום הופך למערבה-הדרגתית:</strong> פונטה דה פיידאדה ← לאגוש ← סגרש ← Cabo de São Vicente, במקום לנסוע לקצה ולחזור. <strong>תיקון:</strong> קרוואיירו לסגרש הוא כ-85 ק"מ, <strong>כשעה ורבע</strong> ולא 50 דקות. חניה בלאגוש ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Frente+Ribeirinha+Lagos" target="_blank" class="map-link">Parque Frente Ribeirinha 📍</a>. חזרה לריזורט סביב **18:45**, ערב רגוע ללא נסיעות.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -489,11 +664,11 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 10</span><span class="date-text">11.08 (ג')</span></td>
                                     <td data-label="מוקד פעילות">EPIC SANA & Albufeira Marina</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. ריזורט חמישה כוכבים פרימיום: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a></div><div class="site-meta">מעבר לחלק המפנק ביותר של החופשה. הגעה בצהריים, התארגנות בסוויטות, סיור וזמן בריכה או חוף נינוח .</div><div class="timeline-box">⏱️ נסיעה קצרה של 20 דקות מקרוואיירו מזרחה. הגעה ב-**12:00**: הפקדת מזוודות בקבלה, ארוחה קלה, בריכה וחוף. <strong>שימו לב:</strong> צ'ק-אין רשמי לחדרים מ-15:00 — מומלץ לבקש Early Check-in מראש. חלון התארגנות: **12:00 - 15:30**.</div><div class="parking-info">🚗 חניה פרטית, תת-קרקעית ומקורה מאובטחת בחינם לאורחי המלון.</div></div>
-                                        <div class="site-block"><div class="site-title">2. חווית אדרנלין משפחתית: מצנח ים זוגי עם חברת <span class="booking-tag tag-required">AlgarExperience | הוזמן ל-16:30! העוגן החדש</span></div><div class="site-meta">עולים בזוגות אל מצנח רחיפה קשור לסירה מהירה, ונהנים ממעוף ציפור מטורף מעל קו המים והמצוקים הזהובים של אלבופיירה. חוויה מלהיבה ומלאת אדרנלין לעידן ונוגה. אורך הפעילות כשעה וחצי ברוטו על הסירה.</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-15:40 (20 דקות נסיעה, 13 ק"מ מערבה) | **16:00** התייצבות קשיחה בדלפקי החברה במרינת אלבופיירה לרישום והתארגנות | **16:30 – 18:00** הפלגה וטיסת Parasailing משפחתית.</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה קלה ומהירה במגרש החניה הציבורי הפתוח הגדול השוכן היישר בחזית רציפי המרינה: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Albufeira+Parking" target="_blank" class="map-link">Parque de Estacionamento da Marina de Albufeira 📍</a> (חינם).</div></div>
+                                        <div class="site-block"><div class="site-title">1. ריזורט חמישה כוכבים פרימיום: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a></div><div class="site-meta">מעבר לחלק המפנק ביותר של החופשה. הגעה בצהריים, התארגנות בסוויטות, סיור וזמן בריכה או חוף נינוח .</div><div class="timeline-box">⏱️ **צ'ק-אאוט מטיבולי קרוואיירו עד 11:30** (הצ'ק-אאוט הרגיל שם הוא 12:00) ונסיעה קצרה של 20 דקות מזרחה. הגעה ב-**12:00**: הפקדת מזוודות בקבלה, ארוחה קלה, בריכה וחוף. <strong>שימו לב:</strong> צ'ק-אין רשמי לחדרים מ-15:00 — מומלץ לבקש Early Check-in מראש. חלון התארגנות: **12:00 - 15:30**.</div><div class="parking-info">🚗 חניה פרטית, תת-קרקעית ומקורה מאובטחת בחינם לאורחי המלון.</div><details class="deep-dive"><summary>🧳 מזוודות ברכב — כללי בטיחות ליום מעבר</summary><div class="deep-dive-inner"><div class="dd-warn">ברכב סטיישן תא המטען גלוי מבעד לזכוכית — זו החשיפה הגדולה ביותר. גם היום עוברים בין מלונות והכבודה נוסעת אתכם עד הצ'ק-אין.</div><div class="dd-step">1️⃣ <strong>כיסוי תא המטען סגור לאורך כל היום.</strong> שום דבר לא נראה מבחוץ, גם לא שקיות.</div><div class="dd-step">2️⃣ <strong>דרכונים, מזומן ואלקטרוניקה — עליכם ולא ברכב</strong>, בכל עצירה ללא יוצא מן הכלל.</div><div class="dd-step">3️⃣ <strong>לא לפתוח את תא המטען במגרש החניה</strong> בהגעה. גנבים צופים בחניונים ומזהים מי נוסע עמוס.</div><div class="dd-step">4️⃣ בעצירות קצרות בשטח פתוח — <strong>לחנות כך שהרכב נראה מנקודת התצפית</strong>.</div><div class="dd-step">5️⃣ בעצירה הארוכה של היום — <strong>לחנות קרוב לכניסה ולתנועת ההולכים</strong>, לא בקצה המגרש.</div></div></details></div>
+                                        <div class="site-block"><div class="site-title">2. חווית אדרנלין משפחתית: מצנח ים זוגי עם חברת <span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">AlgarExperience | הוזמן ✅ 16:30</span></div><div class="site-meta">עולים בזוגות אל מצנח רחיפה קשור לסירה מהירה, ונהנים ממעוף ציפור מטורף מעל קו המים והמצוקים הזהובים של אלבופיירה. חוויה מלהיבה ומלאת אדרנלין לעידן ונוגה. הטיסה עצמה כ-10 דקות עד גובה 80 מ'; אורך הפעילות כשעה וחצי ברוטו על הסירה. <strong>מגבלות:</strong> גיל מינימום 3, גובה 1 מ', משקל 20 ק"ג, ומתחת לגיל 16 נדרש ליווי מבוגר — <strong>ולכן המצנח הזוגי מסתדר מושלם: מבוגר עם ילד בכל טיסה</strong>. <strong>ביטול:</strong> החזר מלא עד 24 שעות מראש. הפעילות תלוית ים ורוח — אם היא מבוטלת, החלופה היא פשוט אחר צהריים ארוך בבריכה ובחוף פאלסיה.</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-15:40 (20 דקות נסיעה, 13 ק"מ מערבה) | **16:00** התייצבות (צ'ק-אין 30 דקות לפני) במשרד AlgarExperience — <strong>במרינת אלבופיירה, באזור המסעדות, ליד Belize Café</strong> | **16:30 – 18:00** הפלגה וטיסת Parasailing משפחתית.</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה קלה ומהירה במגרש החניה הציבורי הפתוח הגדול השוכן היישר בחזית רציפי המרינה: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Albufeira+Parking" target="_blank" class="map-link">Parque de Estacionamento da Marina de Albufeira 📍</a> (חינם).</div></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, כריכים או סלטים בבר הבריכה המפנק של EPIC SANA בשעה 13:30. <br><strong>ערב (הזדמנות שקיעה בריזורט!) 🌅:</strong> חוזרים למלון ב-18:20. נהנים מחלון זמן מושלם ופנוי של שעתיים לבריכה או ירידה לחוף פאלסיה בשעות האור הכי יפות של היום. ערב קולינרי חופשי, נינוח וספונטני בריזורט או בסביבתו ללא לחץ.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נהיגה של 20 דקות מהמלון לחניון מרינת אלבופיירה ובחזרה. הרכב מוגן במגרש המרינה הפתוח. חזרה למלון ב-18:20 לניצול בריכות מלא לרווחת המשפחה. <br><span class="booking-tag tag-required">חובה חצי חודש מראש!</span><a href="https://www.algarexperience.com/" target="_blank" class="ticket-link">שריון חלון Parasailing ב-16:30 🎫</a></td>
+                                    <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, כריכים או סלטים בבר הבריכה המפנק של EPIC SANA בשעה 13:30. <br><strong>ערב (הזדמנות שקיעה בריזורט!) 🌅:</strong> חוזרים למלון ב-18:20 לחלון של שעתיים לבריכה או לחוף פאלסיה באור הכי יפה של היום. <br><strong>ארוחת ערב: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">Open Deck 📍</a> בריזורט</strong> — תפריט כל-יומי נגיש, דגים ובשר פורטוגזי בערב. <strong>בלי נהיגה ביום מעבר</strong>, ומאפשר להכיר את המתחם בערב הראשון.</td>
+                                    <td data-label="תחבורה, רכב וחניה">נהיגה של 20 דקות מהמלון לחניון מרינת אלבופיירה ובחזרה. הרכב מוגן במגרש המרינה הפתוח. חזרה למלון ב-18:20 לניצול בריכות מלא לרווחת המשפחה. <br><span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅</span><a href="https://www.algarexperience.com/" target="_blank" class="ticket-link">AlgarExperience — פרטי הפעילות 🎫</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -519,9 +694,16 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 11</span><span class="date-text">12.08 (ד')</span></td>
                                     <td data-label="מוקד פעילות">Zoomarine Algarve</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. פארק מים ואטרקציות מוביל: <a href="https://www.google.com/maps/search/?api=1&query=Zoomarine+Algarve" target="_blank" class="map-link">Zoomarine Algarve 📍</a> <span class="booking-tag tag-required">חווית שיא משפחתית לילדים!</span></div><div class="site-meta">פארק נושא משולב ברמה הגבוהה ביותר באירופה. בריכת גלים אדירה עם חול לבן אמיתי, מגלשות מים מהירות, מתקני לונה פארק לצד הופעות של דולפינים ואריות ים.</div><div class="highlight-box">💡 **הערה אסטרטגית להחלפה בשטח:** אם הילדים הם חובבי אקסטרים מושבעים שמעדיפים פארק מים מסורתי וטהור עם 100% מגלשות מים מהירות, אבובים וקמיקזה (ללא הופעות ומתקני יבשה), ניתן להחליף את הפעילות הזו בפארק המים המפורסם **Slide & Splash** הנמצא כ-20 דקות מערבית מהמלון שלכם.</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:15 (15 דקות נסיעה, 16 ק"מ מערבה) | **09:30 - 15:30** (6 שעות מלאות) הגעה לפתיחה, הקמת "מחנה משפחתי" באזור בריכת הגלים, שחייה במגלשות, ביקור במתקנים וצפייה בהופעות המרכזיות. חזרה למלון למנוחה אחה"צ.</div><div class="parking-info">🚗 הגעה עם רכב: כן, מומלץ ביותר. לפארק מתחם חניה ציבורי פתוח עצום, מסודר ובחינם לחלוטין היישר בכניסה הראשית לאתר.</div></div>
+                                        <div class="site-block"><div class="site-title">1. פארק מים ואטרקציות מוביל: <a href="https://www.google.com/maps/search/?api=1&query=Zoomarine+Algarve" target="_blank" class="map-link">Zoomarine Algarve 📍</a> <span class="booking-tag tag-required">חווית שיא משפחתית לילדים!</span></div><div class="site-meta">פארק נושא משולב ברמה הגבוהה ביותר באירופה. בריכת גלים אדירה עם חול לבן אמיתי, מגלשות מים מהירות, מתקני לונה פארק לצד הופעות של דולפינים ואריות ים.</div><div class="highlight-box">💡 **הערה אסטרטגית להחלפה בשטח:** אם הילדים הם חובבי אקסטרים מושבעים שמעדיפים פארק מים מסורתי וטהור עם 100% מגלשות מים מהירות, אבובים וקמיקזה (ללא הופעות ומתקני יבשה), ניתן להחליף את הפעילות הזו בפארק המים המפורסם **Slide & Splash** הנמצא כ-20 דקות מערבית מהמלון שלכם.</div><div class="timeline-box">⏱️ יציאה מהמלון ב-09:20 (15 דקות נסיעה) | <strong>הפארק נפתח ב-10:00</strong> באוגוסט וסוגר ב-19:30 — להיות בשער לפתיחה, כי <strong>השעתיים הראשונות הן התורים הקצרים ביותר</strong> למתקני המים. | **10:00 - 15:30** מחנה משפחתי באזור בריכת הגלים, מגלשות, מתקנים והופעות. <strong>יש גמישות להישאר מאוחר יותר</strong> אם כולם נהנים.</div><div class="parking-info">🚗 הגעה עם רכב: כן, מומלץ ביותר. לפארק מתחם חניה ציבורי פתוח עצום, מסודר ובחינם לחלוטין היישר בכניסה הראשית לאתר.</div>
+                                            <details class="deep-dive">
+                                                <summary>🐬 אופציה בתוספת תשלום: תוכניות Dolphin Emotions</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">הפארק מפעיל שלוש רמות של מפגש מונחה עם דולפינים, בהזמנה ובתשלום נפרדים: <strong>Encounter</strong> (60 דק', מגיל 6, מים רדודים, לא נדרשת ידיעת שחייה) · <strong>Premium</strong> (90 דק', מגיל 8, מים עמוקים, חובה לדעת לשחות) · <strong>Exclusive</strong> (פרטי). <strong>עידן ונוגה מתאימים לשתי הראשונות.</strong></div>
+                                                    <div class="dd-step">💭 <strong>למחשבה:</strong> ביום 12 יש לכם הפלגת דולפינים <strong>בטבע</strong> עם ביולוגים ימיים. יש שיראו בשילוב ניגוד מרתק — מפגש קרוב מול תצפית בבר — ויש שיראו בזה כפילות. ההחלטה שלכם, אבל היא נסגרת מראש ולא בשטח.</div>
+                                                </div>
+                                            </details></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: חופשי באחד ממגוון דוכני האוכל המהיר, הפיצות, ההמבורגרים או המסעדות שבתוך מתחם הפארק בסביבות 13:00. <br><strong>ערב (פנוי לחלוטין בריזורט) 🧘:</strong> ערב נינוח ושקט ללא נסיעות. נהנים מארוחת ערב משפחתית רגועה ומעולה באחת ממסעדות הריזורט שלכם או הזמנת רום-סרוויס מפנק לסוויטה.</td>
+                                    <td data-label="המלצות קולינריה">צהריים: חופשי באחד ממגוון דוכני האוכל המהיר, הפיצות, ההמבורגרים או המסעדות שבתוך מתחם הפארק בסביבות 13:00. <br><strong>ערב 🧘:</strong> אחרי יום בפארק מים הילדים יהיו גמורים, ולכן יציאה קלילה ולא מאמץ: <strong>כפר הדייגים <a href="https://www.google.com/maps/search/?api=1&query=Olhos+de+Agua+Albufeira" target="_blank" class="map-link">Olhos de Água 📍</a></strong>, חמש דקות נסיעה, עם מסעדות על החול. <strong><a href="https://www.google.com/maps/search/?api=1&query=Passaro+Azul+Olhos+de+Agua" target="_blank" class="map-link">Passaro Azul 📍</a></strong> (דגים מעולים על החוף) או <strong><a href="https://www.google.com/maps/search/?api=1&query=O+Caixote+Olhos+de+Agua" target="_blank" class="map-link">O Caixote 📍</a></strong> (מהולל על הלחם הביתי).</td>
                                     <td data-label="תחבורה, רכב וחניה">תנועה קלה ומהירה של 15 דקות מערבה עד לפארק Zoomarine. חזרה למלון ב-15:30 למנוחת אחה"צ ארוכה וזמן בריכת שקיעה שקט בריזורט המפואר EPIC SANA (**15:45 - 19:30**). ערב פנוי לחלוטין וללא נסיעות ברקע לרווחת המשפחה.</td>
                                 </tr>
                             </tbody>
@@ -549,21 +731,29 @@
                                     <td data-label="מוקד פעילות">Faro Lagoon & Atlantic Ocean</td>
                                     <td data-label="פירוט פעילויות">
                                         <div class="site-block">
-                                            <div class="site-title">1. חוויה מדעית משפחתית: קרוז חיפוש דולפינים, כרישים וציפורי ים מפארו <span class="booking-tag tag-required">העוגן המדעי החדש! חובה להזמין מראש</span></div>
+                                            <div class="site-title">1. חוויה מדעית משפחתית: קרוז חיפוש דולפינים, כרישים וציפורי ים מפארו <span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅ 11:30</span></div>
                                             <div class="site-meta">יוצאים מנמל פארו בסירה מהירה וחוצים את שמורת הטבע המרהיבה **Ria Formosa**. במהלך ההפלגה נהנים מתצפית פנורמית יפהפייה על איי המחסום המפורסמים (Barrier Islands - האי הנטוש Deserta והאי Culatra) וביצות המלח. עם היציאה לאוקיינוס האטלנטי, מתחילים בסריקה וחיפוש של דולפינים (הנמצאים באזור כל השנה), צבי ים, דגי שמש (Sunfish) ואפילו כרישי פטיש או לווייתנים קטנים. הסיור מובל על ידי **צוות של שני ביולוגים ימיים מקצועיים** המלמדים את הילדים כיצד אוספים נתונים מדעיים על האוכלוסייה, כולל 30 דקות קבועות של צפייה, למידה וזמן לשאלות פתוחות מול הדולפינים בים הפתוח.</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מהמלון ברכב ב-09:30 (30 דקות נסיעה, 35 ק"מ לפארו). הגעה לחניון ב-10:00. מקדם ביטחון של 30 דקות לחניה והליכה קלה לרציף להתייצבות ב-10:30. | **11:00 – 13:30** (2.5 שעות) הפלגת הדולפינים והביולוגים באוקיינוס וחזרה לנמל.</div>
-                                            <div class="parking-info">🚗 הגעה עם רכב: כן. הרכב נשאר מוגן ובטוח בחניון הציבורי המרכזי והגדול בפארו, הסמוך מאוד לרציף יציאת הסירות העתיק. לכוון בתוכנת הניווט היישר אל נקודת הציון הקשיחה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Pontinha+Faro" target="_blank" class="map-link">Parque da Pontinha Faro 📍</a> (וממנו הליכה קלה של 4 דקות לרציף).</div>
+                                            <div class="timeline-box">⏱️ יציאה מהמלון ב-**10:00** (30 דקות נסיעה, 35 ק"מ לפארו). הגעה לחניון ב-10:35 והתייצבות ב-**11:00**. | **11:30 – 14:00** (2.5 שעות) הפלגת הדולפינים והביולוגים וחזרה לנמל. <strong>הסירה קטנה — מקסימום 12 משתתפים.</strong> ההפלגה יוצאת עד 5 מייל לים הפתוח, אז מי שרגיש למחלת ים — כדאי להיערך מראש.</div>
+                                            <div class="parking-info">🚗 הגעה עם רכב: כן. הרכב נשאר מוגן ובטוח בחניון הציבורי המרכזי והגדול בפארו, הסמוך מאוד לרציף יציאת הסירות העתיק. לכוון בתוכנת הניווט היישר אל נקודת הציון הקשיחה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Pontinha+Faro" target="_blank" class="map-link">Parque da Pontinha Faro 📍</a>. <strong>נקודת המפגש המדויקת:</strong> חנות Formosamar בקומת הקרקע של מבנה <a href="https://www.google.com/maps/search/?api=1&query=Ginasio+Clube+Naval+de+Faro" target="_blank" class="map-link">Ginásio Clube Naval de Faro 📍</a>, כ-4 דקות הליכה מהחניון.</div>
                                         </div>
                                         <div class="site-block">
-                                            <div class="site-title">2. אופציות שופינג ממוזגות אחה"צ בדרך חזרה מהפלגה <span class="booking-tag tag-none">בחירה חופשית בשטח בשעה 15:30</span></div>
+                                            <div class="site-title">2. 🆕 העיר העתיקה של פארו: <a href="https://www.google.com/maps/search/?api=1&query=Cidade+Velha+Faro" target="_blank" class="map-link">Cidade Velha 📍</a></div>
+                                            <div class="site-meta">אתם כבר שם, וזו אחת הערים ההיסטוריות הבודדות באלגארב — חבל לרדת מהסירה ולנסוע לקניון. הכל במרחק הליכה מהנמל.</div>
+                                            <div class="site-route">🏛️ <strong>14:15-15:30 · צהריים:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Cidade+Velha+Largo+da+Se+Faro" target="_blank" class="map-link">Cidade Velha 📍</a>, Largo da Sé 11 — ממש ליד הקתדרלה, <strong>פתוחה ברצף 09:00-22:00</strong> בלי סגירת מטבח, משפחתית, עם מנות אזוריות לצד אופציות בינלאומיות לילדים. גיבוי: <a href="https://www.google.com/maps/search/?api=1&query=Tertulia+Algarvia+Faro" target="_blank" class="map-link">Tertulia Algarvia 📍</a>.<br>
+                                            🚪 <strong>15:30-16:15 · <a href="https://www.google.com/maps/search/?api=1&query=Arco+da+Vila+Faro" target="_blank" class="map-link">Arco da Vila 📍</a> והקתדרלה <a href="https://www.google.com/maps/search/?api=1&query=Se+Catedral+de+Faro" target="_blank" class="map-link">Sé de Faro 📍</a></strong> — שער העיר המוקפת חומה, ומגדל הקתדרלה שאפשר לטפס עליו לנוף על כל שמורת ריה פורמוזה.<br>
+                                            💀 <strong>16:30-17:15 · <a href="https://www.google.com/maps/search/?api=1&query=Capela+dos+Ossos+Faro" target="_blank" class="map-link">קפלת העצמות (Capela dos Ossos) 📍</a></strong> ב-Igreja do Carmo — קפלה שקירותיה מרופדים בעצמותיהם של כ-1,200 נזירים. כניסה כ-2€ הכוללת גם את הכנסייה. את זה עידן ונוגה יזכרו שנים.</div>
+                                            <div class="dd-warn" style="margin:8px 0">⚠️ <strong>קפלת העצמות סגורה 13:00-15:00 לסייסטה ונסגרת ב-17:30.</strong> זה הדדליין הקשיח של היום — אם הצהריים נמשכים, לקצר את הקתדרלה ולא את הקפלה.</div>
+                                        </div>
+                                        <div class="site-block">
+                                            <div class="site-title">3. אופציות שופינג ממוזגות בדרך חזרה <span class="booking-tag tag-none">גמיש — ניתן לקצר או לדלג</span></div>
                                             <div class="site-meta">בדרך חזרה מפארו לאלבופיירה ברכב, עוצרים להשלמות קניות ושופינג ממוזג באחד משני מרכזי הקניות המובילים של דרום פורטוגל :</div>
                                             <div class="site-route">🛍️ **אופציה א' (מתחם ענק משולב): <a href="https://www.google.com/maps/search/?api=1&query=Mar+Shopping+Algarve" target="_blank" class="map-link">Mar Shopping Algarve 📍</a> ו-Designer Outlet (לולה).** קניון מקורה ענק, מודרני וחדיש המחובר ישירות למתחם אאוטלט פתוח ויפהפה של מותגי יוקרה בהנחות אדירות של 30%-70% (Designer Outlet Algarve) . <br>🛍️ **אופציה ב' (קרוב וים-תיכוני): <a href="https://www.google.com/maps/search/?api=1&query=Algarve+Shopping+Guia" target="_blank" class="map-link">Algarve Shopping 📍</a> (גיאה).** קניון פתוח מעוצב בסגנון כפר ים-תיכוני, קרוב מאוד למלון שלכם, המרכז את כל הרשתות הפופולריות והאהובות (Zara, Mango, Pull&Bear) .</div>
-                                            <div class="timeline-box">⏱️ **15:30 - 18:30** (3 שעות) זמן קניות משפחתי ממוזג, בוטיקים ומתנות. יציאה חזרה למלון ב-18:30.</div>
+                                            <div class="timeline-box">⏱️ **18:00 - 19:30** קניות מקוצרות (במקום 3 שעות), כדי לפנות מקום לעיר העתיקה. <strong>Algarve Shopping בגיאה</strong> קרוב יותר לדרך הביתה. זהו האלמנט הגמיש של היום — אם היום מרגיש ארוך, אפשר לדלג לגמרי (ביום 14 יש בלוק קניות נוסף).</div>
                                             <div class="parking-info">🚗 הגעה עם רכב: כן. לשני מרכזי הקניות חניוני ענק עצומים (תת-קרקעיים ומקורים) בחינם לחלוטין לאורחים וגישה קלה ישירות מהאוטוסטרדה A22 .</div>
                                         </div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים משפחתית, דגים טריים או המבורגרים מעולים באחת הטאברנות המקומיות סביב הנמל והעיר העתיקה של פארו מיד עם הירידה מהסירה בשעה **13:45 – 15:15**.<br>ערב: ארוחה משפחתית קלילה, מנחמת וספונטנית בריזורט בסיום יום הקניות.</td>
-                                    <td data-label="תחבורה, רכב וחניה">איסוף הרכב מחניון Pontinha בפארו ב-15:20, נסיעה קצרה על ציר ה-A22 למרכז הקניות הנבחר, וחזרה קלה לריזורט EPIC SANA למנוחת ערב סביב השעה **18:50**. החניה בכל האתרים מוסדרת ומאובטחת בנקודות הציון הקשיחות. <br><span class="booking-tag tag-required">חובה חודש מראש!</span><a href="https://formosamar.com/tour/dolphin-tours-in-the-algarve/" target="_blank" class="ticket-link">שריון קרוז דולפינים וביולוגים ימיים מפארו (Formosamar) 🎫</a></td>
+                                    <td data-label="המלצות קולינריה">צהריים: <strong>Cidade Velha</strong> ב-Largo da Sé בעיר העתיקה, **14:15 – 15:30** (ראו פירוט בבלוק העיר העתיקה).<br><strong>ערב: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">Lima 📍</a> בריזורט — **20:45**.</strong> פסטה טרייה ומטבח איטלקי; אחרי יום ארוך של הפלגה, עיר וקניות — אפס נסיעות נוספות. <strong>השעה נדחתה במכוון</strong> כדי שלא יהיה לחוץ. ⚠️ Lima מתוארת כמסעדה עונתית — לוודא מול המלון שהיא פועלת באוגוסט.</td>
+                                    <td data-label="תחבורה, רכב וחניה">הרכב נשאר בחניון Pontinha לאורך ההפלגה והסיור בעיר העתיקה. איסוף ב-17:30, נסיעה של כ-30 דקות ל-Algarve Shopping בגיאה, וחזרה לריזורט סביב **19:45**. ארוחה ב-20:45. <br><span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅ 11:30</span><a href="https://formosamar.com/tour/dolphin-tours-in-the-algarve/" target="_blank" class="ticket-link">שריון קרוז דולפינים וביולוגים ימיים מפארו (Formosamar) 🎫</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -589,10 +779,21 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 13</span><span class="date-text">14.08 (ו')</span></td>
                                     <td data-label="מוקד פעילות">High Ropes & Albufeira Town</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. אקשן וחילוץ עצמות על צמרות העצים: <a href="https://www.google.com/maps/search/?api=1&query=Parque+Aventura+Albufeira" target="_blank" class="map-link">Parque Aventura Albufeira 📍</a> <span class="booking-tag tag-none">פעילות אקטיבית מעולה לילדים!</span></div><div class="site-meta">פארק חבלים, אתגרים ואומגות בלב הטבע, הממוקם במרחק דקות בודדות מהמלון שלכם. המסלולים מתאימים בדיוק לעידן ונוגה, כולל גשרי חבלים, רשתות טיפוס ואומגות ארוכות .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:45 (5 דקות נסיעה, 4 קמ) | **10:00 - 13:00** (3 שעות מלאות) רישום, תדרוך בטיחות וזמן חבלים. חזרה למלון בצהריים.</div><div class="parking-info">🚗 הגעה עם רכב: כן, הגעה מהירה וקלה ביותר. לפארק מגרש חניה ציבורי מסודר ומוצל בחינם ממש בכניסה לרחבת המתחם .</div></div>
-                                        <div class="site-block"><div class="site-title">2. סיור העומק המקורי בעיר העתיקה: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Old+Town" target="_blank" class="map-link">Albufeira Old Town 📍</a></div><div class="site-meta">שילוב קסום של כפר דייגים עתיק שהפך לבירת התיירות של האלגארב. שוטטות נינוחה בין סמטאות צרות, בתים צבועים בלבן, מדרחובי קניות תוססים ותצפית מעל רחבת המצוק אל החוף .</div><div class="timeline-box">⏱️ מנוחת צהריים, ים ובריכה במלון עד אחה"צ. יציאה מהמלון ברכב ב-16:30 (15 דקות נסיעה, 12 ק"מ) | **17:00 - 20:00** (3 שעות) סיור רגלי מקיף בעיר העתיקה, בוטיקים, מזכרות ועצירות גלידה משפחתיות .</div><div class="parking-info">🚗 הגעה עם רכב: כן. הניווט לסמטאות הפנימיות חסום לחלוטין לרכבים, ולכן חובה לחנות בחניון הציבורי המרכזי והקרוב ביותר למדרחוב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Albufeira" target="_blank" class="map-link">Parque de Estacionamento de Albufeira 📍</a> (בתשלום סמלי), ומשם גישה רגלית מיידית לעיר העתיקה .</div></div>
+                                        <div class="site-block"><div class="site-title">1. אקשן וחילוץ עצמות על צמרות העצים: <a href="https://www.google.com/maps/search/?api=1&query=Parque+Aventura+Albufeira" target="_blank" class="map-link">Parque Aventura Albufeira 📍</a> <span class="booking-tag tag-none">פעילות אקטיבית מעולה לילדים!</span></div><div class="site-meta">פארק חבלים, אתגרים ואומגות בלב הטבע, דקות ספורות מהמלון. גשרי חבלים, רשתות טיפוס ואומגות ארוכות.</div>
+                                            <details class="deep-dive">
+                                                <summary>שלוש רמות מסלול · מי מתאים לכל אחת</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-step">🟢 <strong>Curious</strong> — מגיל 4, גובה מינימלי 1.00 מ'</div>
+                                                    <div class="dd-step">🔵 <strong>Adventurous</strong> — מגיל 8, גובה מינימלי <strong>1.30 מ'</strong> ← <strong>נוגה (9)</strong></div>
+                                                    <div class="dd-step">🔴 <strong>Fearless</strong> — מגיל 12, גובה מינימלי <strong>1.40 מ'</strong> ← <strong>עידן (12)</strong></div>
+                                                    <div class="dd-step">משקל מרבי 110 ק"ג. שימו לב שהמשפחה תתפצל בין מסלולים.</div>
+                                                    <div class="dd-warn">⚠️ <strong>למדוד את נוגה לפני הנסיעה.</strong> אם היא מתחת ל-1.30 מ' היא תרד לרמת Curious המיועדת לגיל 4+, וזה עלול לאכזב בת 9. עדיף לדעת מראש ולא בשטח.</div>
+                                                </div>
+                                            </details>
+                                            <div class="timeline-box">⏱️ יציאה מהמלון ב-09:45 | **10:00 - 13:00** רישום, תדרוך בטיחות וזמן חבלים. <strong>שעות הקיץ הן 10:00-18:00, ולכן 10:00 הוא החלון הקריר ביותר האפשרי</strong> — להצטייד במים ובבגדים נוחים.</div><div class="parking-info">🚗 הגעה עם רכב: כן, הגעה מהירה וקלה ביותר. לפארק מגרש חניה ציבורי מסודר ומוצל בחינם ממש בכניסה לרחבת המתחם .</div></div>
+                                        <div class="site-block"><div class="site-title">2. סיור העומק המקורי בעיר העתיקה: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Old+Town" target="_blank" class="map-link">Albufeira Old Town 📍</a></div><div class="site-meta">כפר דייגים עתיק שהפך לבירת התיירות של האלגארב — סמטאות צרות, בתים לבנים ומדרחובים תוססים.</div><div class="site-route">🆕 <strong>מה לראות:</strong> כיכר <a href="https://www.google.com/maps/search/?api=1&query=Largo+Engenheiro+Duarte+Pacheco+Albufeira" target="_blank" class="map-link">Largo Engenheiro Duarte Pacheco 📍</a> הראשית · <a href="https://www.google.com/maps/search/?api=1&query=Praia+dos+Pescadores+Albufeira" target="_blank" class="map-link">Praia dos Pescadores 📍</a> — חוף הדייגים ההיסטורי עם הסירות הצבעוניות · <strong>המנהרה</strong> החצובה מרחוב 5 de Outubro אל החוף · והדרגנוע/מעלית ב-<a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Peneco+Albufeira" target="_blank" class="map-link">Praia do Peneco 📍</a> שחוסך את הירידה במדרגות.</div><div class="timeline-box">⏱️ מנוחת צהריים, ים ובריכה במלון עד אחה"צ. יציאה מהמלון ברכב ב-16:30 (15 דקות נסיעה, 12 ק"מ) | **17:00 - 20:00** (3 שעות) סיור רגלי מקיף בעיר העתיקה, בוטיקים, מזכרות ועצירות גלידה משפחתיות .</div><div class="parking-info">🚗 הגעה עם רכב: כן. הניווט לסמטאות הפנימיות חסום לחלוטין לרכבים, ולכן חובה לחנות בחניון הציבורי המרכזי והקרוב ביותר למדרחוב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Albufeira" target="_blank" class="map-link">Parque de Estacionamento de Albufeira 📍</a> (בתשלום סמלי), ומשם גישה רגלית מיידית לעיר העתיקה. <strong>⚠️ ערב שישי באוגוסט הוא השיא של העונה באלבופיירה</strong> — העיר העתיקה תהיה צפופה מאוד והחניון עלול להתמלא. ההגעה ב-17:00 היא נכונה בדיוק מהסיבה הזו; אל תאחרו.</div></div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, פיצות או המבורגרים במתחם הבריכה המפנק של המלון EPIC SANA בשעה 13:30 . <br>ערב: ארוחה משפחתית חגיגית, דגים טריים או נתחי בשר מעולים באחת המסעדות האותנטיות והמובילות בסמטאות העיר העתיקה של אלבופיירה . לו"ז משוער: **20:15 - 22:30**.</td>
+                                    <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, פיצות או המבורגרים במתחם הבריכה המפנק של המלון EPIC SANA בשעה 13:30 . <br>ערב: <strong><a href="https://www.google.com/maps/search/?api=1&query=Staar+Restaurante+Albufeira" target="_blank" class="map-link">Staar Restaurante 📍</a></strong> — מטבח מקומי מוקפד בסמטה שקטה ליד הכיכר המרכזית, <strong>מחוץ לרצועת המלכודות התיירותיות</strong>. גיבוי: <a href="https://www.google.com/maps/search/?api=1&query=Tiger+Street+Sushi+Albufeira" target="_blank" class="map-link">Tiger Street Sushi 📍</a> ברחוב Candido dos Reis. לו"ז: **20:15 - 22:30**.</td>
                                     <td data-label="תחבורה, רכב וחניה">נהיגה קצרצרה בבוקר לפארק החבלים וחזרה למלון למנוחת צהריים ארוכה, שחייה בבריכות וירידה לים פאלסיה (**13:15 - 16:30**) . באחה"צ נסיעה של 15 דקות וחניה ב-Parque de Albufeira לטובת הסיור בעיר העתיקה וארוחת הערב . חזרה לריזורט בלילה (15 דקות נסיעה) .</td>
                                 </tr>
                             </tbody>
@@ -619,8 +820,17 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 14</span><span class="date-text">15.08 (ש')</span></td>
                                     <td data-label="מוקד פעילות">Buggy Safari & MIZU Dinner</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. הרפתקת שטח בנבכי הטבע: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Buggy+Safari" target="_blank" class="map-link">Algarve Buggy / Jeep Safari 📍</a> <span class="booking-tag tag-required">הרפתקת שיא משפחתית אקטיבית!</span></div><div class="site-meta">חצי יום של טיול שטח דרמטי וחווייתי אל לב חבל אלגארב הפראי. נהיגה עצמית מאתגרת ברכבי באגי (Buggy) פתוחים ובטוחים או סיור מודרך רגוע בג'יפ 4x4 פתוח . נוסעים בדרכי עפר ובשבילים הרריים נסתרים, חוצים מטעי תפוזים ולימונים . <strong>שימו לב:</strong> 15.8 הוא חג לאומי בפורטוגל (Assunção) — לוודא מראש מול המפעיל שהסיור מתקיים בתאריך זה, ולצפות לעומס בקניונים .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:00 אל נקודת המפגש באזור אלבופיירה (15 דקות נסיעה) | **09:30 - 13:00** (3.5 שעות) הצטיידות במשקפי מגן, תדרוך נהיגה ויציאה לטיול השטח .</div><div class="parking-info">🚗 הגעה עם רכב: כן. נקודת המפגש והיציאה כוללת מגרש חניה פרטי ומסודר בחינם לאורחי הסיור השוכנת בפתח המשרדים .</div></div>
-                                        <div class="site-block"><div class="site-title">2. אופציות שופינג ממוזגות וארוחת צהריים קלה <span class="booking-tag tag-none">חלון קניות אסטרטגי בשעה 13:30</span></div><div class="site-meta">לאחר טיול השטח והאבק, נוסעים ישירות למרכז הקניות השני שלא ביקרתם בו ביום 12 (למשל, השלמות שופינג, בגדים ורשתות בינלאומיות וקניית מתנות באווירה ממוזגת ונוחה בתוך <strong>Algarve Shopping</strong> בגיאה) . חלון זמן מעולה להשלמת הבוטיקים האחרונים של הטיול .</div><div class="timeline-box">⏱️ **13:30 - 16:30** (3 שעות) ארוחת צהריים קלה במתחם האוכל, השלמות שופינג משפחתיות אחרונות, וקפיצה חזרה ברכב לריזורט EPIC SANA ב-16:30 לטובת מקלחות, פריקת שקיות והתארגנות לבוש מוקפדת לערב היוקרתי .</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה חופשית, בטוחה ומקורה בשפע בחניון התת-קרקעי של מרכז הקניות .</div></div>
+                                        <div class="site-block"><div class="site-title">1. הרפתקת שטח בנבכי הטבע: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Buggy+Safari" target="_blank" class="map-link">Algarve Buggy / Jeep Safari 📍</a> <span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">שני באגי הוזמנו ✅ 09:30</span></div><div class="site-meta">חצי יום של טיול שטח דרמטי וחווייתי אל לב חבל אלגארב הפראי. נהיגה עצמית מאתגרת ברכבי באגי (Buggy) פתוחים ובטוחים או סיור מודרך רגוע בג'יפ 4x4 פתוח . נוסעים בדרכי עפר ובשבילים הרריים נסתרים, חוצים מטעי תפוזים ולימונים . <strong>שימו לב:</strong> 15.8 הוא חג לאומי בפורטוגל (Assunção) — לוודא מראש מול המפעיל שהסיור מתקיים בתאריך זה, ולצפות לעומס בקניונים .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:00 אל נקודת המפגש באזור אלבופיירה (15 דקות נסיעה) | **09:30 - 13:00** (3.5 שעות) הצטיידות במשקפי מגן, תדרוך נהיגה ויציאה לטיול השטח .</div><div class="parking-info">🚗 הגעה עם רכב: כן. נקודת המפגש כוללת מגרש חניה פרטי וחינמי לאורחי הסיור.</div>
+                                            <details class="deep-dive">
+                                                <summary>⚠️ מה חייבים לדעת לפני שמגיעים</summary>
+                                                <div class="deep-dive-inner">
+                                                    <div class="dd-warn">💶 <strong>פיקדון במזומן: 150-250€ לכל באגי.</strong> עם שני רכבים זה <strong>עד 500€ במזומן</strong> שצריך להביא. זה לא משהו שרוצים לגלות בשטח.</div>
+                                                    <div class="dd-step">🪪 <strong>מקסימום 2 אנשים לרכב</strong> — ולכן שני באגי, ו<strong>שני ההורים נוהגים</strong>. כל נהג חייב רישיון נהיגה מלא בתוקף (לא זמני) ותעודה מזהה או דרכון. נוסעים מגיל 6-7 ומעלה — עידן ונוגה בסדר.</div>
+                                                    <div class="dd-step">🔄 <strong>ניתן לבטל עד 24 שעות מראש.</strong> אם ביום 13 בערב מתחשק סיום רגוע יותר לחופשה — אפשר להמיר את הבוקר הזה ביום בריכה וקניון נינוח לפני ארוחת הפרידה ב-Mizu.</div>
+                                                    <div class="dd-step">🚙 <strong>חלופה שקטה יותר:</strong> ג'יפ ספארי מודרך — כל המשפחה בכלי אחד עם נהג, בלי פיקדונות ובלי שני רישיונות, ואפשר להסתכל על הנוף במקום על הדרך.</div>
+                                                </div>
+                                            </details></div>
+                                        <div class="site-block"><div class="site-title">💡 2. אופציונלי — קניות וארוחת צהריים קלה <span class="booking-tag tag-none">ניתן לדלג לטובת בריכה</span></div><div class="site-meta"><strong>סומן כאופציונלי:</strong> אחרי 3.5 שעות של אבק ושמש, וכשהערב מסתיים בארוחת שף מוקפדת, אחר צהריים רגוע בריזורט — בריכה, מקלחת ומנוחה — עשוי להיות עדיף. וממילא יהיו לכם כבר שני בלוקי קניות (ימים 5 ו-12). <br><strong>אם כן יוצאים:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Algarve+Shopping+Guia" target="_blank" class="map-link">Algarve Shopping 📍</a> בגיאה במרחק 10 דקות — ולא Mar Shopping בלולה, שהוא 40 דקות לכל כיוון ומכביד על יום שנגמר ב-19:00 בווילה ויטה.</div><div class="timeline-box">⏱️ **13:30 - 16:30** (3 שעות) ארוחת צהריים קלה במתחם האוכל, השלמות שופינג משפחתיות אחרונות, וקפיצה חזרה ברכב לריזורט EPIC SANA ב-16:30 לטובת מקלחות, פריקת שקיות והתארגנות לבוש מוקפדת לערב היוקרתי .</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה חופשית, בטוחה ומקורה בשפע בחניון התת-קרקעי של מרכז הקניות .</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: ארוחה קלה, מקומית או אסייתית חופשית במתחם האוכל של מרכז הקניות ב-13:45 . <br><strong>ערב פרימיום (הוזמן ונעול קשיח) 🍱:</strong> מסעדת השף היפנית העילית והיוקרתית ביותר באלגארב <strong><a href="https://www.google.com/maps/search/?api=1&query=Mizu+Restaurant+Algarve" target="_blank" class="map-link">Mizu Restaurant 📍</a></strong> (שוכנת בריזורט היוקרתי הסמוך Vila Vita Parc) . <br><strong>חלון הזמן שהוזמן: 19:00 בדיוק!</strong> יושבים מסביב לעמדת ה-Teppanyaki וחווים שואו קולינרי מהפנט של אש חיה, להטוטים ובישול פרטי מול העיניים של נתחי אנטריקוט פרימיום, סושי, גיוזה ונודלס . לו"ז ארוחה: **19:00 - 21:30** .</td>
                                     <td data-label="תחבורה, רכב וחניה">יציאה לטיול הבאגי בבוקר, מעבר קצר ברכב למרכז הקניות בצהריים, וחזרה למלון להתארגנות ומקלחות (**16:45 - 18:35**) . יציאה מהמלון ברכב לבושים בהידור ב-18:35 (נסיעה של 20 דקות, 18 ק"מ מערבה לקרוואיירו) והגעה מדויקת ב-18:55 לשער של Vila Vita Parc . משתמשים בשירות ה-Valet Parking של הריזורט בשער או חונים בחניון האורחים המסומן בחינם לאורחי המסעדה . חזרה למלון EPIC SANA בלילה .</td>
@@ -649,8 +859,8 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 15</span><span class="date-text">16.08 (א')</span></td>
                                     <td data-label="מוקד פעילות">Resort & Departure</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. יום פנוי מלא וניצול הריזורט: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a> <span class="booking-tag tag-none">יום פנוי לחלוטין והשלמות בטן-גב</span></div><div class="site-meta">קמים מאוחר ללא שעון מעורר, ומשאירים את היום הזה חופשי לחלוטין לרווחת המשפחה ולהשלמות שטח אחרונות. נהנים מארוחת בוקר ארוכה ומלכותית, ניצול מלא של בריכות השחייה המפוארות, מתקני הספא, הליכה אחרונה בין שבילי האורנים וירידה לחוף פאלסיה לשחייה וצילומים משפחתיים בשמש . לאחר מכן חוזרים לסוויטות לטובת ארגון מסודר של כל המזוודות, פריקת שקיות הקניות, וביצוע צ'ק-אאוט נינוח .</div><div class="timeline-box">⏱️ **08:30 - 11:00** ארוחת בוקר ממושכת. | **11:00 - 14:15** בילוי חופשי במתקני המלון והשלמות בטן-גב . | **14:15 - 15:00** ארגון המזוודות, העמסה מסודרת לרכב וצ'ק-אאוט רשמי . <strong>קריטי:</strong> צ'ק-אאוט רגיל הוא עד 12:00 — חובה לתאם מראש Late Checkout מול המלון (בתשלום/לפי זמינות) . יציאה קשיחה צפונה ב-15:00 .</div><div class="parking-info">🚗 הגעה עם רכב: לא נדרשת נסיעה בחלק הראשון של היום, הרכב נשאר מוגן בחניון המקורה של המלון עד להעמסת המזוודות ב-14:45 .</div></div>
-                                        <div class="site-block"><div class="site-title">2. נסיעה רציפה וחזרה בטוחה לישראל <span class="booking-tag tag-required">חלון זמן קשיח לטיסת לילה ב-22:15!</span></div><div class="site-meta">סגירת המעגל של החופשה המשפחתית. יוצאים לדרך צפונה מהאלגארב חזרה לחבל ליסבון לאורך אוטוסטרדת ה-A2 הנוחה והישרה . נלקח מקדם ביטחון רחב מאוד של מעל שעה לטובת עומסי תנועה קלים בכניסה למטרופולין ליסבון ועיכובי בדיקות במתחם חברות ההשכרה . הגעה בטוחה ושלווה לטרמינל כ-3.5 שעות לפני ההמראה הרשמית .</div><div class="timeline-box">⏱️ **15:00** יציאה קשיחה מהמלון באלגארב | **15:00 - 17:30** נסיעה רציפה של 2.5 שעות (245 ק"מ באוטוסטרדה הישרה A2) צפונה . | **17:30** הגעה משוערת למתחם החזרת הרכב בשדה התעופה של ליסבון (Car Rental Return) . פריקת מזוודות וסגירת חוזה ההשכרה . | **18:45** התייצבות מלאה בדלפקי חברת התעופה בטרמינל . | **22:15** המראה רשמית וחזרה בטוחה לישראל . ✈️</div><div class="parking-info">🚗 הגעה עם רכב: כן, נסיעה ארוכה ורציפה לסיום הטיול. ניווט מדויק וחד-משמעי היישר אל מתחם חברות ההשכרה המרכזי בשדה התעופה של ליסבון (Car Rental Return) . לכוון בתוכנת הניווט היישר אל נקודת הציון הרשמית: <a href="https://www.google.com/maps/search/?api=1&query=Lisbon+Airport+Car+Rental+Return" target="_blank" class="map-link">Lisbon Airport Car Rental Return 📍</a> .</div></div>
+                                        <div class="site-block"><div class="site-title">1. יום פנוי מלא וניצול הריזורט: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a> <span class="booking-tag tag-none">יום פנוי לחלוטין והשלמות בטן-גב</span></div><div class="site-meta">קמים מאוחר ללא שעון מעורר, ומשאירים את היום הזה חופשי לחלוטין לרווחת המשפחה ולהשלמות שטח אחרונות. נהנים מארוחת בוקר ארוכה ומלכותית, ניצול מלא של בריכות השחייה המפוארות, מתקני הספא, הליכה אחרונה בין שבילי האורנים וירידה לחוף פאלסיה לשחייה וצילומים משפחתיים בשמש . לאחר מכן חוזרים לסוויטות לטובת ארגון מסודר של כל המזוודות, פריקת שקיות הקניות, וביצוע צ'ק-אאוט נינוח .</div><div class="timeline-box">⏱️ **08:30 - 11:00** ארוחת בוקר ממושכת. | **11:00 - 14:15** בילוי חופשי במתקני המלון והשלמות בטן-גב . | **14:15 - 15:00** ארגון המזוודות, העמסה מסודרת לרכב וצ'ק-אאוט רשמי . <strong>קריטי:</strong> צ'ק-אאוט רגיל הוא עד 12:00 — חובה לתאם מראש Late Checkout מול המלון (בתשלום/לפי זמינות). <strong>אם לא יאושר:</strong> לפנות את החדר ב-12:00, להשאיר את המזוודות בקבלה ולהמשיך להשתמש בבריכה ובמלתחות עד 14:15 — שווה לדעת מראש ולא לגלות בבוקר. יציאה קשיחה צפונה ב-15:00.</div><div class="parking-info">🚗 הגעה עם רכב: לא נדרשת נסיעה בחלק הראשון של היום, הרכב נשאר מוגן בחניון המקורה של המלון עד להעמסת המזוודות ב-14:45 .</div></div>
+                                        <div class="site-block"><div class="site-title">2. נסיעה רציפה וחזרה בטוחה לישראל <span class="booking-tag tag-required">חלון זמן קשיח לטיסת לילה LY376 ב-22:15!</span></div><div class="site-meta">סגירת המעגל של החופשה. יוצאים צפונה מהאלגארב לאורך ה-A2 עם מקדם ביטחון רחב. <br>⚠️ <strong>שימו לב: ראשון אחר הצהריים באמצע אוגוסט הוא היום והשעה הגרועים ביותר בשבוע לנסיעה הזו</strong> — זה בדיוק המועד שבו כל מי שנפש באלגארב חוזר לליסבון. המסמך מניח 2.5 שעות ל-245 ק"מ, אבל ריאלית זה 2:45-3:00 גם בלי פקקים. <strong>לבדוק Waze לפני היציאה ולא להתפתות לדחות אותה.</strong> <br>⛽ <strong>תדלוק:</strong> חוזה ההשכרה דורש מיכל מלא. לתדלק בתחנה האחרונה <em>לפני</em> הכניסה למתחם שדה התעופה — התדלוק בתוך המתחם יקר משמעותית.</div><div class="timeline-box">⏱️ **15:00** יציאה קשיחה מהמלון באלגארב | **15:00 - 17:30** נסיעה רציפה של 2.5 שעות (245 ק"מ באוטוסטרדה הישרה A2) צפונה . | **17:30** הגעה משוערת למתחם החזרת הרכב בשדה התעופה של ליסבון (Car Rental Return) . פריקת מזוודות וסגירת חוזה ההשכרה . | **18:45** התייצבות מלאה בדלפקי חברת התעופה בטרמינל . | **22:15** המראה רשמית של טיסה **LY376** מטרמינל 1 | **05:25 (17.08)** נחיתה בנתב"ג טרמינל 3 . ✈️</div><div class="parking-info">🚗 הגעה עם רכב: כן, נסיעה ארוכה ורציפה לסיום הטיול. ניווט מדויק וחד-משמעי היישר אל מתחם חברות ההשכרה המרכזי בשדה התעופה של ליסבון (Car Rental Return) . לכוון בתוכנת הניווט היישר אל נקודת הציון הרשמית: <a href="https://www.google.com/maps/search/?api=1&query=Lisbon+Airport+Car+Rental+Return" target="_blank" class="map-link">Lisbon Airport Car Rental Return 📍</a> .</div><details class="deep-dive"><summary>🧳 מזוודות ברכב — כללי בטיחות ליום מעבר</summary><div class="deep-dive-inner"><div class="dd-warn">ברכב סטיישן תא המטען גלוי מבעד לזכוכית — זו החשיפה הגדולה ביותר. ביום האחרון כל הכבודה והקניות ברכב לאורך 245 ק"מ — כולל בכל עצירת דלק או קפה בדרך.</div><div class="dd-step">1️⃣ <strong>כיסוי תא המטען סגור לאורך כל היום.</strong> שום דבר לא נראה מבחוץ, גם לא שקיות.</div><div class="dd-step">2️⃣ <strong>דרכונים, מזומן ואלקטרוניקה — עליכם ולא ברכב</strong>, בכל עצירה ללא יוצא מן הכלל.</div><div class="dd-step">3️⃣ <strong>לא לפתוח את תא המטען במגרש החניה</strong> בהגעה. גנבים צופים בחניונים ומזהים מי נוסע עמוס.</div><div class="dd-step">4️⃣ בעצירות קצרות בשטח פתוח — <strong>לחנות כך שהרכב נראה מנקודת התצפית</strong>.</div><div class="dd-step">5️⃣ בעצירה הארוכה של היום — <strong>לחנות קרוב לכניסה ולתנועת ההולכים</strong>, לא בקצה המגרש.</div></div></details></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">ארוחת בוקר: מלכותית ועשירה בריזורט EPIC SANA . <br>צהריים: נשנושים קלים או מאפה בבר המלון לפני היציאה לרכב ב-14:30 . <br>ערב: ארוחה משפחתית חגיגית, נשנושים, המבורגרים וקפה בדיוטי פרי המרווח והמפואר של נמל התעופה בליסבון לאחר הבידוק הבטחוני, בשעות הערב הנינוחות שלפני ההמראה .</td>
                                     <td data-label="תחבורה, רכב וחניה">נהיגה רציפה ובטוחה של 245 ק"מ על ציר האוטוסטרדה המרכזי A2 (ה-A2 בתשלום — נגבה אוטומטית דרך מכשיר ה-Via Verde ברכב השכור, כ-25€ לכיוון; ה-A22 באלגארב חינם מאז 1.1.2025) . התייצבות בטרמינל בשעה 18:45 והמראה רשמית ב-22:15 בלילה .</td>
@@ -668,7 +878,7 @@
                 <thead><tr><th>אזור/עיר</th><th>שם המסעדה (שפת מקור)</th><th>סגנון, חוויה ומה להזמין</th><th>הנחיות הגעה, רכב וחניה אסטרטגית</th><th>סטטוס הזמנה</th></tr></thead>
                 <tbody>
                     <tr>
-                        <td rowspan="2">קשקאיש (Cascais)</td>
+                        <td rowspan="3">קשקאיש (Cascais)</td>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=Mar+do+Inferno+Cascais" target="_blank" class="map-link">Mar do Inferno 📍</a></td>
                         <td>דגים טריים, פירות ים, פילה בקר וצ'יפס על הצוקים של Boca do Inferno.</td>
                         <td>הגעה נוחה עם הרכב, חניה חינמית גדולה צמודה לאתר ב-<a href="https://www.google.com/maps/search/?api=1&query=Boca+do+Inferno+Parking" target="_blank" class="map-link">Boca do Inferno Parking 📍</a>.</td>
@@ -676,28 +886,34 @@
                     </tr>
                     <tr>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+de+LEntrecote+Cascais" target="_blank" class="map-link">La Brasserie de L'Entrecôte 📍</a></td>
-                        <td><strong>הזמנה קבועה - יום 2 (20:30):</strong> קונספט פריזאי של אנטריקוט פרוס דק, רוטב סודי והר צ'יפס ללא הגבלה.</td>
+                        <td><strong>הוזמן ✅ יום 2 (20:15):</strong> קונספט פריזאי של אנטריקוט פרוס דק, רוטב סודי והר צ'יפס ללא הגבלה.</td>
                         <td>המסעדה שוכנת במרינה של קשקאיש (Loja 43), עם נוף ליאכטות ולמגדלור סנטה מרתה. חניה בחניון המרינה הצמוד: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> והליכה של 2 דקות. פתוחה עד 23:30.</td>
-                        <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
+                        <td><span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅ 20:15</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Hifen+Cascais" target="_blank" class="map-link">Hífen 📍</a></td>
+                        <td><strong>הוזמן ✅ יום 5 (21:30):</strong> בר-מסעדה על הטיילת מול מפרץ קשקאיש. מנות שיתוף, פטישקוש והמבורגרים.</td>
+                        <td>Av. Dom Carlos I, 48. פתוחה עד חצות (בשישי-שבת עד 02:00). חניה ב-<a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a>, כ-5 דקות הליכה.</td>
+                        <td><span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅ 21:30</span></td>
                     </tr>
                     <tr>
                         <td rowspan="3">Sintra & Lisbon</td>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga (Sintra) 📍</a></td>
-                        <td>טאפאס מקומי ונגיש (Petiscos), מנות קלות ופשוטות לילדים. לו"ז: יום 3 ב-14:15.</td>
+                        <td>טאפאס מקומי ונגיש (Petiscos), מנות קלות ופשוטות לילדים. לו"ז: יום 3 ב-13:00. מקום קטן עם מעט שולחנות. גיבויים בסינטרה וילה: Romaria de Baco, Tacho Real, Apeadeiro.</td>
                         <td><strong>אסור להגיע ברכב למסעדה!</strong> חניה בחניון חנה וסע בתחתית בקואורדינטות המדויקות: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> והגעה באובר.</td>
-                        <td><span class="booking-tag tag-none">אין הזמנות (מבוסס מקום פנוי)</span></td>
+                        <td><span class="booking-tag tag-required">חובה להזמין! 219 243 242</span></td>
                     </tr>
                     <tr>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=Incomum+by+Luis+Santos" target="_blank" class="map-link">Incomum by Luís Santos (Sintra) 📍</a></td>
-                        <td>פסטות נהדרות, ריזוטו ונתחי בשר בקר פרימיום ברמה גבוהה. לו"ז: יום 3 ב-21:15.</td>
+                        <td>פסטות נהדרות, ריזוטו ונתחי בשר בקר פרימיום ברמה גבוהה. לו"ז: יום 3 ב-<strong>19:00</strong> (עודכן — ערב רציף ללא חזרה למלון). פתוחה ברצף מהצהריים, ללא קוד לבוש.</td>
                         <td>ממוקמת קרוב לתחנת הרכבת התחתונה. משתמשים באותו חניון מרכזי קשיח בתחתית: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> ומעבר באובר.</td>
                         <td><span class="booking-tag tag-required">חובה שבוע מראש</span></td>
                     </tr>
                     <tr>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=JNcQUOI+Avenida+Lisboa" target="_blank" class="map-link">JNcQUOI Avenida 📍</a></td>
                         <td><strong>ערב - יום 4 (19:45):</strong> מסעדת פרימיום יוקרתית ומעוצבת, מטבח בינלאומי ממוקד (קוד לבוש Smart Casual בלבד).</td>
-                        <td>חניה בחניון ציבורי באזור שדרת אבנידה (Avenida da Liberdade).</td>
-                        <td><span class="booking-tag tag-required">חובה חודש מראש לחלוטין</span></td>
+                        <td>המסעדה ב-Av. da Liberdade 182-184. חניה בחניון <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Tivoli+Avenida+da+Liberdade+Lisboa" target="_blank" class="map-link">Tivoli, Av. da Liberdade 185 📍</a> — מעבר לכביש. לא להתבלבל עם JNcQUOI Asia במספר 144.</td>
+                        <td><span class="booking-tag tag-required" style="background-color:#d4efdf;color:#1e8449">הוזמן ✅ 19:45</span></td>
                     </tr>
                     <tr>
                         <td rowspan="2">לאגוש (Lagos)</td>
@@ -735,17 +951,17 @@
             <table class="responsive-table">
                 <thead><tr><th>מתי לבצע</th><th>משימה לקראת הנסיעה</th><th>פירוט, הנחיות וקישורים רשמיים לרכישה</th><th>סטטוס דינמי (מבוסס ימים)</th></tr></thead>
                 <tbody id="todo-tbody">
-                    <tr data-days-before="45">
-                        <td style="font-weight:bold;">חודש וחצי מראש</td>
-                        <td>שריון מקומות למסעדות ערב קבועות וגיבויים</td>
-                        <td>הזמנת שולחנות אונליין ל-La Brasserie (יום 2), ל-Hifen (יום 5), וכן ל-JNcQUOI (יום 4).</td>
-                        <td class="status-cell">מחשב...</td>
+                    <tr>
+                        <td style="font-weight:bold; color: #27ae60;">הוזמן בהצלחה! ✅</td>
+                        <td style="color: #27ae60; font-weight: 600;">שלוש מסעדות הערב הקבועות</td>
+                        <td><strong>בוצע ונעול:</strong> <strong>La Brasserie de L'Entrecôte</strong> — יום 2 (03.08) ב-20:15 · <strong>JNcQUOI Avenida</strong> — יום 4 (05.08) ב-19:45 · <strong>Hífen</strong> — יום 5 (06.08) ב-21:30.</td>
+                        <td style="color: #27ae60; font-weight: bold;">סגור ונעול 📌</td>
                     </tr>
-                    <tr style="background-color: #eaf2f8;" data-days-before="30">
-                        <td style="font-weight:bold; color:#2980b9;">חודש 1 מראש</td>
-                        <td style="font-weight:700; color:#1a4a7a;">שריון מקום ב-Jardim das Oliveiras (מונשיק)</td>
-                        <td><strong>חובה קשיחה ליום ראשון (יום 8):</strong> הזמנת שולחן משפחתי לשעה 13:00 לחוויה כפרית פסטורלית בשיא עומס סופ"ש: <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="ticket-link">יצירת קשר טלפוני/אתר למסעדה 📞</a>.</td>
-                        <td class="status-cell">מחשב...</td>
+                    <tr>
+                        <td style="font-weight:bold; color: #27ae60;">הוזמן בהצלחה! ✅</td>
+                        <td style="color: #27ae60; font-weight: 600;">Jardim das Oliveiras (יום 8) · The One (יום 7) · Incomum (יום 3)</td>
+                        <td><strong>בוצע ונעול:</strong> Jardim das Oliveiras — 09.08 ב-<strong>13:30</strong> (המטבח נסגר 15:30) · The One, טיבולי — 08.08 ב-<strong>20:00</strong> · Incomum, סינטרה — 04.08 ב-<strong>19:00</strong>.</td>
+                        <td style="color: #27ae60; font-weight: bold;">סגור ונעול 📌</td>
                     </tr>
                     <tr data-days-before="30">
                         <td style="font-weight:bold;">חודש 1 מראש</td>
@@ -759,11 +975,11 @@
                         <td>הזמנת כרטיסי כניסה מראש ליום 11 למניעת עמידה בתורים בקופות בקיץ: <a href="https://www.zoomarine.pt/" target="_blank" class="ticket-link">אתר Zoomarine Algarve הרשמי 🎫</a>.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
-                    <tr style="background-color: #fdf2e9;" data-days-before="20">
-                        <td style="font-weight:bold; color: #d35400;">20 ימים מראש 🆕</td>
-                        <td style="font-weight:700; color: #d35400;">שריון חלון זמן ל-Parasailing באלבופיירה</td>
-                        <td><strong>חובה קשיחה ליום 10 (11.08) בשעה 16:30:</strong> שריון חלון הזמן המשפחתי למצנחי רחיפה מול מרינת אלבופיירה למניעת סולד-אאוט באוגוסט: <a href="https://www.algarexperience.com/" target="_blank" class="ticket-link">אתר AlgarExperience הרשמי 🎫</a>.</td>
-                        <td class="status-cell">מחשב...</td>
+                    <tr>
+                        <td style="font-weight:bold; color: #27ae60;">הוזמן בהצלחה! ✅</td>
+                        <td style="color: #27ae60; font-weight: 600;">Parasailing (יום 10) · שני באגי (יום 14) · קרוז דולפינים פארו (יום 12)</td>
+                        <td><strong>בוצע ונעול:</strong> AlgarExperience — 11.08 ב-<strong>16:30</strong> (צ'ק-אין 16:00 ליד Belize Café) · שני באגי — 15.08 ב-<strong>09:30</strong> (⚠️ להביא עד 500€ מזומן לפיקדונות ושני רישיונות) · Formosamar פארו — 13.08 ב-<strong>11:30</strong>.</td>
+                        <td style="color: #27ae60; font-weight: bold;">סגור ונעול 📌</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold; color: #27ae60;">הוזמן בהצלחה! ✅</td>
@@ -775,6 +991,60 @@
                         <td style="font-weight:bold; color: #8e44ad;">חודש 1 מראש 🆕</td>
                         <td style="font-weight:700; color: #8e44ad;">שריון קרוז דולפינים וביולוגים ימיים מפארו</td>
                         <td><strong>חובה ליום 12 (13.08) בשעה 11:00:</strong> הזמנת מקומות מראש להפלגת החיפוש המדעית הלוקחת אתכם דרך הריזורטים של ריה פורמוזה אל הים הפתוח (התייצבות ב-10:30): <a href="https://formosamar.com/tour/dolphin-tours-in-the-algarve/" target="_blank" class="ticket-link">אתר Formosamar — קרוז דולפינים וביולוגים מפארו 🎫</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold; color: #27ae60;">הוזמן בהצלחה! ✅</td>
+                        <td style="color: #27ae60; font-weight: 600;">כרטיסי Quinta da Regaleira (יום 3)</td>
+                        <td><strong>בוצע:</strong> חלון כניסה <strong>14:30-15:00</strong> ב-04.08. שעת חסד של עד שעה אחרי השעה הנקובה. קופה מקוונת רשמית: <a href="https://regaleira.byblueticket.pt" target="_blank" class="ticket-link">regaleira.byblueticket.pt 🎫</a>.</td>
+                        <td style="color: #27ae60; font-weight: bold;">סגור ונעול 📌</td>
+                    </tr>
+                    <tr style="background-color:#fef9e7;" data-days-before="21">
+                        <td style="font-weight:bold;">3 שבועות מראש 🆕</td>
+                        <td style="font-weight:700;">שריון שולחן ב-Tascantiga לצהריים (יום 3)</td>
+                        <td><strong>חובה ל-13:00 ב-04.08:</strong> מקום קטן עם מעט שולחנות שמתמלא מהר בעונה. טלפון <strong>+351 219 243 242</strong> או מייל <strong>tascantiga@gmail.com</strong>. גיבויים אם אין מקום: Romaria de Baco, Tacho Real, Apeadeiro.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr style="background-color:#fef9e7;" data-days-before="21">
+                        <td style="font-weight:bold;">3 שבועות מראש 🆕</td>
+                        <td style="font-weight:700;">עדכון/שריון שולחן ב-Incomum לשעה 19:00 (יום 3)</td>
+                        <td><strong>שימו לב לשינוי השעה:</strong> הערב תוכנן מחדש כרצף ללא חזרה למלון, והארוחה הוקדמה מ-21:15 ל-<strong>19:00</strong>. טלפון <strong>+351 21 924 3719</strong> או <a href="https://incomumbyluissantos.pt/en/" target="_blank" class="ticket-link">אתר המסעדה 🎫</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="2">
+                        <td style="font-weight:bold;">יומיים לפני כל טיסה 🆕</td>
+                        <td>צ'ק-אין מקוון לטיסות LY375 / LY376</td>
+                        <td>הצ'ק-אין המקוון של אל על נפתח בדרך כלל 24-36 שעות לפני ההמראה. לבצע באפליקציה או באתר מיד עם הפתיחה, ולאמת את ההושבה של כל בני המשפחה.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr style="background-color:#eafaf1;" data-days-before="30">
+                        <td style="font-weight:bold;">חודש 1 מראש 🆕</td>
+                        <td style="font-weight:700;">Staar Restaurante, אלבופיירה העתיקה (יום 13)</td>
+                        <td><strong>14.08 ב-20:15 — ערב שישי באמצע אוגוסט, להקדים.</strong> מטבח מקומי מוקפד בסמטה ליד הכיכר המרכזית: <a href="https://www.google.com/maps/search/?api=1&query=Staar+Restaurante+Albufeira" target="_blank" class="ticket-link">Staar Restaurante 📍</a>. גיבוי: Tiger Street Sushi.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr style="background-color:#eafaf1;" data-days-before="21">
+                        <td style="font-weight:bold;">3 שבועות מראש 🆕</td>
+                        <td style="font-weight:700;">שלוש מסעדות הערב באלגארב</td>
+                        <td><strong>Open Deck</strong> (יום 10, 11.08) · <strong>Passaro Azul או O Caixote</strong> ב-Olhos de Água (יום 11, 12.08) · <strong>Lima</strong> (יום 12, 13.08 ב-20:45). את שתי מסעדות הריזורט אפשר להזמין דרך הקבלה. ⚠️ <strong>Lima מתוארת כעונתית — לוודא שהיא פועלת באוגוסט</strong>, ואם לא, להחליף ל-Abyad.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr style="background-color:#fdf2e9;" data-days-before="30">
+                        <td style="font-weight:bold; color:#d35400;">חודש 1 מראש 🆕</td>
+                        <td style="font-weight:700; color:#d35400;">Parque Aventura — כרטיסים + מדידת גובה</td>
+                        <td><strong>ליום 13 (14.08) ב-10:00.</strong> להזמין מראש דרך <a href="https://parqueaventura.net/en/albufeira-en/" target="_blank" class="ticket-link">אתר Parque Aventura 🎫</a>. <strong>ולמדוד את נוגה לפני הנסיעה:</strong> רמת Adventurous (גיל 8+) דורשת <strong>1.30 מ' מינימום</strong>. אם היא נמוכה מכך, היא תשובץ לרמת Curious המיועדת לגיל 4+.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="14">
+                        <td style="font-weight:bold;">שבועיים מראש 🆕</td>
+                        <td>אימות יריד ימי הביניים בסילבש (יום 8)</td>
+                        <td>היריד אמור לפעול 7-15 באוגוסט בערבים (18:00-01:00), אך המקורות חלוקים בין 7-15 ל-8-16. <strong>לאמת תאריכים, שעות ותוכנית באתר הרשמי</strong> לפני הנסיעה, כי כל ערב יום 8 בנוי סביבו.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="21">
+                        <td style="font-weight:bold;">3 שבועות מראש 🆕</td>
+                        <td>אופציונלי: Dolphin Emotions בזומארין (יום 11)</td>
+                        <td>אם תרצו מפגש מונחה עם דולפינים — נסגר מראש ובתשלום נפרד: <a href="https://www.zoomarine.pt/en/dolphin-emotions/" target="_blank" class="ticket-link">Dolphin Emotions 🎫</a>. Encounter מגיל 6, Premium מגיל 8 (חובה לדעת לשחות). שני הילדים מתאימים.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="14">
@@ -820,6 +1090,22 @@
         <div id="appendix-info">
             <div class="appendix-title">נספח ג': מידע שימושי, בטיחות וציוד 🧳</div>
             <div class="info-grid">
+                <div class="info-card" style="grid-column:1/-1"><h3>✈️ פרטי הטיסות</h3>
+                    <table class="responsive-table" style="font-size:14px">
+                        <thead><tr><th>&nbsp;</th><th>הלוך</th><th>חזור</th></tr></thead>
+                        <tbody>
+                            <tr><td data-label="שדה">מספר טיסה</td><td data-label="הלוך"><strong>LY375</strong> (אל על)</td><td data-label="חזור"><strong>LY376</strong> (אל על)</td></tr>
+                            <tr><td data-label="שדה">מסלול</td><td data-label="הלוך">נתב"ג T3 ← ליסבון T1</td><td data-label="חזור">ליסבון T1 ← נתב"ג T3</td></tr>
+                            <tr><td data-label="שדה">המראה</td><td data-label="הלוך">16:55 · 02.08.2026</td><td data-label="חזור">22:15 · 16.08.2026</td></tr>
+                            <tr><td data-label="שדה">נחיתה</td><td data-label="הלוך">20:55 · 02.08.2026</td><td data-label="חזור"><strong>05:25 · 17.08.2026</strong></td></tr>
+                            <tr><td data-label="שדה">משך</td><td data-label="הלוך">6:00 שעות</td><td data-label="חזור">5:10 שעות</td></tr>
+                            <tr><td data-label="שדה">מחלקה</td><td data-label="הלוך">Economy Classic (S)</td><td data-label="חזור">Economy Classic (S)</td></tr>
+                            <tr><td data-label="שדה">כבודה</td><td data-label="הלוך">מזוודה אחת לנוסע</td><td data-label="חזור">מזוודה אחת לנוסע</td></tr>
+                            <tr><td data-label="שדה">סטטוס</td><td data-label="הלוך">OK — מאושר</td><td data-label="חזור">OK — מאושר</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size:13.5px;margin:10px 0 0">EL AL PROTECT — מאושר · צ'ק-אין מקוון נפתח בדרך כלל 24-36 שעות לפני ההמראה (לוודא באפליקציית אל על).</p>
+                </div>
                 <div class="info-card"><h3>🚨 חירום ובריאות</h3><ul>
                     <li><strong>112</strong> — חירום כללי (משטרה / מד"א / כיבוי, מכל טלפון)</li>
                     <li><strong>808 24 24 24</strong> — SNS24, מוקד הבריאות הלאומי (מענה גם באנגלית)</li>
@@ -877,6 +1163,62 @@
                     <li><label><input type="checkbox" data-pack="smart">לבוש מוקפד לערבי JNcQUOI ו-Mizu (Smart Casual)</label></li>
                     <li><label><input type="checkbox" data-pack="wetbag">שקית לבגדים רטובים + מגבות חוף קלות</label></li>
                 </ul>
+            </div>
+        </div>
+
+        <div id="appendix-changelog">
+            <div class="appendix-title">נספח ד': יומן שינויים 📝</div>
+            <div class="changelog">
+                <details class="deep-dive">
+                    <summary>25.07.2026 · סבב ד' — סקירה מלאה של ימים 7-15</summary>
+                    <div class="deep-dive-inner">
+                        <div class="dd-step"><strong>יום 7:</strong> סדר החופים הופך למערב←מזרח (קרבאליו ← בנאג'יל ← מריניה) — מבטל נסיעה כפולה. <strong>נוספה תצפית ה"עין" של בנאג'יל</strong> (5 דק' הליכה) ו<strong>Mirador dos Arcos</strong> במריניה — שתי נקודות התצפית של שביל שבעת העמקים, בלי 6 הק"מ. קרבאליו סומן אופציונלי בשל המדרגות. ⚠️ קריטי: חניון מריניה נסגר בפקודת משטרה עד 15:00 באוגוסט — ומכאן ההגעה ב-16:00.</div>
+                        <div class="dd-step"><strong>יום 8 — היפוך מלא:</strong> התגלה ש<strong>יריד ימי הביניים של סילבש מתקיים 7-15 באוגוסט בערבים</strong>, בתוך הטירה שתכננתם לבקר בה בבוקר. היום נבנה מחדש כלולאה אחת: בוקר בריזורט, Fóia, צהריים, קלדש, עיירת מונשיק, ובערב הטירה והיריד. סילבש עוברת 38° באוגוסט — ההר תופס את שעות היום.</div>
+                        <div class="dd-step"><strong>יום 9:</strong> הסדר הופך (פונטה דה פיידאדה בבוקר, סגרש אחה"צ) — המדרגות בשעה קרירה, החניון עוד פנוי, והמבצר פתוח עד 20:00. <strong>נוסף Cabo de São Vicente</strong> ופירוט לאגוש. נוספה תיבת המלצה לשקול ויתור על שתי התחנות המערביות לטובת חצי יום חוף.</div>
+                        <div class="dd-step"><strong>יום 10:</strong> נוסף צ'ק-אאוט מטיבולי (חסר לגמרי), נקודת המפגש המדויקת של AlgarExperience, ומגבלות הגיל והמשקל.</div>
+                        <div class="dd-step"><strong>יום 11:</strong> תוקן — <strong>הפארק נפתח ב-10:00 ולא 09:30</strong>. נוספה אופציית Dolphin Emotions.</div>
+                        <div class="dd-step"><strong>יום 12:</strong> ההפלגה עודכנה ל-<strong>11:30</strong> וכל היום זז. <strong>נוספה העיר העתיקה של פארו</strong> — קתדרלה, Arco da Vila וקפלת העצמות (נסגרת 17:30) — על חשבון קיצור הקניות, והארוחה נדחתה ל-20:45.</div>
+                        <div class="dd-step"><strong>ימים 13-15:</strong> שלוש רמות המסלול בפארק החבלים ואזהרת הגובה לנוגה · פירוט הסיור באלבופיירה העתיקה · פיקדון המזומן ודרישות הרישיון בבאגי · קניות יום 14 סומנו אופציונליות · אזהרת פקקי A2 בראשון אחה"צ, הנחיית תדלוק, ונוהל גיבוי אם לא יאושר Late Checkout.</div>
+                        <div class="dd-step"><strong>ארוחות ערב לימים 10-13</strong> נוספו במלואן, וכל ההזמנות שנסגרו סומנו בטבלת המשימות.</div>
+                    </div>
+                </details>
+                <details class="deep-dive">
+                    <summary>25.07.2026 · סבב ג' — הזמנות סופיות, חניות בטוחות ויום המעבר דרומה</summary>
+                    <div class="deep-dive-inner">
+                        <div class="dd-step"><strong>שלוש הזמנות ננעלו:</strong> La Brasserie 20:15 (יום 2), JNcQUOI 19:45 (יום 4), Hífen 21:30 (יום 5). ערב יום 2 הוזז ברבע שעה אחורה בהתאם, וערב יום 5 אורגן מחדש עם חלון מנוחה ארוך לפני ארוחה מאוחרת. Hífen נוספה לנספח הקולינרי.</div>
+                        <div class="dd-step"><strong>יום 4 · חניה ותחבורה:</strong> החניה הועברה מ-Parque Camões (דיווחי פריצות והיעדר מאבטח) אל <strong>Mercado da Ribeira מתחת ל-Time Out</strong>. הסיבה: הסיור מסתיים בכיכר קומרסיו ולא בקמואש, והחניון החדש משרת גם את הסיום וגם את הצהריים — כולל ביטול לחץ הזמן שהיה לפני ג'רונימוס. העלייה לשיאדו נעשית ב<strong>מטרו תחנה אחת</strong>, לאחר שהתברר ש<strong>כל רכבלי ליסבון סגורים</strong> מאז ספטמבר 2025. לערב נקבע חניון Tivoli מול המסעדה, עם אזהרה על שתי מסעדות JNcQUOI באותה שדרה.</div>
+                        <div class="dd-step"><strong>יום 6 · ארגון מחדש:</strong> היציאה נדחתה ל-10:30. <strong>Praia do Samoqueira הוסרה</strong> — הערך שלה נמצא בבריכות הגאות שלמטה בשפל, הירידה תלולה וסלעית, החניה מבודדת, והעצירה איימה על שירות הצהריים של Tasca do Celso שנסגר ב-15:30. במקומה נוספה <strong>Porto Covo כעצירה אופציונלית</strong>. נוסף פירוט מלא ל-Cristo Rei (מעלית, 6€, מה רואים) ול-Cabo Sardão (חסידות על צוקי ים, עונה עד סוף אוגוסט).</div>
+                        <div class="dd-step"><strong>בטיחות מזוודות:</strong> נוספה מגירת כללים לימי המעבר — 6, 10 ו-15 — בדגש על תא המטען הגלוי ברכב סטיישן.</div>
+                    </div>
+                </details>
+                <details class="deep-dive">
+                    <summary>25.07.2026 · סבב ב' — טיסות, קשקאיש, וארגון מחדש של יום סינטרה</summary>
+                    <div class="deep-dive-inner">
+                        <div class="dd-step"><strong>טיסות:</strong> נוספו מספרי הטיסות LY375 / LY376, טרמינלים, משכים ונחיתת החזור ב-05:25 ב-17.08. נוסף כרטיס "פרטי הטיסות" בנספח המידע ומשימת צ'ק-אין מקוון.</div>
+                        <div class="dd-step"><strong>יום 2 · גווינשו:</strong> נוספה חלופת חזרה למלון לזמן בריכה (רוח <em>nortada</em> ומים קרים), כולל מתכונת מומלצת שמשלבת חוף בבוקר ובריכה והתארגנות אחה"צ.</div>
+                        <div class="dd-step"><strong>יום 2 · מרכז קשקאיש:</strong> נוסף מסלול רגלי מלא בן 7 תחנות מהמרינה ובחזרה. <strong>החניה שונתה</strong> מ-Cascais Villa ל-Marina de Cascais — חניה אחת שמשרתת גם את הסיור וגם את הארוחה. סומן שהמוזיאונים סגורים בימי שני ושהפארק נסגר ב-19:45.</div>
+                        <div class="dd-step"><strong>יום 3 · ארגון מחדש:</strong> המבצר המורי הועבר לאופציה בלבד; הצהריים הוקדמו ל-13:00; רגלייה נקבעה לחלון שהוזמן 14:30-15:00; נוסף זמן חופשי בסינטרה וילה; והארוחה ב-Incomum הוקדמה מ-21:15 ל-19:00 — <strong>בוטלה החזרה למלון והנסיעה הכפולה</strong> (חיסכון של כשעתיים נהיגה, סיום 21:30 במקום 23:00).</div>
+                        <div class="dd-step"><strong>יום 3 · חניה:</strong> נוספה מגירה עם 3 חלופות ושיקולי אבטחה בעקבות דיווחי פריצות לרכבים בסינטרה, כולל הסימון ש-Parkin Sintra נסגר ב-18:30 ולכן אינו תואם ערב רציף.</div>
+                        <div class="dd-step"><strong>יום 3 · תיקון:</strong> Tascantiga סומנה בטעות כ"אין הזמנות" — בפועל <strong>כן מקבלת הזמנות</strong> (טלפון/מייל). נוספו שלוש חלופות צהריים בסינטרה וילה.</div>
+                        <div class="dd-step"><strong>תחזוקה:</strong> הערות "עדכון V28" הועברו מגוף המסמך ליומן זה.</div>
+                    </div>
+                </details>
+                <details class="deep-dive">
+                    <summary>25.07.2026 · סבב א' — הרחבת Cabo da Roca (יום 2) + מנגנון מגירות</summary>
+                    <div class="deep-dive-inner">
+                        <div class="dd-step"><strong>יום 2 · Cabo da Roca:</strong> הבלוק הורחב מ"תצפית" בלבד לתוכן מלא — 4 עצירות (אנדרטת הפדראו, שביל התצפית הצפוני, המגדלור, תעודת הביקור), שתי אזהרות בטיחות (רוח, צוקים לא מגודרים) והמלצה מפורשת לא לרדת ל-Praia da Ursa. נוספה שעת יציאה מהמלון (09:20). חלון הזמן 09:45-10:45 נותר ללא שינוי.</div>
+                        <div class="dd-step"><strong>מנגנון חדש · מגירת העמקה:</strong> תוכן מורחב נכנס מעתה למגירה מתקפלת בתוך האתר, כדי שהיום יישאר תמציתי. המגירות נפתחות אוטומטית בהדפסה/PDF ובחיפוש חי, וגובה האקורדיון מחושב מחדש בכל פתיחה.</div>
+                    </div>
+                </details>
+                <details class="deep-dive">
+                    <summary>גרסה V28 — שדרוג יסודי מ-V27</summary>
+                    <div class="deep-dive-inner">
+                        <div class="dd-step"><strong>תיקוני לו"ז:</strong> ריאליזציה של יום הנחיתה (ביקורת דרכונים באוגוסט); הידוק המעבר Time Out ← ג'רונימוס ביום 4; תיקון זמן הנסיעה אודסייש ← קרוואיירו ביום 6 (55 דק' ולא 40); הבהרת צ'ק-אין 15:00 ב-EPIC SANA (יום 10) וצורך ב-Late Checkout (יום 15).</div>
+                        <div class="dd-step"><strong>תיקוני עובדות:</strong> הוסר שוק האיכרים במונשיק (יום 8) — מתקיים רק בשישי השני של החודש; עודכן ביטול אגרות A22 (1.1.2025); סומן 15.8 כחג לאומי (יום 14).</div>
+                        <div class="dd-step"><strong>תיקוני קישורים:</strong> קישור הזמנת קרוז הדולפינים הופנה ל-Formosamar (הצביע קודם על חניון); אתר כרטיסי ג'רונימוס עודכן ל-museusemonumentos; חניית L'Entrecôte תוקנה למרינת קשקאיש; חניית סינטרה עודכנה לחנה-וסע Portela de Sintra.</div>
+                        <div class="dd-step"><strong>יכולות חדשות:</strong> כפתור Waze ליד כל קישור מפות, ספירה לאחור והדגשת "היום" בזמן הטיול, חיפוש חי, סימון משימות נשמר במכשיר, הדפסה/PDF, נספח מידע ובטיחות וצ'קליסט אריזה.</div>
+                    </div>
+                </details>
             </div>
         </div>
     </div>
@@ -941,6 +1283,17 @@
                     item.classList.add("active");
                     item.querySelector(".accordion-content").style.maxHeight = "none";
                 });
+                document.querySelectorAll("details.deep-dive").forEach(function(d){ d.open = true; });
+            });
+
+            // 4b) Nested "deep dive" drawers: keep the parent accordion tall enough when they open/close
+            document.querySelectorAll("details.deep-dive").forEach(function(d){
+                d.addEventListener("toggle", function(){
+                    var c = d.closest(".accordion-content");
+                    if (c && c.style.maxHeight && c.style.maxHeight !== "none") {
+                        c.style.maxHeight = c.scrollHeight + "px";
+                    }
+                });
             });
             window.addEventListener("resize", function() {
                 document.querySelectorAll(".accordion-item.active .accordion-content").forEach(function(content){
@@ -956,7 +1309,10 @@
                 document.querySelectorAll(".accordion-item").forEach(function(item){
                     var show = !q || item.textContent.toLowerCase().indexOf(q) !== -1;
                     item.style.display = show ? "" : "none";
-                    if (q && show && !item.classList.contains("active")) {
+                    if (q && show) {
+                        item.querySelectorAll("details.deep-dive").forEach(function(d){
+                            if (d.textContent.toLowerCase().indexOf(q) !== -1) { d.open = true; }
+                        });
                         item.classList.add("active");
                         var c = item.querySelector(".accordion-content");
                         c.style.maxHeight = c.scrollHeight + "px";
