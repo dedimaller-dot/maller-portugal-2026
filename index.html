@@ -1,114 +1,165 @@
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תוכנית חופשת קיץ משפחתית - פורטוגל 2026</title>
+    <title>פורטוגל 2026 · תוכנית הטיול המשפחתית · V28</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary-color: #1a4a7a; 
-            --secondary-color: #34495e; 
-            --accent-color: #e74c3c; 
-            --bg-color: #f4f7f9; 
-            --card-bg: #ffffff; 
-            --text-color: #2c3e50; 
-            --border-color: #d1d8e0; 
-            --success-color: #27ae60; 
-            --warning-color: #f39c12; 
+        *{box-sizing:border-box}
+        :root{
+            --primary-color:#0e4d7a; --primary-dark:#0a3a5c; --secondary-color:#155e75;
+            --accent-color:#e76f51; --bg-color:#f2f6f9; --card-bg:#ffffff;
+            --text-color:#1e293b; --muted:#64748b; --border-color:#dbe4ec;
+            --success-color:#188a54; --warning-color:#f39c12;
+            --st1:#0e4d7a; --st1b:#2a7ab5; --st2:#0d7a6e; --st2b:#17a08f; --st3:#b4552d; --st3b:#d97742;
+            --radius:14px; --shadow:0 2px 10px rgba(15,50,80,.07); --shadow-hover:0 10px 26px rgba(15,50,80,.14);
         }
-        body { font-family: 'Assistant', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; padding-bottom: 60px; }
-        header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 26px; font-weight: 700; }
-        header p { margin: 8px 0 0 0; font-size: 15px; opacity: 0.9; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
-        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-        .nav-btn { background-color: #e2e8f0; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; color: var(--secondary-color); transition: all 0.3s ease; -webkit-tap-highlight-color: transparent; }
-        .nav-btn.active, .nav-btn:hover { background-color: var(--primary-color); color: white; }
-        
-        .global-controls { display: flex; justify-content: center; gap: 15px; margin: 10px 0 25px 0; }
-        .control-btn { background-color: var(--secondary-color); color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: 700; font-size: 14px; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); -webkit-tap-highlight-color: transparent; min-height: 48px; }
-        .control-btn:active { transform: scale(0.98); }
-        .control-btn.secondary { background-color: #cbd5e1; color: var(--secondary-color); box-shadow: none; }
-        
-        .section-wrapper { display: block; }
-        .station-header { background-color: var(--secondary-color); color: white; padding: 14px 15px; border-radius: 8px; margin-top: 30px; margin-bottom: 15px; font-size: 18px; font-weight: 600; }
-        .station-header a { color: #5dade2; text-decoration: none; font-weight: bold; }
-        
-        .accordion-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 3px 5px rgba(0,0,0,0.03); transition: border-color 0.2s ease; }
-        .accordion-header { background-color: #f8fafc; padding: 14px 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; min-height: 52px; box-sizing: border-box; transition: background-color 0.2s ease; -webkit-tap-highlight-color: transparent; }
-        .accordion-header:hover { background-color: #f1f5f9; }
-        .accordion-header .day-title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; text-align: right; }
-        .accordion-header .day-main-info { font-weight: 700; color: var(--primary-color); font-size: 16px; margin-right: 5px; }
-        .accordion-header .toggle-icon { font-size: 14px; color: var(--secondary-color); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-weight: bold; margin-right: 10px; }
-        .accordion-item.active .toggle-icon { transform: rotate(180deg); }
-        .accordion-item.active { border-color: var(--primary-color); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); background: #ffffff; }
-        .accordion-inner { padding: 16px; border-top: 1px solid #f1f5f9; }
-
-        .responsive-table { width: 100%; border-collapse: collapse; background: var(--card-bg); overflow: hidden; margin-bottom: 0; }
-        .responsive-table th { background-color: #e9ecef; color: var(--primary-color); font-weight: 700; padding: 12px; text-align: right; border-bottom: 2px solid var(--border-color); font-size: 15px; }
-        .responsive-table td { padding: 12px; border-bottom: 1px solid var(--border-color); vertical-align: top; font-size: 15px; line-height: 1.5; text-align: right; }
-        
-        .day-badge { background-color: var(--primary-color); color: white; padding: 3px 10px; border-radius: 20px; font-weight: 600; display: inline-block; font-size: 13px; }
-        .date-text { font-weight: 600; color: #7f8c8d; display: inline-block; }
-        .map-link { font-family: 'Segoe UI', Roboto, sans-serif; color: #1a73e8; text-decoration: none; font-weight: 600; display: inline-block; }
-        .ticket-link { color: #e67e22; text-decoration: underline; font-weight: 600; display: inline-block; }
-        .booking-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-top: 5px; display: block; width: fit-content; }
-        .tag-required { background-color: #fadbd8; color: #c0392b; }
-        .tag-none { background-color: #d4efdf; color: #1e8449; }
-        .highlight-box { background-color: #fff9db; border-right: 4px solid #f59f00; padding: 10px 14px; margin: 12px 0; border-radius: 4px 0 0 4px; font-size: 14px; line-height: 1.6; }
-        .appendix-title { background: linear-gradient(90deg, #d35400, #e67e22); color: white; padding: 15px; border-radius: 8px; margin-top: 40px; font-size: 20px; font-weight: 700; }
-        .status-badge { display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; width: 120px; }
-        .status-critical { background-color: #fadbd8; color: #78281f; border: 1px solid #f5b7b1; }
-        .status-action { background-color: #fdebd0; color: #7e5109; border: 1px solid #f9e79f; }
-        .status-upcoming { background-color: #e8f8f5; color: #117864; border: 1px solid #a3e4d7; }
-        .status-done { background-color: #eafaf1; color: #145a32; border: 1px solid #abebc6; }
-        
-        .site-block { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #e2e8f0; }
-        .site-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .site-title { font-weight: 700; color: var(--primary-color); font-size: 15px; margin-bottom: 4px; }
-        .site-meta { font-size: 13px; color: #555; line-height: 1.4; margin-bottom: 4px; }
-        .site-route { font-size: 13px; background-color: #f8fafc; border-right: 3px solid #cbd5e1; padding: 4px 8px; border-radius: 0 4px 4px 0; color: #475569; }
-        .parking-info { font-size: 13px; background-color: #eef2f7; border-right: 3px solid #1a4a7a; padding: 6px 10px; border-radius: 0 4px 4px 0; color: #1a4a7a; margin-top: 6px; font-weight: 600; }
-        
-        .timeline-box { background-color: #f1f5f9; border-right: 4px solid #64748b; padding: 8px 12px; margin: 8px 0; border-radius: 0 4px 4px 0; font-size: 13.5px; color: #334155; }
-        .timeline-box strong { color: #0f172a; }
-        
-        @media screen and (max-width: 768px) {
-            .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td { display: block; width: 100%; }
-            .responsive-table thead { display: none; }
-            .responsive-table tr { margin-bottom: 0; border: none; background: transparent; }
-            .responsive-table td { text-align: right; border-bottom: 1px dashed #f1f2f6; padding: 12px 0; box-sizing: border-box; }
-            .responsive-table td:last-child { border-bottom: none; }
-            .responsive-table td::before { content: attr(data-label); font-weight: 700; color: var(--primary-color); display: block; margin-bottom: 6px; font-size: 13px; }
-            .accordion-header { padding: 12px 14px; }
-            .accordion-inner { padding: 12px; }
+        html{scroll-behavior:smooth}
+        body{font-family:'Assistant',sans-serif;background:radial-gradient(1200px 400px at 85% -50px,#e3eef7 0%,transparent 60%),var(--bg-color);color:var(--text-color);margin:0;padding:0 0 70px}
+        header{background:linear-gradient(140deg,#082f4d 0%,#0e4d7a 45%,#12657e 78%,#188a7a 100%);color:#fff;padding:42px 20px 34px;text-align:center;position:relative;overflow:hidden}
+        header::after{content:'';position:absolute;inset:0;background:radial-gradient(600px 220px at 15% 110%,rgba(255,255,255,.14),transparent 70%),radial-gradient(500px 200px at 90% -20%,rgba(255,255,255,.10),transparent 70%);pointer-events:none}
+        .hero-kicker{font-size:14px;letter-spacing:.5px;opacity:.85;font-weight:600;margin-bottom:8px}
+        header h1{margin:0;font-size:30px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.25)}
+        .hero-sub{margin:10px auto 0;font-size:14.5px;opacity:.88;max-width:780px;line-height:1.6}
+        .hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}
+        .hero-chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:7px 16px;border-radius:30px;font-size:13.5px;font-weight:600}
+        .hero-chip.countdown{background:var(--accent-color);border-color:var(--accent-color);box-shadow:0 3px 10px rgba(0,0,0,.25)}
+        .container{max-width:1200px;margin:0 auto;padding:15px}
+        .nav-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:60;background:rgba(242,246,249,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 10px;margin:0 -15px;border-bottom:1px solid var(--border-color)}
+        .nav-btn{background:#fff;border:1px solid var(--border-color);padding:9px 18px;border-radius:22px;cursor:pointer;font-weight:700;font-family:inherit;font-size:13.5px;color:var(--secondary-color);transition:all .25s;-webkit-tap-highlight-color:transparent;box-shadow:var(--shadow)}
+        .nav-btn.active,.nav-btn:hover{background:var(--primary-color);color:#fff;border-color:var(--primary-color);transform:translateY(-1px)}
+        .global-controls{display:flex;justify-content:center;gap:12px;margin:20px 0 14px;flex-wrap:wrap}
+        .control-btn{background:var(--primary-color);color:#fff;border:none;padding:11px 22px;border-radius:25px;cursor:pointer;font-weight:700;font-family:inherit;font-size:14px;transition:all .2s;box-shadow:var(--shadow);-webkit-tap-highlight-color:transparent;min-height:46px}
+        .control-btn:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+        .control-btn:active{transform:scale(.98)}
+        .control-btn.secondary{background:#fff;color:var(--secondary-color);border:1px solid var(--border-color)}
+        .search-wrap{max-width:460px;margin:0 auto 22px}
+        #day-search{width:100%;padding:12px 18px;border-radius:26px;border:1px solid var(--border-color);font-family:inherit;font-size:15px;box-shadow:var(--shadow);outline:none;transition:border-color .2s;background:#fff}
+        #day-search:focus{border-color:var(--primary-color)}
+        .section-wrapper{display:block}
+        .station-header{color:#fff;padding:16px 20px;border-radius:var(--radius);margin:34px 0 16px;font-size:18.5px;font-weight:700;box-shadow:var(--shadow)}
+        #station1 .station-header{background:linear-gradient(90deg,var(--st1),var(--st1b))}
+        #station2 .station-header{background:linear-gradient(90deg,var(--st2),var(--st2b))}
+        #station3 .station-header{background:linear-gradient(90deg,var(--st3),var(--st3b))}
+        .station-header a{color:#ffe08a;text-decoration:none;font-weight:700}
+        .station-header a:hover{text-decoration:underline}
+        .accordion-item{background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .25s,border-color .25s}
+        .accordion-item:hover{box-shadow:var(--shadow-hover)}
+        .accordion-header{background:#fbfdfe;padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;min-height:54px;box-sizing:border-box;transition:background .2s;-webkit-tap-highlight-color:transparent}
+        .accordion-header:hover{background:#f1f6fa}
+        .accordion-header .day-title{display:flex;align-items:center;gap:12px;flex-wrap:wrap;text-align:right}
+        .accordion-header .day-main-info{font-weight:700;color:var(--primary-color);font-size:16px;margin-right:5px}
+        .toggle-icon{font-size:13px;color:#94a3b8;transition:transform .3s cubic-bezier(.4,0,.2,1),background .2s;font-weight:bold;margin-right:10px;background:#eef4f9;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none}
+        .accordion-item.active .toggle-icon{transform:rotate(180deg);background:var(--primary-color);color:#fff}
+        .accordion-item.active{border-color:var(--primary-color)}
+        .accordion-item.today{border:2px solid var(--accent-color);box-shadow:0 0 0 4px rgba(231,111,81,.18)}
+        .today-flag{background:var(--accent-color);color:#fff;padding:3px 12px;border-radius:20px;font-size:12.5px;font-weight:700;animation:pulse 1.6s infinite}
+        @keyframes pulse{50%{opacity:.6}}
+        .accordion-content{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);background:#fff}
+        .accordion-inner{padding:16px;border-top:1px solid #eef2f6}
+        .responsive-table{width:100%;border-collapse:collapse;background:var(--card-bg);overflow:hidden;margin-bottom:0}
+        .responsive-table th{background:#ecf2f7;color:var(--primary-color);font-weight:700;padding:12px;text-align:right;border-bottom:2px solid var(--border-color);font-size:14.5px}
+        .responsive-table td{padding:12px;border-bottom:1px solid #edf2f6;vertical-align:top;font-size:15px;line-height:1.55;text-align:right}
+        .day-badge{background:var(--primary-color);color:#fff;padding:3px 11px;border-radius:20px;font-weight:700;display:inline-block;font-size:13px;flex:none}
+        #station2 .day-badge{background:var(--st2)}
+        #station3 .day-badge{background:var(--st3)}
+        .date-text{font-weight:600;color:var(--muted);display:inline-block}
+        .map-link{color:#1a73e8;text-decoration:none;font-weight:600;display:inline-block}
+        .map-link:hover{text-decoration:underline}
+        .waze-link{display:inline-block;background:#e8f7fd;color:#0e7490;border:1px solid #a5e3f5;border-radius:8px;font-size:11px;padding:1px 8px;margin:0 5px;font-weight:800;text-decoration:none;vertical-align:middle;transition:all .15s}
+        .waze-link:hover{background:#0e7490;color:#fff}
+        .ticket-link{color:#d35400;text-decoration:underline;font-weight:700;display:inline-block}
+        .booking-tag{display:block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:700;margin-top:5px;width:fit-content}
+        .tag-required{background:#fdeceb;color:#c0392b}
+        .tag-none{background:#e6f7ee;color:#1e8449}
+        .highlight-box{background:#fff9db;border-right:4px solid #f59f00;padding:10px 14px;margin:12px 0;border-radius:8px 0 0 8px;font-size:14px;line-height:1.6}
+        .appendix-title{color:#fff;padding:16px 20px;border-radius:var(--radius);margin-top:44px;font-size:20px;font-weight:700;background:linear-gradient(90deg,#c2410c,#ea8c3c);box-shadow:var(--shadow)}
+        #appendix-todo .appendix-title{background:linear-gradient(90deg,#6d28d9,#9d6bde)}
+        #appendix-info .appendix-title{background:linear-gradient(90deg,#0f766e,#2aa79b)}
+        #appendix-food .responsive-table,#appendix-todo .responsive-table{border-radius:var(--radius);box-shadow:var(--shadow);margin-top:14px}
+        .status-badge{display:inline-block;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;text-align:center;min-width:110px}
+        .status-critical{background:#fdeceb;color:#78281f;border:1px solid #f5b7b1}
+        .status-action{background:#fdebd0;color:#7e5109;border:1px solid #f9e79f}
+        .status-upcoming{background:#e8f8f5;color:#117864;border:1px solid #a3e4d7}
+        .status-done{background:#eafaf1;color:#145a32;border:1px solid #abebc6}
+        .todo-check{transform:scale(1.35);accent-color:var(--success-color);margin-inline-end:10px;cursor:pointer;vertical-align:middle}
+        tr.done-row td{opacity:.45;transition:opacity .2s}
+        .site-block{margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed #e2e8f0}
+        .site-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+        .site-title{font-weight:700;color:var(--primary-color);font-size:15px;margin-bottom:4px}
+        .site-meta{font-size:13.5px;color:#475569;line-height:1.55;margin-bottom:4px}
+        .site-route{font-size:13px;background:#f8fafc;border-right:3px solid #cbd5e1;padding:5px 9px;border-radius:0 6px 6px 0;color:#475569}
+        .parking-info{font-size:13px;background:#eef2f7;border-right:3px solid var(--primary-color);padding:6px 10px;border-radius:0 6px 6px 0;color:var(--primary-color);margin-top:6px;font-weight:600}
+        .timeline-box{background:#f1f5f9;border-right:4px solid #64748b;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13.5px;color:#334155}
+        .timeline-box strong{color:#0f172a}
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:16px}
+        .info-card{background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+        .info-card h3{margin:0 0 10px;color:var(--primary-color);font-size:16px}
+        .info-card p,.info-card li{font-size:14px;line-height:1.7;color:#334155}
+        .info-card ul{padding-inline-start:18px;margin:0}
+        .pack-card{margin-top:14px}
+        .pack-list{list-style:none;padding:0;margin:0;columns:2 250px;column-gap:30px}
+        .pack-list li{margin:7px 0;break-inside:avoid}
+        .pack-list label{cursor:pointer;font-size:14.5px}
+        .pack-list input{transform:scale(1.2);accent-color:var(--primary-color);margin-inline-end:9px;vertical-align:middle}
+        .pack-list li.checked label{opacity:.45;text-decoration:line-through}
+        @media screen and (max-width:768px){
+            header h1{font-size:23px}
+            .responsive-table,.responsive-table tbody,.responsive-table tr,.responsive-table td{display:block;width:100%}
+            .responsive-table thead{display:none}
+            .responsive-table tr{margin-bottom:0;border:none;background:transparent}
+            .responsive-table td{text-align:right;border-bottom:1px dashed #f1f2f6;padding:12px 0;box-sizing:border-box}
+            .responsive-table td:last-child{border-bottom:none}
+            .responsive-table td::before{content:attr(data-label);font-weight:700;color:var(--primary-color);display:block;margin-bottom:6px;font-size:13px}
+            .accordion-header{padding:12px 14px}
+            .accordion-inner{padding:12px}
+            .pack-list{columns:1}
+        }
+        @media print{
+            .nav-tabs,.global-controls,.search-wrap,.waze-link,.toggle-icon{display:none !important}
+            body{background:#fff;padding-bottom:0}
+            header{padding:20px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            .accordion-content{max-height:none !important;overflow:visible}
+            .accordion-item{break-inside:avoid;box-shadow:none}
+            .station-header,.appendix-title,.day-badge,.status-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>תוכנית חופשת קיץ משפחתית - פורטוגל 2026</h1>
-        <p>גרסה מורחבת ומסונכרנת | דוד מלר ומשפחתו (4 נפשות) | גרסה V27 - שילוב חוויית Parasailing באלבופיירה ושיט דולפינים וביולוגים מפארו</p>
+        <div class="hero-kicker">02–16 באוגוסט 2026 · 15 ימים · משפחת מלר (4 נפשות)</div>
+        <h1>פורטוגל 2026 · חופשת הקיץ המשפחתית 🇵🇹</h1>
+        <p class="hero-sub">קשקאיש וסינטרה → חוף אלנטז'ו → קרוואיירו → אלבופיירה | גרסה V28 — לו"ז דויק, קישורים אומתו, עדכון ביטול אגרות A22, כפתורי Waze, חיפוש וצ'קליסטים חכמים</p>
+        <div class="hero-badges">
+            <span class="hero-chip countdown" id="hero-countdown">מחשב ימים…</span>
+            <span class="hero-chip">🏨 3 תחנות לינה</span>
+            <span class="hero-chip">🚗 רכב שכור Budget</span>
+            <span class="hero-chip">✈️ נחיתה 20:55 · המראה 22:15</span>
+        </div>
     </header>
     <div class="container">
         <div class="nav-tabs">
-            <button class="nav-btn" onclick="document.getElementById('station1').scrollIntoView({behavior: 'smooth'});">תחנה 1: קשקאיש</button>
-            <button class="nav-btn" onclick="document.getElementById('station2').scrollIntoView({behavior: 'smooth'});">תחנה 2: קרוואיירו</button>
-            <button class="nav-btn" onclick="document.getElementById('station3').scrollIntoView({behavior: 'smooth'});">תחנה 3: אלבופיירה</button>
-            <button class="nav-btn" onclick="document.getElementById('appendix-food').scrollIntoView({behavior: 'smooth'});">נספח קולינריה</button>
-            <button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});">נספח משימות</button>
+            <button class="nav-btn" onclick="document.getElementById('station1').scrollIntoView({behavior: 'smooth'});">1 · קשקאיש</button>
+            <button class="nav-btn" onclick="document.getElementById('station2').scrollIntoView({behavior: 'smooth'});">2 · קרוואיירו</button>
+            <button class="nav-btn" onclick="document.getElementById('station3').scrollIntoView({behavior: 'smooth'});">3 · אלבופיירה</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-food').scrollIntoView({behavior: 'smooth'});">🍽️ קולינריה</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-todo').scrollIntoView({behavior: 'smooth'});">⏳ משימות</button>
+            <button class="nav-btn" onclick="document.getElementById('appendix-info').scrollIntoView({behavior: 'smooth'});">🧳 מידע וציוד</button>
         </div>
 
         <div class="global-controls">
             <button class="control-btn" id="btn-expand-all">פתח את כל הימים ➕</button>
             <button class="control-btn secondary" id="btn-collapse-all">סגור את כל הימים ➖</button>
+            <button class="control-btn secondary" id="btn-print">הדפסה / PDF 🖨️</button>
+        </div>
+
+        <div class="search-wrap">
+            <input type="search" id="day-search" placeholder="🔎 חיפוש מהיר בכל התוכנית: אתר, מסעדה, חוף, עיר…" aria-label="חיפוש בתוכנית">
         </div>
 
         <div id="station1" class="section-wrapper">
-            <div class="station-header">תחנה 1: קשקאיש וסינטרה | לינה: <a href="https://www.google.com/maps/search/?api=1&query=Onyria+Marinha+Cascais+Boutique+Hotel" target="_blank">Onyria Marinha Cascais Boutique Hotel 📍</a></div>
+            <div class="station-header">תחנה 1 · ימים 1–5 · קשקאיש וסינטרה | לינה: <a href="https://www.google.com/maps/search/?api=1&query=Onyria+Marinha+Cascais+Boutique+Hotel" target="_blank">Onyria Marinha Cascais Boutique Hotel 📍</a></div>
             
             <div class="accordion-item">
                 <div class="accordion-header">
@@ -131,16 +182,16 @@
                                         <div class="site-block">
                                             <div class="site-title">1. נחיתה ואיסוף רכב: <a href="https://www.google.com/maps/search/?api=1&query=Lisbon+Airport" target="_blank" class="map-link">Lisbon Airport 📍</a></div>
                                             <div class="site-meta">נחיתת לילה מתוזמנת בפורטוגל. מעבר ישיר למתחם חברות ההשכרה.</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** נחיתה ב-**20:55** זמן מקומי | **21:00 - 22:00** ביקורת דרכונים, איסוף מזוודות והתייצבות בדלפק ההשכרה.</div>
+                                            <div class="timeline-box">⏱️ **לו"ז משוער:** נחיתה ב-**20:55** זמן מקומי | **21:00 - 22:30** ביקורת דרכונים, איסוף מזוודות והתייצבות בדלפק ההשכרה. <strong>שימו לב:</strong> באוגוסט ביקורת הדרכונים בליסבון עלולה להתארך מעבר לשעה — מומלץ לעדכן מראש את Budget במספר הטיסה ואת המלון על הגעה מאוחרת (הקבלה פעילה 24/7).</div>
                                         </div>
                                         <div class="site-block">
                                             <div class="site-title">2. הגעה וצ'ק-אין לילה: <a href="https://www.google.com/maps/search/?api=1&query=Onyria+Marinha+Cascais+Boutique+Hotel" target="_blank" class="map-link">Onyria Marinha Boutique Hotel 📍</a></div>
                                             <div class="site-meta">ריזורט ירוק באזור Quinta da Marinha. צ'ק-אין לילה מהיר והתארגנות בחדרים לשינה.</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** נסיעה של 30 דקות משדה התעופה | הגעה וצ'ק-אין בריזורט סביב **22:30**.</div>
+                                            <div class="timeline-box">⏱️ **לו"ז משוער:** נסיעה של 30 דקות משדה התעופה | הגעה וצ'ק-אין בריזורט בין **22:30 ל-23:30** (בהתאם לעומס בביקורת הדרכונים).</div>
                                             <div class="parking-info">🚗 חניה פרטית ומאובטחת בחינם במגרש אורחי המלון.</div>
                                         </div>
                                     </td>
-                                    <td data-label="המלצות קולינריה">بשל הנחיתה המאוחרת (20:55), מומלץ להצטייד מראש בכריכים ונשנושים לילדים למהלך הטיסה והנסיעה, שכן המסעדות יהיו סגורות בשעת ההגעה.</td>
+                                    <td data-label="המלצות קולינריה">בשל הנחיתה המאוחרת (20:55), מומלץ להצטייד מראש בכריכים ונשנושים לילדים למהלך הטיסה והנסיעה, שכן המסעדות יהיו סגורות בשעת ההגעה.</td>
                                     <td data-label="תחבורה, רכב וחניה">הוזמנה השכרת רכב מחברת <strong><a href="https://www.google.com/maps/search/?api=1&query=Budget+Car+Rental+Lisbon+Airport" target="_blank" class="map-link">Budget Car Rental 📍</a></strong> שבשדה התעופה של ליסבון. דלפקי החברה נמצאים בטרמינל המרכזי. לאחר קבלת המפתח, יציאה רציפה של כ-30 דקות (35 ק"מ) מערבה על ציר כביש ה-A5 ישירות לקשקאיש וחניה בריזורט.</td>
                                 </tr>
                             </tbody>
@@ -172,7 +223,7 @@
                                         <div class="site-block"><div class="site-title">3. סיור עומק: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Historic+Center" target="_blank" class="map-link">מרכז קשקאיש העתיק 📍</a></div><div class="site-route">צעידה ב-Rua Frederico Arouca, מפרץ <a href="https://www.google.com/maps/search/?api=1&query=Praia+da+Rainha+Cascais" target="_blank" class="map-link">Praia da Rainha 📍</a> ורחוב האוכל הצהוב <a href="https://www.google.com/maps/search/?api=1&query=Rua+Amarela+Cascais" target="_blank" class="map-link">Rua Amarela 📍</a>.</div><div class="timeline-box">⏱️ **17:45 - 20:15** סיור רגלי מקיף.</div><div class="parking-info">🚗 חניה חובה בחניון התת-קרקעי המאובטח: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a>.</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: בר חוף <a href="https://www.google.com/maps/search/?api=1&query=Bar+do+Guincho" target="_blank" class="map-link">Bar do Guincho 📍</a>. <br>ערב (עוגן קשיח): אנטריקוט וצ'יפס ללא הגבלה ב-<a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+de+LEntrecote+Cascais" target="_blank" class="map-link">La Brasserie de L'Entrecôte 📍</a>.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נהיגה על ציר N247. עבור המסעדה בערב משאירים את הרכב ב-Cascais Villa Parking והולכים 5 דקות ברגל. ארוחה: **20:30 - 22:30**.</td>
+                                    <td data-label="תחבורה, רכב וחניה">נהיגה על ציר N247. <strong>עדכון V28:</strong> המסעדה שוכנת במרינה של קשקאיש (Loja 43) — חונים בחניון המרינה הצמוד: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> והליכה של 2 דקות. ארוחה: **20:30 - 22:30**.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -198,12 +249,12 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 3</span><span class="date-text">04.08 (ג')</span></td>
                                     <td data-label="מוקד פעילות">Sintra Castles</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. ארמון המלכים: <a href="https://www.google.com/maps/search/?api=1&query=Pena+Palace+Sintra" target="_blank" class="map-link">Pena Palace 📍</a> <span class="booking-tag tag-required">הוזמן לשעה 10:00! העוגן היומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:15 (מקדם פקקים קשיח). חניה בתחתית ב-<a href="https://www.google.com/maps/search/?api=1&query=Sintra+Militar+Parking" target="_blank" class="map-link">Sintra Militar Parking 📍</a> ועלייה באובר. סיור: **10:00 - 12:30**.</div></div>
+                                        <div class="site-block"><div class="site-title">1. ארמון המלכים: <a href="https://www.google.com/maps/search/?api=1&query=Pena+Palace+Sintra" target="_blank" class="map-link">Pena Palace 📍</a> <span class="booking-tag tag-required">הוזמן לשעה 10:00! העוגן היומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:15 (מקדם פקקים קשיח). חניה בתחתית (כ-1.5€ ליום, כולל שאטל 434) ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> ועלייה באובר. סיור: **10:00 - 12:30**.</div></div>
                                         <div class="site-block" style="background-color: #f8fafc; border-right: 4px solid #3498db; padding: 10px;"><div class="site-title">💡 אופציה להמשך: <a href="https://www.google.com/maps/search/?api=1&query=Castelo+dos+Mouros+Sintra" target="_blank" class="map-link">Castelo dos Mouros 📍</a></div><div class="timeline-box">⏱️ **12:40 - 14:00** הליכה רגלית ישירה על חומות המבצר המורי.</div></div>
-                                        <div class="site-block"><div class="site-title">2. אחוזה מסתורית: <a href="https://www.google.com/maps/search/?api=1&query=Quinta+da+Regaleira+Sintra" target="_blank" class="map-link">Quinta da Regaleira 📍</a></div><div class="timeline-box">⏱️ **15:15 - 17:30** באר החניכה ומנהרות סלע. בסיום אובר חזרה לחניון Militar.</div></div>
+                                        <div class="site-block"><div class="site-title">2. אחוזה מסתורית: <a href="https://www.google.com/maps/search/?api=1&query=Quinta+da+Regaleira+Sintra" target="_blank" class="map-link">Quinta da Regaleira 📍</a></div><div class="timeline-box">⏱️ **15:15 - 17:30** באר החניכה ומנהרות סלע. בסיום אובר חזרה לחניון Portela.</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: טאפאס מקומי ב-<a href="https://www.google.com/maps/search/?api=1&query=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga 📍</a> (14:15-15:15).<br>ערב: מטבח שף ב-<a href="https://www.google.com/maps/search/?api=1&query=Incomum+by+Luis+Santos" target="_blank" class="map-link">Incomum by Luís Santos 📍</a> (21:15).</td>
-                                    <td data-label="תחבורה, רכב וחניה">נסיעה לחניון <a href="https://www.google.com/maps/search/?api=1&query=Sintra+Militar+Parking" target="_blank" class="map-link">Sintra Militar Parking 📍</a>. התניידות בהר באובר בלבד! חזרה למלון להתארגנות ב-19:30. יציאה למסעדה ברכב ב-20:45.</td>
+                                    <td data-label="תחבורה, רכב וחניה">נסיעה לחניון <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a>. התניידות בהר באובר בלבד! חזרה למלון להתארגנות ב-19:30. יציאה למסעדה ברכב ב-20:45.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -230,7 +281,7 @@
                                     <td data-label="מוקד פעילות">Lisbon Highlights</td>
                                     <td data-label="פירוט פעילויות">
                                         <div class="site-block"><div class="site-title">1. סיור ממודרך בעברית: רובע <a href="https://www.google.com/maps/search/?api=1&query=Chiado+Lisbon" target="_blank" class="map-link">Chiado 📍</a> (מפגש ב-<a href="https://www.google.com/maps/search/?api=1&query=Praca+Luis+de+Camoes+Lisbon" target="_blank" class="map-link">Praça Luís de Camões 📍</a>) <span class="booking-tag tag-required">10:00 - 13:00 | עוגן יומי</span></div><div class="timeline-box">⏱️ יציאה מהמלון ב-08:45, הגעה ב-09:20 לחניון תת-קרקעי ישיר מתחת לכיכר: <a href="https://www.google.com/maps/search/?api=1&query=Parque+Camoes+Telpark+Lisboa" target="_blank" class="map-link">Parque Camões Telpark 📍</a>.</div></div>
-                                        <div class="site-block"><div class="site-title">2. ארוחת צהריים: <a href="https://www.google.com/maps/search/?api=1&query=Time+Out+Market+Lisboa" target="_blank" class="map-link">Time Out Market Lisboa 📍</a></div><div class="timeline-box">⏱️ **13:15 - 14:15** שוק האוכל. הרכב נשאר חונה ב-Telpark, יורדים רגלית 10 דקות כדי לחסוך פקקים. לאחר האוכל חוזרים לאסוף את הרכב וממשיכים לבלם.</div></div>
+                                        <div class="site-block"><div class="site-title">2. ארוחת צהריים: <a href="https://www.google.com/maps/search/?api=1&query=Time+Out+Market+Lisboa" target="_blank" class="map-link">Time Out Market Lisboa 📍</a></div><div class="timeline-box">⏱️ **13:10 - 13:45** שוק האוכל. הרכב נשאר חונה ב-Telpark, יורדים רגלית 10 דקות כדי לחסוך פקקים. <strong>קריטי:</strong> יציאה מהשוק לא יאוחר מ-13:45 (הליכה לרכב + נסיעה + חניה ≈ 40 דקות) כדי להספיק לחלון הכניסה של ג'רונימוס ב-14:30.</div></div>
                                         <div class="site-block"><div class="site-title">3. רובע בלם: <a href="https://www.google.com/maps/search/?api=1&query=Mosteiro+dos+Jeronimos" target="_blank" class="map-link">Mosteiro dos Jerónimos 📍</a> <span class="booking-tag tag-required">הוזמן לחלון 14:30-15:30</span> & <a href="https://www.google.com/maps/search/?api=1&query=Belem+Tower" target="_blank" class="map-link">Belém Tower 📍</a> (מבחוץ)</div><div class="timeline-box">⏱️ **14:30 - 17:30** סיור במנזר ותצפית אנדרטת התגליות. חניה צמודה ומסודרת ב-<a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+dos+Jeronimos" target="_blank" class="map-link">Parque dos Jerónimos 📍</a>.</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: דוכני שפים בטיים-אאוט. מתוק: מאפה חם ב-<a href="https://www.google.com/maps/search/?api=1&query=Pasteis+de+Belem" target="_blank" class="map-link">Pastéis de Belém 📍</a>. <br>ערב (יוקרתי): <a href="https://www.google.com/maps/search/?api=1&query=JNcQUOI+Avenida+Lisboa" target="_blank" class="map-link">JNcQUOI Avenida 📍</a> (19:45, קוד לבוש Smart Casual).</td>
@@ -274,7 +325,7 @@
         </div>
 
         <div id="station2" class="section-wrapper">
-            <div class="station-header">תחנה 2: קרוואיירו (אלגארב) | לינה: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank">Tivoli Carvoeiro Algarve Resort 📍</a></div>
+            <div class="station-header">תחנה 2 · ימים 6–9 · קרוואיירו (אלגארב) | לינה: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank">Tivoli Carvoeiro Algarve Resort 📍</a></div>
 
             <div class="accordion-item">
                 <div class="accordion-header">
@@ -294,13 +345,13 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 6</span><span class="date-text">07.08 (ו')</span></td>
                                     <td data-label="מוקד פעילות">Southward Drive</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. תצפית איקונית: פסל <a href="https://maps.app.goo.gl/4yhmi6J9MXQKgWZc6" target="_blank" class="map-link">Santuário de Cristo Rei 📍</a></div><div class="timeline-box">⏱️ יציאה מקשקאיש ב-09:00 | **09:30 - 10:30** תצפית פנורמית. חניה חינמית גדולה בשער בכניסה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Cristo+Rei" target="_blank" class="map-link">Avenida Cristo Rei, Almada 📍</a>.</div></div>
+                                        <div class="site-block"><div class="site-title">1. תצפית איקונית: פסל <a href="https://www.google.com/maps/search/?api=1&query=Santuario+Nacional+de+Cristo+Rei+Almada" target="_blank" class="map-link">Santuário de Cristo Rei 📍</a></div><div class="timeline-box">⏱️ יציאה מקשקאיש ב-09:00 | **09:30 - 10:30** תצפית פנורמית. חניה חינמית גדולה בשער בכניסה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Cristo+Rei" target="_blank" class="map-link">Avenida Cristo Rei, Almada 📍</a>.</div></div>
                                         <div class="site-block"><div class="site-title">2. חוף צוקי טורקיז: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Samoqueira+Porto+Covo" target="_blank" class="map-link">Praia do Samoqueira 📍</a></div><div class="timeline-box">⏱️ נסיעה של שעה ו-45 דקות | **12:15 - 12:45** חילוץ עצמות מעל הצוקים ומערות החוף. חניון עפר מסודר ורחב בחינם ממש מעל הנוף: <a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Samoqueira+Parking" target="_blank" class="map-link">Praia do Samoqueira Parking 📍</a>.</div></div>
                                         <div class="site-block"><div class="site-title">3. תצפית חסידות פרא: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao" target="_blank" class="map-link">Cabo Sardão 📍</a></div><div class="timeline-box">⏱️ נסיעה של 25 דקות | **15:25 - 15:55** צפייה בחסידות המקננות בלב ים על סלעים אנכיים. כביש אספלט עד לרחבת חניה חינמית צמודה למגדלור: <a href="https://www.google.com/maps/search/?api=1&query=Cabo+Sardao+Lighthouse+Parking" target="_blank" class="map-link">Cabo Sardão Lighthouse Parking 📍</a>.</div></div>
                                         <div class="site-block"><div class="site-title">4. תצפית פרסת הנהר: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe" target="_blank" class="map-link">Miradouro da Praia de Odeceixe 📍</a></div><div class="timeline-box">⏱️ נסיעה של 35 דקות | **16:30 - 16:50** תצפית פנורמית עליונה על נהר Seixe המתפתל בצורת פרסה מושלמת. חניון מסודר בראש המצוק בחינם: <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Praia+de+Odeceixe+Parking" target="_blank" class="map-link">Miradouro Odeceixe Parking 📍</a>.</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: בשרים ותבשילי קדרה אלנטז'אנים מסורתיים ב-<a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Tasca+do+Celso" target="_blank" class="map-link">Tasca do Celso 📍</a> הענקית (13:00 - 15:00) בעיירה מילפונטש. חניה במגרש ציבורי רחב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Vila+Nova+de+Milfontes" target="_blank" class="map-link">Parque de Vila Nova de Milfontes 📍</a> (3 דקות הליכה).<br>ערב: ארוחה משפחתית קלילה בריזורט.</td>
-                                    <td data-label="תחבורה, רכב וחניה">יציאה מתצפית אודסייש ב-16:50 ונסיעה של 40 דקות באוטוסטרדה A22 ישירות לריזורט בקרוואיירו. הגעה לצ'ק-אין וזמן בריכה בשקיעה ב-**17:30**. חניה פרטית מאובטחת בשפע בריזורט: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank" class="map-link">Tivoli Carvoeiro Resort Parking 📍</a>.</td>
+                                    <td data-label="תחבורה, רכב וחניה">יציאה מתצפית אודסייש ב-16:50 ונסיעה של כ-55 דקות (N120 דרך אלז'זור ואז A22 — חינם מאז ביטול האגרות ב-1.1.2025) לריזורט בקרוואיירו. הגעה לצ'ק-אין וזמן בריכה בשקיעה סביב **17:50**. שימו לב: זהו יום הנהיגה הארוך של הטיול (כ-4.5 שעות מצטברות). חניה פרטית מאובטחת בשפע בריזורט: <a href="https://www.google.com/maps/search/?api=1&query=Tivoli+Carvoeiro+Algarve+Resort" target="_blank" class="map-link">Tivoli Carvoeiro Resort Parking 📍</a>.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -364,9 +415,9 @@
                                             <div class="parking-info">🚗 הגעה עם רכב: כן, הגעה קלה. חניה בחניון הציבורי הגדול למרגלות העיר העתיקה (Largo da República) בקואורדינטות: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+Largo+da+Republica+Silves" target="_blank" class="map-link">Parque de Estacionamento Largo da República Silves 📍</a>, ומשם עלייה קצרה ברגל של 5 דקות.</div>
                                         </div>
                                         <div class="site-block">
-                                            <div class="site-title">2. שוק האיכרים הססגוני וכפר המעיינות: <a href="https://www.google.com/maps/search/?api=1&query=Caldas+de+Monchique" target="_blank" class="map-link">Caldas de Monchique & Mercado 📍</a></div>
-                                            <div class="site-meta"><strong>חווית יום ראשון מיוחדת:</strong> ביקור בשוק האיכרים המקומי התוסס המלא בתוצרת הררית, לחמים ומאפים מסורתיים. לאחר מכן, הליכה משפחתית קלה, מוצלת וקרירה תחת עצי ענק לאורך פלג המים התרמיים עד לפינת החמד הקסומה של Fonte dos Amores (מעיין האוהבים) .</div>
-                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מסילבס ב-11:30 (25 דקות נסיעה) | **12:00 – 12:50** הגעה, חווית השוק והטיול הרגלי המוצל .</div>
+                                            <div class="site-title">2. כפר המעיינות הקסום: <a href="https://www.google.com/maps/search/?api=1&query=Caldas+de+Monchique" target="_blank" class="map-link">Caldas de Monchique 📍</a></div>
+                                            <div class="site-meta">כפר מעיינות תרמיים ציורי בלב יער. הליכה משפחתית קלה, מוצלת וקרירה תחת עצי ענק לאורך פלג המים התרמיים עד לפינת החמד הקסומה של Fonte dos Amores (מעיין האוהבים). <strong>הערת דיוק (V28):</strong> שוק האיכרים של מונשיק מתקיים רק ביום שישי השני של כל חודש — לא בימי ראשון, ולכן הוסר מהתוכנית.</div>
+                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מסילבס ב-11:30 (25 דקות נסיעה) | **12:00 – 12:50** הגעה וטיול רגלי מוצל לאורך הפלג עד המעיין .</div>
                                             <div class="parking-info">🚗 הגעה עם רכב: כן. כביש גישה נוח מוביל לכיכר המרכזית של כפר המעיינות, שם חניה מוסדרת בחינם: <a href="https://www.google.com/maps/search/?api=1&query=Caldas+de+Monchique+Parking" target="_blank" class="map-link">Caldas de Monchique Parking 📍</a>.</div>
                                         </div>
                                         <div class="site-block">
@@ -408,7 +459,7 @@
                                         <div class="site-block"><div class="site-title">3. תצורות סלעים וקשתות ימיות: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade" target="_blank" class="map-link">Ponta da Piedade 📍</a> (לאגוש)</div><div class="timeline-box">⏱️ יציאה ממרכז לאגוש ברכב ב-14:30 | **14:45 - 16:45** הליכה בין שבילי העץ המונגשים על קו המצוק, וירידה ב-182 מדרגות האבן אל המפרץ הדרמטי בין הצוקים.</div><div class="parking-info">🚗 מגרש חניה ציבורו מוסדר ורחב בקצה הצוק, סמוך למגדלור: <a href="https://www.google.com/maps/search/?api=1&query=Ponta+da+Piedade+Parking" target="_blank" class="map-link">Ponta da Piedade Parking 📍</a> (חינם).</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה"><strong>צהריים (עוגן אותנטי פתוח כרגיל בשני):</strong> טברנת הדגים המפורסמת של העיר <strong><a href="https://www.google.com/maps/search/?api=1&query=Adega+Tipica+A+Forja+Lagos" target="_blank" class="map-link">Adega Típica A Forja 📍</a></strong> בלב המדרחוב. דגים טריים על הגריל ותבשילי קדרה אלגארביים משובחים. <br><i>גיבוי בשרים במדרחוב:</i> <strong><a href="https://www.google.com/maps/search/?api=1&query=O+Cantinho+Algarvio+Lagos" target="_blank" class="map-link">O Cantinho Algarvio 📍</a></strong>. <br>ערב: ארוחה משפחתית קלילה ורגועה בריזורט ללא נסיעות.</td>
-                                    <td data-label="תחבורה, רכב וחניה">נסיעה ארוכה בבוקר לסגרש, משם חזרה מזרחה וחניה ב-Parque Frente Ribeirinha בלאגוש. ב-14:30 נסיעה קצרה לפונטה דה פיידאדה וחניה ב-Ponta da Piedade Parking. בסיום, נסיעה רציפה של כ-35 דקות (38 ק"מ) חזרה mזרחה על ה-A22 ישירות לריזורט טיבולי בקרוואיירו למנוחה מוחלטת והתארגנות בשעה **17:20**.</td>
+                                    <td data-label="תחבורה, רכב וחניה">נסיעה ארוכה בבוקר לסגרש, משם חזרה מזרחה וחניה ב-Parque Frente Ribeirinha בלאגוש. ב-14:30 נסיעה קצרה לפונטה דה פיידאדה וחניה ב-Ponta da Piedade Parking. בסיום, נסיעה רציפה של כ-35 דקות (38 ק"מ) חזרה מזרחה על ה-A22 ישירות לריזורט טיבולי בקרוואיירו למנוחה מוחלטת והתארגנות בשעה **17:20**.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -418,7 +469,7 @@
         </div>
 
         <div id="station3" class="section-wrapper">
-            <div class="station-header">תחנה 3: אלבופיירה (אלגארב פרימיום) | לינה: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank">EPIC SANA Algarve Hotel 📍</a></div>
+            <div class="station-header">תחנה 3 · ימים 10–15 · אלבופיירה (אלגארב פרימיום) | לינה: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank">EPIC SANA Algarve Hotel 📍</a></div>
             
             <div class="accordion-item">
                 <div class="accordion-header">
@@ -438,7 +489,7 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 10</span><span class="date-text">11.08 (ג')</span></td>
                                     <td data-label="מוקד פעילות">EPIC SANA & Albufeira Marina</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. ריזורט חמישה כוכבים פרימיום: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a></div><div class="site-meta">מעבר לחלק המפנק ביותר של החופשה. הגעה בצהריים, התארגנות בסוויטות, סיור וזמן בריכה או חוף נינוח .</div><div class="timeline-box">⏱️ נסיעה קצרה של 20 דקות מקרוואיירו מזרחה. צ'ק-אין וזמן רענון בריזורט: **12:00 - 15:30** (3.5 שעות מלאות של שקט והתארגנות בגדי ים).</div><div class="parking-info">🚗 חניה פרטית, תת-קרקעית ומקורה מאובטחת בחינם לאורחי המלון.</div></div>
+                                        <div class="site-block"><div class="site-title">1. ריזורט חמישה כוכבים פרימיום: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a></div><div class="site-meta">מעבר לחלק המפנק ביותר של החופשה. הגעה בצהריים, התארגנות בסוויטות, סיור וזמן בריכה או חוף נינוח .</div><div class="timeline-box">⏱️ נסיעה קצרה של 20 דקות מקרוואיירו מזרחה. הגעה ב-**12:00**: הפקדת מזוודות בקבלה, ארוחה קלה, בריכה וחוף. <strong>שימו לב:</strong> צ'ק-אין רשמי לחדרים מ-15:00 — מומלץ לבקש Early Check-in מראש. חלון התארגנות: **12:00 - 15:30**.</div><div class="parking-info">🚗 חניה פרטית, תת-קרקעית ומקורה מאובטחת בחינם לאורחי המלון.</div></div>
                                         <div class="site-block"><div class="site-title">2. חווית אדרנלין משפחתית: מצנח ים זוגי עם חברת <span class="booking-tag tag-required">AlgarExperience | הוזמן ל-16:30! העוגן החדש</span></div><div class="site-meta">עולים בזוגות אל מצנח רחיפה קשור לסירה מהירה, ונהנים ממעוף ציפור מטורף מעל קו המים והמצוקים הזהובים של אלבופיירה. חוויה מלהיבה ומלאת אדרנלין לעידן ונוגה. אורך הפעילות כשעה וחצי ברוטו על הסירה.</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-15:40 (20 דקות נסיעה, 13 ק"מ מערבה) | **16:00** התייצבות קשיחה בדלפקי החברה במרינת אלבופיירה לרישום והתארגנות | **16:30 – 18:00** הפלגה וטיסת Parasailing משפחתית.</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה קלה ומהירה במגרש החניה הציבורי הפתוח הגדול השוכן היישר בחזית רציפי המרינה: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Albufeira+Parking" target="_blank" class="map-link">Parque de Estacionamento da Marina de Albufeira 📍</a> (חינם).</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, כריכים או סלטים בבר הבריכה המפנק של EPIC SANA בשעה 13:30. <br><strong>ערב (הזדמנות שקיעה בריזורט!) 🌅:</strong> חוזרים למלון ב-18:20. נהנים מחלון זמן מושלם ופנוי של שעתיים לבריכה או ירידה לחוף פאלסיה בשעות האור הכי יפות של היום. ערב קולינרי חופשי, נינוח וספונטני בריזורט או בסביבתו ללא לחץ.</td>
@@ -500,7 +551,7 @@
                                         <div class="site-block">
                                             <div class="site-title">1. חוויה מדעית משפחתית: קרוז חיפוש דולפינים, כרישים וציפורי ים מפארו <span class="booking-tag tag-required">העוגן המדעי החדש! חובה להזמין מראש</span></div>
                                             <div class="site-meta">יוצאים מנמל פארו בסירה מהירה וחוצים את שמורת הטבע המרהיבה **Ria Formosa**. במהלך ההפלגה נהנים מתצפית פנורמית יפהפייה על איי המחסום המפורסמים (Barrier Islands - האי הנטוש Deserta והאי Culatra) וביצות המלח. עם היציאה לאוקיינוס האטלנטי, מתחילים בסריקה וחיפוש של דולפינים (הנמצאים באזור כל השנה), צבי ים, דגי שמש (Sunfish) ואפילו כרישי פטיש או לווייתנים קטנים. הסיור מובל על ידי **צוות של שני ביולוגים ימיים מקצועיים** המלמדים את הילדים כיצד אוספים נתונים מדעיים על האוכלוסייה, כולל 30 דקות קבועות של צפייה, למידה וזמן לשאלות פתוחות מול הדולפינים בים הפתוח.</div>
-                                            <div class="timeline-box">⏱_ **לו"ז משוער:** יציאה מהמלון ברכב ב-09:30 (30 דקות נסיעה, 35 ק"מ לפארו). הגעה לחניון ב-10:00. מקדם ביטחון של 30 דקות לחניה והליכה קלה לרציף להתייצבות ב-10:30. | **11:00 – 13:30** (2.5 שעות) הפלגת הדולפינים והביולוגים באוקיינוס וחזרה לנמל.</div>
+                                            <div class="timeline-box">⏱️ **לו"ז משוער:** יציאה מהמלון ברכב ב-09:30 (30 דקות נסיעה, 35 ק"מ לפארו). הגעה לחניון ב-10:00. מקדם ביטחון של 30 דקות לחניה והליכה קלה לרציף להתייצבות ב-10:30. | **11:00 – 13:30** (2.5 שעות) הפלגת הדולפינים והביולוגים באוקיינוס וחזרה לנמל.</div>
                                             <div class="parking-info">🚗 הגעה עם רכב: כן. הרכב נשאר מוגן ובטוח בחניון הציבורי המרכזי והגדול בפארו, הסמוך מאוד לרציף יציאת הסירות העתיק. לכוון בתוכנת הניווט היישר אל נקודת הציון הקשיחה: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Pontinha+Faro" target="_blank" class="map-link">Parque da Pontinha Faro 📍</a> (וממנו הליכה קלה של 4 דקות לרציף).</div>
                                         </div>
                                         <div class="site-block">
@@ -512,7 +563,7 @@
                                         </div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים משפחתית, דגים טריים או המבורגרים מעולים באחת הטאברנות המקומיות סביב הנמל והעיר העתיקה של פארו מיד עם הירידה מהסירה בשעה **13:45 – 15:15**.<br>ערב: ארוחה משפחתית קלילה, מנחמת וספונטנית בריזורט בסיום יום הקניות.</td>
-                                    <td data-label="תחבורה, רכב וחניה">איסוף הרכב מחניון Pontinha בפארו ב-15:20, נסיעה קצרה על ציר ה-A22 למרכז הקניות הנבחר, וחזרה קלה לריזורט EPIC SANA למנוחת ערב סביב השעה **18:50**. החניה בכל האתרים מוסדרת ומאובטחת בנקודות הציון הקשיחות. <br><span class="booking-tag tag-required">חובה חודש מראש!</span><a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Pontinha+Faro" target="_blank" class="ticket-link">שריון קרוז דולפינים וביולוגים ימיים מפארו 🎫</a></td>
+                                    <td data-label="תחבורה, רכב וחניה">איסוף הרכב מחניון Pontinha בפארו ב-15:20, נסיעה קצרה על ציר ה-A22 למרכז הקניות הנבחר, וחזרה קלה לריזורט EPIC SANA למנוחת ערב סביב השעה **18:50**. החניה בכל האתרים מוסדרת ומאובטחת בנקודות הציון הקשיחות. <br><span class="booking-tag tag-required">חובה חודש מראש!</span><a href="https://formosamar.com/tour/dolphin-tours-in-the-algarve/" target="_blank" class="ticket-link">שריון קרוז דולפינים וביולוגים ימיים מפארו (Formosamar) 🎫</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -525,7 +576,7 @@
                     <div class="day-title">
                         <span class="day-badge">יום 13</span>
                         <span class="date-text">14.08 (ו')</span>
-                        <span class="day-main-info">Parque Aventura High Ropes & Albufeira Old Town הסיור המקורי</span>
+                        <span class="day-main-info">Parque Aventura High Ropes & Albufeira Old Town</span>
                     </div>
                     <div class="toggle-icon">▼</div>
                 </div>
@@ -539,7 +590,7 @@
                                     <td data-label="מוקד פעילות">High Ropes & Albufeira Town</td>
                                     <td data-label="פירוט פעילויות">
                                         <div class="site-block"><div class="site-title">1. אקשן וחילוץ עצמות על צמרות העצים: <a href="https://www.google.com/maps/search/?api=1&query=Parque+Aventura+Albufeira" target="_blank" class="map-link">Parque Aventura Albufeira 📍</a> <span class="booking-tag tag-none">פעילות אקטיבית מעולה לילדים!</span></div><div class="site-meta">פארק חבלים, אתגרים ואומגות בלב הטבע, הממוקם במרחק דקות בודדות מהמלון שלכם. המסלולים מתאימים בדיוק לעידן ונוגה, כולל גשרי חבלים, רשתות טיפוס ואומגות ארוכות .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:45 (5 דקות נסיעה, 4 קמ) | **10:00 - 13:00** (3 שעות מלאות) רישום, תדרוך בטיחות וזמן חבלים. חזרה למלון בצהריים.</div><div class="parking-info">🚗 הגעה עם רכב: כן, הגעה מהירה וקלה ביותר. לפארק מגרש חניה ציבורי מסודר ומוצל בחינם ממש בכניסה לרחבת המתחם .</div></div>
-                                        <div class="site-block"><div class="site-title">2. סיור העומק המקורי בעיר העתיקה: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Old+Town" target="_blank" class="map-link">Albufeira Old Town 📍</a></div><div class="site-meta">שילוב קסום של כפר דייגים עתיק שהפך לבירת התיירות של האלגארב. שוטטות נינוחה בין סמטאות צרות, בתים צבועים בלבן, מדרחובי קניות תוססים ותצפית מעל רחבת המצוק אל החוף .</div><div class="timeline-box">⏱_ מנוחת צהריים, ים ובריכה במלון עד אחה"צ. יציאה מהמלון ברכב ב-16:30 (15 דקות נסיעה, 12 ק"מ) | **17:00 - 20:00** (3 שעות) סיור רגלי מקיף בעיר העתיקה, בוטיקים, מזכרות ועצירות גלידה משפחתיות .</div><div class="parking-info">🚗 הגעה עם רכב: כן. הניווט לסמטאות הפנימיות חסום לחלוטין לרכבים, ולכן חובה לחנות בחניון הציבורי המרכזי והקרוב ביותר למדרחוב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Albufeira" target="_blank" class="map-link">Parque de Estacionamento de Albufeira 📍</a> (בתשלום סמלי), ומשם גישה רגלית מיידית לעיר העתיקה .</div></div>
+                                        <div class="site-block"><div class="site-title">2. סיור העומק המקורי בעיר העתיקה: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Old+Town" target="_blank" class="map-link">Albufeira Old Town 📍</a></div><div class="site-meta">שילוב קסום של כפר דייגים עתיק שהפך לבירת התיירות של האלגארב. שוטטות נינוחה בין סמטאות צרות, בתים צבועים בלבן, מדרחובי קניות תוססים ותצפית מעל רחבת המצוק אל החוף .</div><div class="timeline-box">⏱️ מנוחת צהריים, ים ובריכה במלון עד אחה"צ. יציאה מהמלון ברכב ב-16:30 (15 דקות נסיעה, 12 ק"מ) | **17:00 - 20:00** (3 שעות) סיור רגלי מקיף בעיר העתיקה, בוטיקים, מזכרות ועצירות גלידה משפחתיות .</div><div class="parking-info">🚗 הגעה עם רכב: כן. הניווט לסמטאות הפנימיות חסום לחלוטין לרכבים, ולכן חובה לחנות בחניון הציבורי המרכזי והקרוב ביותר למדרחוב: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+de+Albufeira" target="_blank" class="map-link">Parque de Estacionamento de Albufeira 📍</a> (בתשלום סמלי), ומשם גישה רגלית מיידית לעיר העתיקה .</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: ארוחת צהריים קלה, פיצות או המבורגרים במתחם הבריכה המפנק של המלון EPIC SANA בשעה 13:30 . <br>ערב: ארוחה משפחתית חגיגית, דגים טריים או נתחי בשר מעולים באחת המסעדות האותנטיות והמובילות בסמטאות העיר העתיקה של אלבופיירה . לו"ז משוער: **20:15 - 22:30**.</td>
                                     <td data-label="תחבורה, רכב וחניה">נהיגה קצרצרה בבוקר לפארק החבלים וחזרה למלון למנוחת צהריים ארוכה, שחייה בבריכות וירידה לים פאלסיה (**13:15 - 16:30**) . באחה"צ נסיעה של 15 דקות וחניה ב-Parque de Albufeira לטובת הסיור בעיר העתיקה וארוחת הערב . חזרה לריזורט בלילה (15 דקות נסיעה) .</td>
@@ -568,7 +619,7 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 14</span><span class="date-text">15.08 (ש')</span></td>
                                     <td data-label="מוקד פעילות">Buggy Safari & MIZU Dinner</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. הרפתקת שטח בנבכי הטבע: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Buggy+Safari" target="_blank" class="map-link">Algarve Buggy / Jeep Safari 📍</a> <span class="booking-tag tag-required">הרפתקת שיא משפחתית אקטיבית!</span></div><div class="site-meta">חצי יום של טיול שטח דרמטי וחווייתי אל לב חבל אלגארב הפראי. נהיגה עצמית מאתגרת ברכבי באגי (Buggy) פתוחים ובטוחים או סיור מודרך רגוע בג'יפ 4x4 פתוח . נוסעים בדרכי עפר ובשבילים הרריים נסתרים, חוצים מטעי תפוזים ולימונים .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:00 אל נקודת המפגש באזור אלבופיירה (15 דקות נסיעה) | **09:30 - 13:00** (3.5 שעות) הצטיידות במשקפי מגן, תדרוך נהיגה ויציאה לטיול השטח .</div><div class="parking-info">🚗 הגעה עם רכב: כן. נקודת המפגש והיציאה כוללת מגרש חניה פרטי ומסודר בחינם לאורחי הסיור השוכנת בפתח המשרדים .</div></div>
+                                        <div class="site-block"><div class="site-title">1. הרפתקת שטח בנבכי הטבע: <a href="https://www.google.com/maps/search/?api=1&query=Albufeira+Buggy+Safari" target="_blank" class="map-link">Algarve Buggy / Jeep Safari 📍</a> <span class="booking-tag tag-required">הרפתקת שיא משפחתית אקטיבית!</span></div><div class="site-meta">חצי יום של טיול שטח דרמטי וחווייתי אל לב חבל אלגארב הפראי. נהיגה עצמית מאתגרת ברכבי באגי (Buggy) פתוחים ובטוחים או סיור מודרך רגוע בג'יפ 4x4 פתוח . נוסעים בדרכי עפר ובשבילים הרריים נסתרים, חוצים מטעי תפוזים ולימונים . <strong>שימו לב:</strong> 15.8 הוא חג לאומי בפורטוגל (Assunção) — לוודא מראש מול המפעיל שהסיור מתקיים בתאריך זה, ולצפות לעומס בקניונים .</div><div class="timeline-box">⏱️ יציאה מהמלון ברכב ב-09:00 אל נקודת המפגש באזור אלבופיירה (15 דקות נסיעה) | **09:30 - 13:00** (3.5 שעות) הצטיידות במשקפי מגן, תדרוך נהיגה ויציאה לטיול השטח .</div><div class="parking-info">🚗 הגעה עם רכב: כן. נקודת המפגש והיציאה כוללת מגרש חניה פרטי ומסודר בחינם לאורחי הסיור השוכנת בפתח המשרדים .</div></div>
                                         <div class="site-block"><div class="site-title">2. אופציות שופינג ממוזגות וארוחת צהריים קלה <span class="booking-tag tag-none">חלון קניות אסטרטגי בשעה 13:30</span></div><div class="site-meta">לאחר טיול השטח והאבק, נוסעים ישירות למרכז הקניות השני שלא ביקרתם בו ביום 12 (למשל, השלמות שופינג, בגדים ורשתות בינלאומיות וקניית מתנות באווירה ממוזגת ונוחה בתוך <strong>Algarve Shopping</strong> בגיאה) . חלון זמן מעולה להשלמת הבוטיקים האחרונים של הטיול .</div><div class="timeline-box">⏱️ **13:30 - 16:30** (3 שעות) ארוחת צהריים קלה במתחם האוכל, השלמות שופינג משפחתיות אחרונות, וקפיצה חזרה ברכב לריזורט EPIC SANA ב-16:30 לטובת מקלחות, פריקת שקיות והתארגנות לבוש מוקפדת לערב היוקרתי .</div><div class="parking-info">🚗 הגעה עם רכב: כן. חניה חופשית, בטוחה ומקורה בשפע בחניון התת-קרקעי של מרכז הקניות .</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">צהריים: ארוחה קלה, מקומית או אסייתית חופשית במתחם האוכל של מרכז הקניות ב-13:45 . <br><strong>ערב פרימיום (הוזמן ונעול קשיח) 🍱:</strong> מסעדת השף היפנית העילית והיוקרתית ביותר באלגארב <strong><a href="https://www.google.com/maps/search/?api=1&query=Mizu+Restaurant+Algarve" target="_blank" class="map-link">Mizu Restaurant 📍</a></strong> (שוכנת בריזורט היוקרתי הסמוך Vila Vita Parc) . <br><strong>חלון הזמן שהוזמן: 19:00 בדיוק!</strong> יושבים מסביב לעמדת ה-Teppanyaki וחווים שואו קולינרי מהפנט של אש חיה, להטוטים ובישול פרטי מול העיניים של נתחי אנטריקוט פרימיום, סושי, גיוזה ונודלס . לו"ז ארוחה: **19:00 - 21:30** .</td>
@@ -598,11 +649,11 @@
                                     <td data-label="יום ותאריך"><span class="day-badge">יום 15</span><span class="date-text">16.08 (א')</span></td>
                                     <td data-label="מוקד פעילות">Resort & Departure</td>
                                     <td data-label="פירוט פעילויות">
-                                        <div class="site-block"><div class="site-title">1. יום פנוי מלא וניצול הריזורט: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a> <span class="booking-tag tag-none">יום פנוי לחלוטין והשלמות בטן-גב</span></div><div class="site-meta">קמים מאוחר ללא שעון מעורר, ומשאירים את היום הזה חופשי לחלוטין לרווחת המשפחה ולהשלמות שטח אחרונות. נהנים מארוחת בוקר ארוכה ומלכותית, ניצול מלא של בריכות השחייה המפוארות, מתקני הספא, הליכה אחרונה בין שבילי האורנים וירידה לחוף פאלסיה לשחייה וצילומים משפחתיים בשמש . לאחר מכן חוזרים לסוויטות לטובת ארגון מסודר של כל המזוודות, פריקת שקיות הקניות, וביצוע צ'ק-אאוט נינוח .</div><div class="timeline-box">⏱️ **08:30 - 11:00** ארוחת בוקר ממושכת. | **11:00 - 14:15** בילוי חופשי במתקני המלון והשלמות בטן-גב . | **14:15 - 15:00** ארגון המזוודות, העמסה מסודרת לרכב וצ'ק-אאוט רשמי בשער המלון . יציאה קשיחה צפונה ב-15:00 .</div><div class="parking-info">🚗 הגעה עם רכב: לא נדרשת נסיעה בחלק הראשון של היום, הרכב נשאר מוגן בחניון המקורה של המלון עד להעמסת המזוודות ב-14:45 .</div></div>
+                                        <div class="site-block"><div class="site-title">1. יום פנוי מלא וניצול הריזורט: <a href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve+Hotel" target="_blank" class="map-link">EPIC SANA Algarve Hotel 📍</a> <span class="booking-tag tag-none">יום פנוי לחלוטין והשלמות בטן-גב</span></div><div class="site-meta">קמים מאוחר ללא שעון מעורר, ומשאירים את היום הזה חופשי לחלוטין לרווחת המשפחה ולהשלמות שטח אחרונות. נהנים מארוחת בוקר ארוכה ומלכותית, ניצול מלא של בריכות השחייה המפוארות, מתקני הספא, הליכה אחרונה בין שבילי האורנים וירידה לחוף פאלסיה לשחייה וצילומים משפחתיים בשמש . לאחר מכן חוזרים לסוויטות לטובת ארגון מסודר של כל המזוודות, פריקת שקיות הקניות, וביצוע צ'ק-אאוט נינוח .</div><div class="timeline-box">⏱️ **08:30 - 11:00** ארוחת בוקר ממושכת. | **11:00 - 14:15** בילוי חופשי במתקני המלון והשלמות בטן-גב . | **14:15 - 15:00** ארגון המזוודות, העמסה מסודרת לרכב וצ'ק-אאוט רשמי . <strong>קריטי:</strong> צ'ק-אאוט רגיל הוא עד 12:00 — חובה לתאם מראש Late Checkout מול המלון (בתשלום/לפי זמינות) . יציאה קשיחה צפונה ב-15:00 .</div><div class="parking-info">🚗 הגעה עם רכב: לא נדרשת נסיעה בחלק הראשון של היום, הרכב נשאר מוגן בחניון המקורה של המלון עד להעמסת המזוודות ב-14:45 .</div></div>
                                         <div class="site-block"><div class="site-title">2. נסיעה רציפה וחזרה בטוחה לישראל <span class="booking-tag tag-required">חלון זמן קשיח לטיסת לילה ב-22:15!</span></div><div class="site-meta">סגירת המעגל של החופשה המשפחתית. יוצאים לדרך צפונה מהאלגארב חזרה לחבל ליסבון לאורך אוטוסטרדת ה-A2 הנוחה והישרה . נלקח מקדם ביטחון רחב מאוד של מעל שעה לטובת עומסי תנועה קלים בכניסה למטרופולין ליסבון ועיכובי בדיקות במתחם חברות ההשכרה . הגעה בטוחה ושלווה לטרמינל כ-3.5 שעות לפני ההמראה הרשמית .</div><div class="timeline-box">⏱️ **15:00** יציאה קשיחה מהמלון באלגארב | **15:00 - 17:30** נסיעה רציפה של 2.5 שעות (245 ק"מ באוטוסטרדה הישרה A2) צפונה . | **17:30** הגעה משוערת למתחם החזרת הרכב בשדה התעופה של ליסבון (Car Rental Return) . פריקת מזוודות וסגירת חוזה ההשכרה . | **18:45** התייצבות מלאה בדלפקי חברת התעופה בטרמינל . | **22:15** המראה רשמית וחזרה בטוחה לישראל . ✈️</div><div class="parking-info">🚗 הגעה עם רכב: כן, נסיעה ארוכה ורציפה לסיום הטיול. ניווט מדויק וחד-משמעי היישר אל מתחם חברות ההשכרה המרכזי בשדה התעופה של ליסבון (Car Rental Return) . לכוון בתוכנת הניווט היישר אל נקודת הציון הרשמית: <a href="https://www.google.com/maps/search/?api=1&query=Lisbon+Airport+Car+Rental+Return" target="_blank" class="map-link">Lisbon Airport Car Rental Return 📍</a> .</div></div>
                                     </td>
                                     <td data-label="המלצות קולינריה">ארוחת בוקר: מלכותית ועשירה בריזורט EPIC SANA . <br>צהריים: נשנושים קלים או מאפה בבר המלון לפני היציאה לרכב ב-14:30 . <br>ערב: ארוחה משפחתית חגיגית, נשנושים, המבורגרים וקפה בדיוטי פרי המרווח והמפואר של נמל התעופה בליסבון לאחר הבידוק הבטחוני, בשעות הערב הנינוחות שלפני ההמראה .</td>
-                                    <td data-label="תחבורה, רכב וחניה">נהיגה רציפה ובטוחה של 245 ק"מ על ציר האוטוסטרדה המרכזי A2 (יש לקחת בחשבון עלויות כבישי אגרה מוסדרים באמצעות מכשיר ה-Via Verde המותקן ברכב השכור) . התייצבות בטרמינל בשעה 18:45 והמראה רשמית ב-22:15 בלילה .</td>
+                                    <td data-label="תחבורה, רכב וחניה">נהיגה רציפה ובטוחה של 245 ק"מ על ציר האוטוסטרדה המרכזי A2 (ה-A2 בתשלום — נגבה אוטומטית דרך מכשיר ה-Via Verde ברכב השכור, כ-25€ לכיוון; ה-A22 באלגארב חינם מאז 1.1.2025) . התייצבות בטרמינל בשעה 18:45 והמראה רשמית ב-22:15 בלילה .</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -626,20 +677,20 @@
                     <tr>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+de+LEntrecote+Cascais" target="_blank" class="map-link">La Brasserie de L'Entrecôte 📍</a></td>
                         <td><strong>הזמנה קבועה - יום 2 (20:30):</strong> קונספט פריזאי של אנטריקוט פרוס דק, רוטב סודי והר צ'יפס ללא הגבלה.</td>
-                        <td>הניווט למרכז העיר אסור! חובה לחנות בחניון קניון קשקאיש וילה בפתח המדויק: <a href="https://www.google.com/maps/search/?api=1&query=Cascais+Villa+Parking" target="_blank" class="map-link">Cascais Villa Parking 📍</a> והליכה של 5 דקות.</td>
+                        <td>המסעדה שוכנת במרינה של קשקאיש (Loja 43), עם נוף ליאכטות ולמגדלור סנטה מרתה. חניה בחניון המרינה הצמוד: <a href="https://www.google.com/maps/search/?api=1&query=Marina+de+Cascais+Parking" target="_blank" class="map-link">Marina de Cascais Parking 📍</a> והליכה של 2 דקות. פתוחה עד 23:30.</td>
                         <td><span class="booking-tag tag-required">מומלץ שבוע מראש</span></td>
                     </tr>
                     <tr>
                         <td rowspan="3">Sintra & Lisbon</td>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=Tascantiga+Sintra" target="_blank" class="map-link">Tascantiga (Sintra) 📍</a></td>
                         <td>טאפאס מקומי ונגיש (Petiscos), מנות קלות ופשוטות לילדים. לו"ז: יום 3 ב-14:15.</td>
-                        <td><strong>אסור להגיע ברכב למסעדה!</strong> חניה בחניון חנה וסע בתחתית בקואורדינטות המדויקות: <a href="https://www.google.com/maps/search/?api=1&query=Sintra+Militar+Parking" target="_blank" class="map-link">Sintra Militar Parking 📍</a> והגעה באובר.</td>
+                        <td><strong>אסור להגיע ברכב למסעדה!</strong> חניה בחניון חנה וסע בתחתית בקואורדינטות המדויקות: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> והגעה באובר.</td>
                         <td><span class="booking-tag tag-none">אין הזמנות (מבוסס מקום פנוי)</span></td>
                     </tr>
                     <tr>
                         <td><a href="https://www.google.com/maps/search/?api=1&query=Incomum+by+Luis+Santos" target="_blank" class="map-link">Incomum by Luís Santos (Sintra) 📍</a></td>
                         <td>פסטות נהדרות, ריזוטו ונתחי בשר בקר פרימיום ברמה גבוהה. לו"ז: יום 3 ב-21:15.</td>
-                        <td>ממוקמת קרוב לתחנת הרכבת התחתונה. משתמשים באותו חניון מרכזי קשיח בתחתית: <a href="https://www.google.com/maps/search/?api=1&query=Sintra+Militar+Parking" target="_blank" class="map-link">Sintra Militar Parking 📍</a> ומעבר באובר.</td>
+                        <td>ממוקמת קרוב לתחנת הרכבת התחתונה. משתמשים באותו חניון מרכזי קשיח בתחתית: <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Portela+de+Sintra" target="_blank" class="map-link">חניון Portela de Sintra (חנה וסע) 📍</a> ומעבר באובר.</td>
                         <td><span class="booking-tag tag-required">חובה שבוע מראש</span></td>
                     </tr>
                     <tr>
@@ -694,7 +745,7 @@
                         <td style="font-weight:bold; color:#2980b9;">חודש 1 מראש</td>
                         <td style="font-weight:700; color:#1a4a7a;">שריון מקום ב-Jardim das Oliveiras (מונשיק)</td>
                         <td><strong>חובה קשיחה ליום ראשון (יום 8):</strong> הזמנת שולחן משפחתי לשעה 13:00 לחוויה כפרית פסטורלית בשיא עומס סופ"ש: <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Jardim+das+Oliveiras+Monchique" target="_blank" class="ticket-link">יצירת קשר טלפוני/אתר למסעדה 📞</a>.</td>
-                        <td class="status-cell">Mחשב...</td>
+                        <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="30">
                         <td style="font-weight:bold;">חודש 1 מראש</td>
@@ -723,13 +774,13 @@
                     <tr style="background-color: #f5eef8;" data-days-before="30">
                         <td style="font-weight:bold; color: #8e44ad;">חודש 1 מראש 🆕</td>
                         <td style="font-weight:700; color: #8e44ad;">שריון קרוז דולפינים וביולוגים ימיים מפארו</td>
-                        <td><strong>חובה ליום 12 (13.08) בשעה 11:00:</strong> הזמנת מקומות מראש להפלגת החיפוש המדעית הלוקחת אתכם דרך הריזורטים של ריה פורמוזה אל הים הפתוח (התייצבות ב-10:30): <a href="https://www.google.com/maps/search/?api=1&query=Parque+de+Estacionamento+da+Pontinha+Faro" target="_blank" class="ticket-link">אתר שריון קרוז דולפינים פארו 🎫</a>.</td>
+                        <td><strong>חובה ליום 12 (13.08) בשעה 11:00:</strong> הזמנת מקומות מראש להפלגת החיפוש המדעית הלוקחת אתכם דרך הריזורטים של ריה פורמוזה אל הים הפתוח (התייצבות ב-10:30): <a href="https://formosamar.com/tour/dolphin-tours-in-the-algarve/" target="_blank" class="ticket-link">אתר Formosamar — קרוז דולפינים וביולוגים מפארו 🎫</a>.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="14">
                         <td style="font-weight:bold;">שבועיים מראש</td>
                         <td>רכישת כרטיסים משולבים למנזר ג'רונימוס בבלם</td>
-                        <td>הזמנת חלון זמן 14:30-15:30 למניעת עמידה בתורי הענק בשטח ביום 4: <a href="https://bilheteira.patrimoniocultural.pt/" target="_blank" class="ticket-link">אתר הכרטיסים הממשלתי 🎫</a>.</td>
+                        <td>הזמנת חלון זמן 14:30-15:30 למניעת עמידה בתורי הענק בשטח ביום 4: <a href="https://bilheteira.museusemonumentos.pt/" target="_blank" class="ticket-link">אתר הכרטיסים הממשלתי 🎫</a>.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
                     <tr data-days-before="14">
@@ -738,19 +789,128 @@
                         <td>שריון מקומות מול חברת הסיורים לסיור ברובע שיאדו ביום 4 בין 10:00 ל-13:00: <a href="https://portugo.co.il/tour/lisbon-tour" target="_blank" class="ticket-link">הרשמה לסיור 🎫</a>.</td>
                         <td class="status-cell">מחשב...</td>
                     </tr>
+                    <tr style="background-color:#fef9e7;" data-days-before="30">
+                        <td style="font-weight:bold;">חודש 1 מראש 🆕</td>
+                        <td style="font-weight:700;">הזמנת באגי / ג'יפ ספארי ליום 14 (15.08)</td>
+                        <td><strong>שימו לב: 15.8 הוא חג לאומי בפורטוגל</strong> — לוודא מול המפעיל שהסיור פועל בתאריך זה. השוואת מפעילים והזמנה: <a href="https://www.getyourguide.com/s/?q=buggy%20albufeira" target="_blank" class="ticket-link">השוואת סיורי באגי באלבופיירה 🎫</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="30">
+                        <td style="font-weight:bold;">חודש 1 מראש 🆕</td>
+                        <td>שריון שולחן צהריים ב-Tasca do Celso (יום 6)</td>
+                        <td>מסעדת הדגל של מילפונטש מתמלאת בשישי בצהריים — להזמין ל-13:00 (פתוחה 12:00–15:30, סגורה בימי שני): <a href="https://www.thefork.com/restaurant/tasca-do-celso-r815181" target="_blank" class="ticket-link">הזמנה דרך TheFork 🎫</a>.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="21">
+                        <td style="font-weight:bold;">3 שבועות מראש 🆕</td>
+                        <td>תיאום Late Checkout ב-EPIC SANA (יום 15)</td>
+                        <td>התוכנית מניחה עזיבה ב-15:00, אך צ'ק-אאוט רגיל הוא 12:00 — לתאם מראש צ'ק-אאוט מאוחר מול המלון (בתשלום/לפי זמינות), או פינוי חדר ב-12:00 + אחסון מזוודות ושימוש במתקנים.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
+                    <tr data-days-before="45">
+                        <td style="font-weight:bold;">חודש וחצי מראש 🆕</td>
+                        <td>ביטוח נסיעות + בדיקת תוקף דרכונים</td>
+                        <td>ביטוח משפחתי הכולל ספורט ימי (Parasailing, שייט) ורכבי שטח (באגי), ובדיקה שדרכוני כל בני המשפחה בתוקף 6+ חודשים מיום החזרה.</td>
+                        <td class="status-cell">מחשב...</td>
+                    </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div id="appendix-info">
+            <div class="appendix-title">נספח ג': מידע שימושי, בטיחות וציוד 🧳</div>
+            <div class="info-grid">
+                <div class="info-card"><h3>🚨 חירום ובריאות</h3><ul>
+                    <li><strong>112</strong> — חירום כללי (משטרה / מד"א / כיבוי, מכל טלפון)</li>
+                    <li><strong>808 24 24 24</strong> — SNS24, מוקד הבריאות הלאומי (מענה גם באנגלית)</li>
+                    <li>בתי מרקחת (Farmácia, צלב ירוק) בכל עיירה; תורנות לילה מתחלפת</li>
+                    <li>לשמור בנייד את טלפוני שלושת המלונות ושל Budget</li>
+                </ul></div>
+                <div class="info-card"><h3>🚗 נהיגה וכבישים</h3><ul>
+                    <li><strong>A22 באלגארב חינם</strong> מאז 1.1.2025 (האגרות בוטלו בחוק)</li>
+                    <li>A2 / A5 בתשלום — נגבה אוטומטית דרך Via Verde ברכב השכור</li>
+                    <li>מהירות מרבית: 120 קמ"ש באוטוסטרדה, 90 בין-עירוני</li>
+                    <li>סימון חניה כחול = בתשלום בשעות המסומנות (מדחן / אפליקציה)</li>
+                </ul></div>
+                <div class="info-card"><h3>🌊 ים ובטיחות חופים</h3><ul>
+                    <li>דגלים: 🔴 אסור להיכנס · 🟡 זהירות · 🟢 מותר</li>
+                    <li>האוקיינוס קר גם באוגוסט (19–21°) והגלים בגווינשו חזקים</li>
+                    <li>שמש אוגוסט חזקה מאוד — קרם 50, כובעים ומים בכל יציאה</li>
+                    <li>בירידות לחופי המצוקים (מריניה, קרבאליו) — נעלי מים / סגורות</li>
+                </ul></div>
+                <div class="info-card"><h3>💶 כסף, טיפים ותקשורת</h3><ul>
+                    <li>כרטיס אשראי מתקבל כמעט בכל מקום; מעט מזומן לשווקים וחניוני עפר</li>
+                    <li>טיפ מקובל: 5–10% במסעדות (לא חובה)</li>
+                    <li>eSIM מומלץ להתקין מראש; Uber / Bolt פעילים בליסבון ובאלגארב</li>
+                    <li>חשמל 230V, שקעים C/F — התקעים מישראל מתאימים ללא מתאם</li>
+                </ul></div>
+                <div class="info-card"><h3>🕐 שעות וקצב מקומי</h3><ul>
+                    <li>פורטוגל שעתיים אחרי ישראל (בקיץ)</li>
+                    <li>מסעדות ערב נפתחות בדרך כלל מ-19:00</li>
+                    <li><strong>15.8 חג לאומי</strong> (Assunção) — האתרים פתוחים, הקניונים עמוסים</li>
+                    <li>ג'רונימוס ורוב המוזיאונים סגורים בימי שני</li>
+                </ul></div>
+                <div class="info-card"><h3>📞 טלפונים למילוי לפני הטיסה</h3><ul>
+                    <li>Onyria Marinha (ימים 1–5): ____________</li>
+                    <li>Tivoli Carvoeiro (ימים 6–9): ____________</li>
+                    <li>EPIC SANA (ימים 10–15): ____________</li>
+                    <li>Budget + מספר הזמנה: ____________</li>
+                </ul></div>
+            </div>
+            <div class="info-card pack-card">
+                <h3>🎒 צ'קליסט אריזה חכם (הסימונים נשמרים אוטומטית במכשיר)</h3>
+                <ul class="pack-list">
+                    <li><label><input type="checkbox" data-pack="passport">דרכונים בתוקף 6+ חודשים מיום החזרה</label></li>
+                    <li><label><input type="checkbox" data-pack="license">רישיון נהיגה + כרטיס אשראי על שם הנהג</label></li>
+                    <li><label><input type="checkbox" data-pack="insurance">ביטוח נסיעות הכולל ספורט ימי ובאגי</label></li>
+                    <li><label><input type="checkbox" data-pack="bookings">אישורי הזמנות (מלונות, רכב, אטרקציות) שמורים גם אופליין</label></li>
+                    <li><label><input type="checkbox" data-pack="esim">eSIM מותקן ומופעל</label></li>
+                    <li><label><input type="checkbox" data-pack="sunscreen">קרם הגנה 50 + אפטרסאן</label></li>
+                    <li><label><input type="checkbox" data-pack="hats">כובעים ומשקפי שמש לכולם</label></li>
+                    <li><label><input type="checkbox" data-pack="swim">בגדי ים ×2 לכל אחד</label></li>
+                    <li><label><input type="checkbox" data-pack="watershoes">נעלי מים לחופי הסלע באלגארב</label></li>
+                    <li><label><input type="checkbox" data-pack="walkshoes">נעליים סגורות נוחות (סינטרה, פארק חבלים, באגי)</label></li>
+                    <li><label><input type="checkbox" data-pack="hoodie">סווטשירטים לערבים בקשקאיש (רוח אטלנטית!)</label></li>
+                    <li><label><input type="checkbox" data-pack="daypack">תיק גב יום + בקבוקי מים רב-פעמיים</label></li>
+                    <li><label><input type="checkbox" data-pack="charger">מטען נייד + כבל טעינה לרכב</label></li>
+                    <li><label><input type="checkbox" data-pack="meds">תרופות אישיות + ערכת עזרה ראשונה קטנה</label></li>
+                    <li><label><input type="checkbox" data-pack="smart">לבוש מוקפד לערבי JNcQUOI ו-Mizu (Smart Casual)</label></li>
+                    <li><label><input type="checkbox" data-pack="wetbag">שקית לבגדים רטובים + מגבות חוף קלות</label></li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const headers = document.querySelectorAll(".accordion-header");
-            headers.forEach(header => {
+            // 1) Convert legacy **bold** markers (shown as raw asterisks in V27) to real <strong>
+            document.querySelectorAll(".responsive-table td, .timeline-box, .site-meta, .site-route").forEach(function(el){
+                if (el.innerHTML.indexOf("**") !== -1) {
+                    el.innerHTML = el.innerHTML.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+                }
+            });
+
+            // 2) Add a Waze navigation button next to every Google-Maps link
+            document.querySelectorAll("a.map-link").forEach(function(a){
+                try {
+                    var u = new URL(a.href);
+                    var q = u.searchParams.get("query");
+                    if (q && u.hostname.indexOf("google.") !== -1) {
+                        var w = document.createElement("a");
+                        w.href = "https://waze.com/ul?q=" + encodeURIComponent(q) + "&navigate=yes";
+                        w.target = "_blank"; w.rel = "noopener";
+                        w.className = "waze-link"; w.title = "פתיחת ניווט ב-Waze";
+                        w.textContent = "Waze";
+                        a.insertAdjacentElement("afterend", w);
+                    }
+                } catch(e) {}
+            });
+
+            // 3) Accordion
+            document.querySelectorAll(".accordion-header").forEach(function(header){
                 header.addEventListener("click", function() {
-                    const item = this.parentElement;
-                    const content = this.nextElementSibling;
-                    
+                    var item = this.parentElement;
+                    var content = this.nextElementSibling;
                     if (item.classList.contains("active")) {
                         item.classList.remove("active");
                         content.style.maxHeight = null;
@@ -761,49 +921,122 @@
                 });
             });
 
+            // 4) Global controls
             document.getElementById("btn-expand-all").addEventListener("click", function() {
-                document.querySelectorAll(".accordion-item").forEach(item => {
+                document.querySelectorAll(".accordion-item").forEach(function(item){
                     item.classList.add("active");
-                    const content = item.querySelector(".accordion-content");
+                    var content = item.querySelector(".accordion-content");
                     content.style.maxHeight = content.scrollHeight + "px";
                 });
             });
-
             document.getElementById("btn-collapse-all").addEventListener("click", function() {
-                document.querySelectorAll(".accordion-item").forEach(item => {
+                document.querySelectorAll(".accordion-item").forEach(function(item){
                     item.classList.remove("active");
-                    const content = item.querySelector(".accordion-content");
-                    content.style.maxHeight = null;
+                    item.querySelector(".accordion-content").style.maxHeight = null;
                 });
             });
-
+            document.getElementById("btn-print").addEventListener("click", function(){ window.print(); });
+            window.addEventListener("beforeprint", function(){
+                document.querySelectorAll(".accordion-item").forEach(function(item){
+                    item.classList.add("active");
+                    item.querySelector(".accordion-content").style.maxHeight = "none";
+                });
+            });
             window.addEventListener("resize", function() {
-                document.querySelectorAll(".accordion-item.active .accordion-content").forEach(content => {
-                    content.style.maxHeight = content.scrollHeight + "px";
+                document.querySelectorAll(".accordion-item.active .accordion-content").forEach(function(content){
+                    if (content.style.maxHeight && content.style.maxHeight !== "none") {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
                 });
             });
 
-            const tripDate = new Date(2026, 7, 2); 
-            const today = new Date();
-            const timeDiff = tripDate.getTime() - today.getTime(); 
-            const daysUntilTrip = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            const rows = document.querySelectorAll("#todo-tbody tr");
-            
-            rows.forEach(row => {
-                const daysBeforeRequired = parseInt(row.getAttribute("data-days-before")); 
-                const statusCell = row.querySelector(".status-cell");
-                
+            // 5) Live search across all days (auto-opens matches)
+            document.getElementById("day-search").addEventListener("input", function(){
+                var q = this.value.trim().toLowerCase();
+                document.querySelectorAll(".accordion-item").forEach(function(item){
+                    var show = !q || item.textContent.toLowerCase().indexOf(q) !== -1;
+                    item.style.display = show ? "" : "none";
+                    if (q && show && !item.classList.contains("active")) {
+                        item.classList.add("active");
+                        var c = item.querySelector(".accordion-content");
+                        c.style.maxHeight = c.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // 6) Countdown (hero) + dynamic task statuses
+            var tripStart = new Date(2026, 7, 2);
+            var tripEnd = new Date(2026, 7, 16);
+            var today = new Date(); today.setHours(0,0,0,0);
+            var daysUntilTrip = Math.ceil((tripStart.getTime() - today.getTime()) / (1000 * 3600 * 24));
+            var hero = document.getElementById("hero-countdown");
+            if (hero) {
+                if (today.getTime() > tripEnd.getTime()) {
+                    hero.textContent = "הטיול הושלם! 🇵🇹";
+                } else if (daysUntilTrip <= 0) {
+                    var dayNum = Math.floor((today.getTime() - tripStart.getTime()) / (1000 * 3600 * 24)) + 1;
+                    hero.textContent = "🎉 יום " + dayNum + " מתוך 15 בטיול!";
+                } else {
+                    hero.textContent = "⏳ עוד " + daysUntilTrip + " ימים לטיסה";
+                }
+            }
+            document.querySelectorAll("#todo-tbody tr").forEach(function(row){
+                var daysBeforeRequired = parseInt(row.getAttribute("data-days-before"));
+                var statusCell = row.querySelector(".status-cell");
                 if (statusCell) {
-                    if (daysUntilTrip < 0) { 
-                        statusCell.innerHTML = '<span class="status-badge status-done">הטיול החל ✈️</span>'; 
-                    } else if (daysUntilTrip <= daysBeforeRequired) { 
-                        statusCell.innerHTML = '<span class="status-badge status-critical">לבצע עכשיו! 🔥</span>'; 
-                    } else if (daysUntilTrip <= daysBeforeRequired + 14) { 
-                        statusCell.innerHTML = '<span class="status-badge status-action">להתכונן ⏳</span>'; 
-                    } else { 
-                        statusCell.innerHTML = '<span class="status-badge status-upcoming">עוד ' + (daysUntilTrip - daysBeforeRequired) + ' ימים 🗓️</span>'; 
+                    if (daysUntilTrip < 0) {
+                        statusCell.innerHTML = '<span class="status-badge status-done">הטיול החל ✈️</span>';
+                    } else if (daysUntilTrip <= daysBeforeRequired) {
+                        statusCell.innerHTML = '<span class="status-badge status-critical">לבצע עכשיו! 🔥</span>';
+                    } else if (daysUntilTrip <= daysBeforeRequired + 14) {
+                        statusCell.innerHTML = '<span class="status-badge status-action">להתכונן ⏳</span>';
+                    } else {
+                        statusCell.innerHTML = '<span class="status-badge status-upcoming">עוד ' + (daysUntilTrip - daysBeforeRequired) + ' ימים 🗓️</span>';
                     }
                 }
+            });
+
+            // 7) Highlight & auto-open today's card during the trip
+            if (today.getTime() >= tripStart.getTime() && today.getTime() <= tripEnd.getTime()) {
+                var dd = ("0" + today.getDate()).slice(-2) + "." + ("0" + (today.getMonth() + 1)).slice(-2);
+                document.querySelectorAll(".accordion-item").forEach(function(item){
+                    var dt = item.querySelector(".accordion-header .date-text");
+                    if (dt && dt.textContent.trim().indexOf(dd) === 0) {
+                        item.classList.add("today", "active");
+                        var c = item.querySelector(".accordion-content");
+                        c.style.maxHeight = c.scrollHeight + "px";
+                        var flag = document.createElement("span");
+                        flag.className = "today-flag"; flag.textContent = "היום! 📍";
+                        item.querySelector(".day-title").appendChild(flag);
+                    }
+                });
+            }
+
+            // 8) Persistent checkboxes (tasks + packing) via localStorage
+            function saveState(key, val){ try { localStorage.setItem(key, val ? "1" : "0"); } catch(e){} }
+            function getState(key){ try { return localStorage.getItem(key) === "1"; } catch(e){ return false; } }
+            document.querySelectorAll("#todo-tbody tr").forEach(function(row, i){
+                var firstTd = row.querySelector("td");
+                if (!firstTd) return;
+                var key = "ptrip28-todo-" + i;
+                var cb = document.createElement("input");
+                cb.type = "checkbox"; cb.className = "todo-check"; cb.title = "סימון משימה כבוצעה";
+                cb.checked = getState(key);
+                row.classList.toggle("done-row", cb.checked);
+                cb.addEventListener("change", function(){
+                    saveState(key, cb.checked);
+                    row.classList.toggle("done-row", cb.checked);
+                });
+                firstTd.insertBefore(cb, firstTd.firstChild);
+            });
+            document.querySelectorAll(".pack-list input[type=checkbox]").forEach(function(cb){
+                var key = "ptrip28-pack-" + cb.getAttribute("data-pack");
+                cb.checked = getState(key);
+                cb.closest("li").classList.toggle("checked", cb.checked);
+                cb.addEventListener("change", function(){
+                    saveState(key, cb.checked);
+                    cb.closest("li").classList.toggle("checked", cb.checked);
+                });
             });
         });
     </script>
